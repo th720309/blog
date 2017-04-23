@@ -7,31 +7,43 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <!--Description-->
-  
-  <meta name="description" content="笔直向前 说到做到">
-  
+  <% if (page.description){ %>
+  <meta name="description" content="<%= page.description %>">
+  <% } else if (config.description){ %>
+  <meta name="description" content="<%= config.description %>">
+  <% } %>
 
   <!--Author-->
-  
-  <meta name="author" content="th是个小屁孩">
-  
+  <% if (config.author){ %>
+  <meta name="author" content="<%= config.author %>">
+  <% } %>
 
   <!--Open Graph Title-->
-  
-      <meta property="og:title" content="关于我"/>
-  
+  <% if (page.title){ %>
+      <meta property="og:title" content="<%= page.title %>"/>
+  <% } else { %>
+      <meta property="og:title" content="<%= config.title %>"/>
+  <% } %>
   <!--Open Graph Description-->
-  
-      <meta property="og:description" content="笔直向前 说到做到" />
-  
+  <% if (page.description){ %>
+      <meta property="og:description" content="<%= page.description %>" />
+  <% } else if (config.description) { %>
+      <meta property="og:description" content="<%= config.description %>" />
+  <% } %>
   <!--Open Graph Site Name-->
-  <meta property="og:site_name" content="th是个小屁孩"/>
+  <meta property="og:site_name" content="<%= config.title %>"/>
   <!--Type page-->
-  
+  <% if(page.title) { %>
       <meta property="og:type" content="article" />
-  
+  <% } else { %>
+      <meta property="og:type" content="website" />
+  <% } %>
   <!--Page Cover-->
-  
+  <% if (page.share_cover) { %>
+      <meta property="og:image" content="<%= config.url %><%= page.share_cover %>" />
+  <% } else if (config.cover) { %>
+      <meta property="og:image" content="<%= config.url %><%= config.cover %>"/>
+  <% } %>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <!-- 百度统计 -->
@@ -45,17 +57,28 @@
 	})();
     </script>
   <!-- Title -->
-  
-  <title>关于我 - 关于 - th是个小屁孩</title>
+  <%
+  var title = [];
+  if (page.title) title.push(page.title);
+  if (page.category) title.push(page.category);
+  if (page.tag) title.push(page.tag);
+  if (page.archive) {
+      if (page.year) title.push(__('archive_b', page.year + (page.month ? '/' + page.month : '')));
+      else title.push(__('archive_a'));
+  }
+  title.push(config.title);
+  if (is_home() && config.subtitle) title.push(config.subtitle);
+  %>
+  <title><%= title.join(' - ') %></title>
 
 
-  <link rel="shortcut icon" href="/blog/favicon.ico">
+  <link rel="shortcut icon" href="<%- url_for(config.favicon || theme.favicon) %>">
     <!--font-awesome-->
   <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/blog/css/thplayer.css">
+  <%- css('css/thplayer') %>
   <!-- Custom CSS/Sass -->
-  <link rel="stylesheet" href="/blog/css/style.css">
-<script src="http://oct3pmpde.bkt.clouddn.com/jquery.js"></script>
+  <%- css('css/style') %>
+
 </head>
 
 
@@ -181,11 +204,11 @@
           </h1>
          
         </div>
-　　　　　　　　<p class="a-posted-on">2017-04-09</p>
+　　　　　　　　<p class="a-posted-on">2017-04-23</p>
         <!-- Post Main Content -->
         <div class="entry-content">
           <h2 id="About-Me"><a href="#About-Me" class="headerlink" title="About Me"></a><strong>About Me</strong></h2><p>关于我，一个未来的小小程序员，茫茫宇宙中的一粒小石子。目前就读于大连交通大学，一个苦逼的理工男。凭借着一点点的兴趣已经走过了三个年头，现在已经是大四的老油条，但总的来说还是一个小屁孩，哈哈。</p>
-<h2 id="About-Blog"><a href="#About-Blog" class="headerlink" title="About Blog"></a><strong>About Blog</strong></h2><p>平时喜欢写写博客，之前一直在CSDN记录一些算法题和一些完成的小作品，这次借助hexo+Github page 搭建了这个博客，打算写写个人的一些感悟影评什么的，当然可能也会有一些IT类的文章，谁让我是苦逼理工男（逃）。</p>
+<h2 id="About-Blog"><a href="#About-Blog" class="headerlink" title="About Blog"></a><strong>About Blog</strong></h2><p>平时喜欢写写博客，之前一直在CSDN记录一些算法题和一些完成的小作品，这次自己写了一个网站主题，借助hexo+Github page 搭建了这个博客，打算写写个人的一些感悟影评什么的，当然可能也会有一些IT类的文章，谁让我是苦逼理工男（逃）。</p>
 <h2 id="Contact-Me"><a href="#Contact-Me" class="headerlink" title="Contact Me"></a><strong>Contact Me</strong></h2><p>新浪微博：<a href="http://weibo.com/th0527" target="_blank" rel="external">点击进入我的新浪微博（可以加个关注哈哈）</a></p>
 <p>知乎：<a href="https://www.zhihu.com/people/tian-hao-69-26" target="_blank" rel="external">点击进入我的知乎</a></p>
 <p>Github:  <a href="https://github.com/th720309" target="_blank" rel="external">点击进入我的github(欢迎fork me)</a></p>
@@ -207,7 +230,7 @@
 	<div class="level-3"></div>
 </div>
 <script src="http://oct3pmpde.bkt.clouddn.com/top.js"></script>
-<script type="text/javascript" src="http://oct3pmpde.bkt.clouddn.com/jquery.js"></script>
+
 
   
   <!-- Footer -->
