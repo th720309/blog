@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<!-- Head tag -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!--Description-->
+  
+  <meta name="description" content="笔直向前 说到做到">
+  
+
+  <!--Author-->
+  
+  <meta name="author" content="th是个小屁孩">
+  
+
+  <!--Open Graph Title-->
+  
+      <meta property="og:title" content="带cookie访问服务器实现模拟登录"/>
+  
+  <!--Open Graph Description-->
+  
+      <meta property="og:description" content="笔直向前 说到做到" />
+  
+  <!--Open Graph Site Name-->
+  <meta property="og:site_name" content="th是个小屁孩"/>
+  <!--Type page-->
+  
+      <meta property="og:type" content="article" />
+  
+  <!--Page Cover-->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- 百度统计 -->
+    <script>
+	var _hmt = _hmt || [];
+	(function() {
+  	var hm = document.createElement("script");
+  	hm.src = "https://hm.baidu.com/hm.js?c0451e16533956173997b85f7a8de666";
+  	var s = document.getElementsByTagName("script")[0]; 
+  	s.parentNode.insertBefore(hm, s);
+	})();
+    </script>
+  <!-- Title -->
+  
+  <title>带cookie访问服务器实现模拟登录 - th是个小屁孩</title>
+
+
+  <link rel="shortcut icon" href="/blog/favicon.ico">
+    <!--font-awesome-->
+  <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/blog/css/thplayer.css">
+  <!-- Custom CSS/Sass -->
+  <link rel="stylesheet" href="/blog/css/style.css">
+<script src="http://oct3pmpde.bkt.clouddn.com/jquery.js"></script>
+</head>
+
+
+<body>
+
+  <!-- Nav -->
+  <header class="site-header">
+  <div class="header-inside">
+    
+    <div class="logo">
+      <a href="http://www.tianhao.site" rel="home">
+        
+        <img src="http://oct3pmpde.bkt.clouddn.com/timg.jpg" alt="th是个小屁孩" height="60">
+        
+      </a>
+    </div>
+    <a class="header-name" href="/blog/">
+            <span>th是个小屁孩</span>
+            的部落宅
+        </a>
+    <!-- navbar -->
+    <nav class="navbar">
+      <!--  nav links -->
+      <div class="collapse">
+        <ul class="navbar-nav">
+          
+          
+            <li>
+              <a href="/blog/.">
+                
+                  <i class="fa fa-home "></i>
+                
+                首页
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/archives">
+                
+                  <i class="fa fa-archive "></i>
+                
+                归档
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/about">
+                
+                  <i class="fa fa-user "></i>
+                
+                关于
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/project">
+                
+                  <i class="fa fa-folder-open "></i>
+                
+                项目
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/photo">
+                
+                  <i class="fa fa-photo "></i>
+                
+                相册
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/guestbook">
+                
+                  <i class="fa fa-edit "></i>
+                
+                留言
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/one">
+                
+                  <i class="fa fa-bicycle "></i>
+                
+                one
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/atom.xml">
+                
+                  <i class="fa fa-send "></i>
+                
+                RSS
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </nav>
+    <div class="button-wrap">
+      <button class="menu-toggle">Primary Menu</button>
+    </div>
+  </div>
+</header>
+
+
+  <!-- Main Content -->
+  
+<div class="content-area">
+  <div class="post">
+    <!-- Post Content -->
+    <div class="container">
+      <article>
+        <!-- Title date & tags -->
+        <div class="post-header">
+          <h1 class="entry-title">
+            带cookie访问服务器实现模拟登录
+            
+          </h1>
+         
+        </div>
+　　　　　　　　<p class="a-posted-on">2016-12-29</p>
+        <!-- Post Main Content -->
+        <div class="entry-content">
+          <p><img src="http://oct3pmpde.bkt.clouddn.com/201206191345109414.jpg" width="600" height="347"></p>
+<a id="more"></a>
+<p>当我们需要抓取需要登录的网站的信息或者实现模拟登录时，我们需要得到第一次登录网站的cookie,以便于下次登录可以不用post参数实现登录，只要将cookie放入头文件就好，这是之前写的模拟登录学校教务的代码，记录以便查阅。</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line">public String DoLogin(final String user, final String password, final String verifation) &#123;</div><div class="line">   </div><div class="line">                DefaultHttpClient   defaultclient = new DefaultHttpClient();  </div><div class="line"></div><div class="line">                //设置post参数</div><div class="line">                List&lt;NameValuePair&gt; params = new ArrayList&lt;NameValuePair&gt;();</div><div class="line"></div><div class="line">                params.add(new BasicNameValuePair(&quot;groupId&quot;, &quot;&quot;));</div><div class="line">                params.add(new BasicNameValuePair(&quot;j_username&quot;, user));</div><div class="line">                params.add(new BasicNameValuePair(&quot;j_password&quot;, password));</div><div class="line">                params.add(new BasicNameValuePair(&quot;j_captcha&quot;, verifation));</div><div class="line">                params.add(new BasicNameValuePair(&quot;login&quot;, &quot;登录&quot;));</div><div class="line"></div><div class="line">                //获得个人主界面的HTML</div><div class="line">                try &#123;</div><div class="line">                	 HttpPost httpPost = new HttpPost(LOGINURL);</div><div class="line">                	 System.out.println(LOGINURL);                	</div><div class="line">                     httpPost.setHeader(&quot;Cookie&quot;, Cookie);                    </div><div class="line">                     HttpResponse httpResponse;</div><div class="line">                     httpPost.setEntity((HttpEntity) new UrlEncodedFormEntity(params, HTTP.UTF_8));</div><div class="line">                     httpResponse = defaultclient.execute(httpPost);</div><div class="line">                     httpPost.setHeader(&quot;Cookie&quot;, Cookie);</div><div class="line">                     System.out.println(Cookie);</div><div class="line">                     if (httpResponse.getStatusLine().getStatusCode() == 200) &#123;</div><div class="line">                          StringBuffer sb = new StringBuffer();</div><div class="line">                          HttpEntity entity = httpResponse.getEntity();</div><div class="line">                          MAINBODYHTML = EntityUtils.toString(entity);        </div><div class="line"></div><div class="line">                          </div><div class="line">                    &#125;</div><div class="line"></div><div class="line">                    if(httpResponse.getStatusLine().getStatusCode() == 302)&#123;</div><div class="line">                    	String locationUrl=httpResponse.getLastHeader(&quot;Location&quot;).getValue();  </div><div class="line">                        System.out.println(locationUrl);</div><div class="line">                        LOGINURL=locationUrl;</div><div class="line">                        System.out.println(&quot;302&quot;);</div><div class="line">                        DoLogin(user, password, verifation);</div><div class="line">                    &#125;                 </div><div class="line">                    else&#123;</div><div class="line">                        StringBuffer sb = new StringBuffer();</div><div class="line">                        HttpEntity entity = httpResponse.getEntity();</div><div class="line">                        MAINBODYHTML = EntityUtils.toString(entity);</div><div class="line">                       System.out.println( MAINBODYHTML);</div><div class="line">                    &#125;</div><div class="line">                &#125; catch (UnsupportedEncodingException e) &#123;</div><div class="line">                	</div><div class="line">                    System.out.println(&quot;验证码不正确&quot;);</div><div class="line">                    e.printStackTrace();</div><div class="line">                &#125; catch (ClientProtocolException e) &#123;</div><div class="line">					// TODO Auto-generated catch block</div><div class="line">					e.printStackTrace();</div><div class="line">				&#125; catch (IOException e) &#123;</div><div class="line">					// TODO Auto-generated catch block</div><div class="line">					e.printStackTrace();</div><div class="line">				&#125;</div><div class="line">                LOGINURL=&quot;http://jw.djtu.edu.cn/academic/j_acegi_security_check&quot;;      </div><div class="line">    </div><div class="line">				return MAINBODYHTML; </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+
+        </div>
+      </article>
+    </div>
+    <!-- Pre or Next -->
+    
+	<div class="container" >
+           <ul class="pager">
+    	     
+      	     <li class="previous">
+              <a href="/blog/2016/12/19/《请回答1988》/" rel="prev">下一篇</a>
+             </li>
+           
+           
+              <li class="next">
+              <a href="/blog/2016/12/31/2016年终总结，2017何去何从？/" rel="prev">上一篇</a>
+            </li>
+           
+          </ul>
+       </div>
+　　　　<!-- Comments -->
+    <div class="container">
+      <% if (page.comments){ %>
+<section id="comment">
+  <!-- <h1 class="title"><%= __('comment') %></h1> -->
+
+  <% if(theme.disqus_shortname) { %>
+  <div id="disqus_thread">
+    <script type="text/javascript">
+    var disqus_config = function () {
+          this.page.url = window.location.href;
+          this.page.identifier = '<%= page.layout %>-<%= page.slug %>';
+          this.page.title = '<%= page.title %>';
+      };
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+  <% } else if (theme.duoshuo_shortname) { %>
+    <!-- 多说评论框 start -->
+    <script type="text/javascript">
+var duoshuoQuery = {short_name:"<%= theme.duoshuo_shortname %>"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.unstable.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+
+    <div class="ds-thread" data-thread-key="<%= page.layout %>-<%= page.slug %>" data-title="<%= page.title %>" data-url="<%= page.permalink %>"></div>
+    <!-- 多说评论框 end -->
+  <% } %>
+</section>
+<% } %>
+
+    </div>
+   
+　　　　
+  </div>
+</div>
+
+
+　　<!-- top -->
+  <div id="rocket-to-top">
+	<div class="level-2"></div>
+	<div class="level-3"></div>
+</div>
+<script src="http://oct3pmpde.bkt.clouddn.com/top.js"></script>
+<script type="text/javascript" src="http://oct3pmpde.bkt.clouddn.com/jquery.js"></script>
+
+  
+  <!-- Footer -->
+  <!-- Footer -->
+<footer class="site-info">
+  <p>
+    <span>th是个小屁孩 &copy; 2017</span>
+    
+      <span class="split">|</span>
+      <span>th是个小屁孩的技术小屋</span>
+    
+  </p>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+本站总访问量<span id="busuanzi_value_site_pv"></span>次
+本站访客数<span id="busuanzi_value_site_uv"></span>人次
+
+</footer>
+
+
+  <!-- After footer scripts -->
+  <!-- scripts -->
+<script src="/blog/js/app.js"></script>
+
+  <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'th720309'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+
+
+
+
+</body>
+
+</html>

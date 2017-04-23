@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<!-- Head tag -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!--Description-->
+  
+  <meta name="description" content="笔直向前 说到做到">
+  
+
+  <!--Author-->
+  
+  <meta name="author" content="th是个小屁孩">
+  
+
+  <!--Open Graph Title-->
+  
+      <meta property="og:title" content="网易云音乐歌单爬虫 收听量分析"/>
+  
+  <!--Open Graph Description-->
+  
+      <meta property="og:description" content="笔直向前 说到做到" />
+  
+  <!--Open Graph Site Name-->
+  <meta property="og:site_name" content="th是个小屁孩"/>
+  <!--Type page-->
+  
+      <meta property="og:type" content="article" />
+  
+  <!--Page Cover-->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- 百度统计 -->
+    <script>
+	var _hmt = _hmt || [];
+	(function() {
+  	var hm = document.createElement("script");
+  	hm.src = "https://hm.baidu.com/hm.js?c0451e16533956173997b85f7a8de666";
+  	var s = document.getElementsByTagName("script")[0]; 
+  	s.parentNode.insertBefore(hm, s);
+	})();
+    </script>
+  <!-- Title -->
+  
+  <title>网易云音乐歌单爬虫 收听量分析 - th是个小屁孩</title>
+
+
+  <link rel="shortcut icon" href="/blog/favicon.ico">
+    <!--font-awesome-->
+  <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/blog/css/thplayer.css">
+  <!-- Custom CSS/Sass -->
+  <link rel="stylesheet" href="/blog/css/style.css">
+<script src="http://oct3pmpde.bkt.clouddn.com/jquery.js"></script>
+</head>
+
+
+<body>
+
+  <!-- Nav -->
+  <header class="site-header">
+  <div class="header-inside">
+    
+    <div class="logo">
+      <a href="http://www.tianhao.site" rel="home">
+        
+        <img src="http://oct3pmpde.bkt.clouddn.com/timg.jpg" alt="th是个小屁孩" height="60">
+        
+      </a>
+    </div>
+    <a class="header-name" href="/blog/">
+            <span>th是个小屁孩</span>
+            的部落宅
+        </a>
+    <!-- navbar -->
+    <nav class="navbar">
+      <!--  nav links -->
+      <div class="collapse">
+        <ul class="navbar-nav">
+          
+          
+            <li>
+              <a href="/blog/.">
+                
+                  <i class="fa fa-home "></i>
+                
+                首页
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/archives">
+                
+                  <i class="fa fa-archive "></i>
+                
+                归档
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/about">
+                
+                  <i class="fa fa-user "></i>
+                
+                关于
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/project">
+                
+                  <i class="fa fa-folder-open "></i>
+                
+                项目
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/photo">
+                
+                  <i class="fa fa-photo "></i>
+                
+                相册
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/guestbook">
+                
+                  <i class="fa fa-edit "></i>
+                
+                留言
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/one">
+                
+                  <i class="fa fa-bicycle "></i>
+                
+                one
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/atom.xml">
+                
+                  <i class="fa fa-send "></i>
+                
+                RSS
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </nav>
+    <div class="button-wrap">
+      <button class="menu-toggle">Primary Menu</button>
+    </div>
+  </div>
+</header>
+
+
+  <!-- Main Content -->
+  
+<div class="content-area">
+  <div class="post">
+    <!-- Post Content -->
+    <div class="container">
+      <article>
+        <!-- Title date & tags -->
+        <div class="post-header">
+          <h1 class="entry-title">
+            网易云音乐歌单爬虫 收听量分析
+            
+          </h1>
+         
+        </div>
+　　　　　　　　<p class="a-posted-on">2016-12-12</p>
+        <!-- Post Main Content -->
+        <div class="entry-content">
+          <p><img src="http://oct3pmpde.bkt.clouddn.com/7769149162473098.jpg" width="600" height="347"></p>
+<a id="more"></a>
+<p>今天花了一点时间抓取了网易云音乐的热门民谣歌单，共1500热门民谣歌单，后续有时间会爬取其他分类。文末有源代码下载。</p>
+<p>   下面记录一下过程。</p>
+<hr>
+<h2 id="爬虫过程"><a href="#爬虫过程" class="headerlink" title="爬虫过程"></a>爬虫过程</h2><p>  1.首先抓取各个歌单的url与标题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">public static void DoPachong( String url_str, String charset) throws ClientProtocolException, IOException&#123;</div><div class="line">    		HttpClient hc = new DefaultHttpClient();</div><div class="line">    		HttpGet hg = new HttpGet(url_str);</div><div class="line">    		HttpResponse response = hc.execute(hg);</div><div class="line">    		HttpEntity entity = response.getEntity();</div><div class="line">            </div><div class="line">        </div><div class="line">    		InputStream htm_in = null;</div><div class="line">        </div><div class="line">    		if(entity != null)&#123;</div><div class="line">    			htm_in = entity.getContent();</div><div class="line">    			String htm_str = InputStream2String(htm_in,charset);</div><div class="line">    			Document  doc =  Jsoup.parse(htm_str);</div><div class="line">    			Elements links= doc.select(&quot;div[class=g-bd]&quot;).select(&quot;div[class=g-wrap p-pl f-pr]&quot;).select(&quot;ul[class=m-cvrlst f-cb]&quot;).select(&quot;div[class=u-cover u-cover-1&quot;);</div><div class="line">    			for (Element link : links) &#123;</div><div class="line">    					Elements lin = link.select(&quot;a&quot;);  </div><div class="line">    					String re_url = lin.attr(&quot;href&quot;);</div><div class="line">    					String re_title = lin.attr(&quot;title&quot;);</div><div class="line">    					re_url = &quot;http://music.163.com&quot;+re_url;</div><div class="line">    					System.out.print(re_title+&quot;       &quot;);</div><div class="line">    					System.out.print(re_url+&quot;       &quot;);</div><div class="line">    					SecondPaChong(re_url,charset);</div><div class="line">    			&#125;</div><div class="line">    		&#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<hr>
+<p>  2.根据抓取的url进一步用jsoup解析收听量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">    public static void SecondPaChong( String url_str, String charset) throws ClientProtocolException, IOException&#123;</div><div class="line">		HttpClient hc = new DefaultHttpClient();</div><div class="line">		HttpGet hg = new HttpGet(url_str);</div><div class="line">		HttpResponse response = hc.execute(hg);</div><div class="line">		HttpEntity entity = response.getEntity();</div><div class="line">        </div><div class="line">		InputStream htm_in = null;</div><div class="line">    </div><div class="line">		if(entity != null)&#123;</div><div class="line">			htm_in = entity.getContent();</div><div class="line">			String htm_str = InputStream2String(htm_in,charset);</div><div class="line">			Document  doc =  Jsoup.parse(htm_str);</div><div class="line">			String links= doc.select(&quot;div[class=u-title u-title-1 f-cb]&quot;).select(&quot;div[class=more s-fc3]&quot;).select(&quot;strong&quot;).text();</div><div class="line">			System.out.println(links);</div><div class="line">		</div><div class="line">		&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="爬取结果"><a href="#爬取结果" class="headerlink" title="爬取结果"></a>爬取结果</h2><p><img src="http://oct3pmpde.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20161212155059.png" width="282" height="443"></p>
+<hr>
+<p> 民谣歌单收听量前10：</p>
+<ol>
+<li><p><a href="http://music.163.com/playlist?id=129627424" target="_blank" rel="external">如果你想听民谣，可以从这些歌曲开始。</a>    收听量：11548417</p>
+</li>
+<li><p><a href="http://music.163.com/#/playlist?id=110759778" target="_blank" rel="external">民谣是最安静的角落</a>          收听量：10727168</p>
+</li>
+<li><p><a href="http://music.163.com/#/playlist?id=378324005" target="_blank" rel="external">孤独旅人配民谣。</a>    收听量：9946952</p>
+</li>
+<li><p><a href="http://music.163.com/playlist?id=506453942" target="_blank" rel="external">你若听过他的歌，此生便有了挂念</a>    收听量：7551374</p>
+</li>
+<li><p><a href="http://music.163.com/playlist?id=327180503" target="_blank" rel="external">♬女生嘛，污一点才可爱</a>    收听量：6260712</p>
+</li>
+<li><p><a href="http://music.163.com/#/playlist?id=136549038" target="_blank" rel="external">阅尽沧桑，洗却铅华:聆听那些沧桑之声</a>    收听量：5793889</p>
+</li>
+<li><p><a href="http://music.163.com/playlist?id=131368017" target="_blank" rel="external">民谣，成长中的情绪共谋者</a>    收听量：5368672</p>
+</li>
+<li><p><a href="http://music.163.com/playlist?id=501419209" target="_blank" rel="external">华语女声‖那些入耳入心的代表曲</a>    收听量：4535668</p>
+</li>
+<li><p><a href="http://music.163.com/playlist?id=138911210" target="_blank" rel="external">啤酒邂逅音乐之华语摇滚</a>    收听量：4449337</p>
+</li>
+<li><p><a href="http://music.163.com/playlist?id=49927225" target="_blank" rel="external">中国民谣精选集</a>    收听量：4423420</p>
+</li>
+</ol>
+<hr>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p>源代码下载地址：<a href="https://github.com/th720309/163music_spider.git" target="_blank" rel="external">网易云音乐歌单爬虫</a>（给个fork啊2333）</p>
+
+        </div>
+      </article>
+    </div>
+    <!-- Pre or Next -->
+    
+	<div class="container" >
+           <ul class="pager">
+    	     
+      	     <li class="previous">
+              <a href="/blog/2016/11/26/2016-11-26随记/" rel="prev">下一篇</a>
+             </li>
+           
+           
+              <li class="next">
+              <a href="/blog/2016/12/19/《请回答1988》/" rel="prev">上一篇</a>
+            </li>
+           
+          </ul>
+       </div>
+　　　　<!-- Comments -->
+    <div class="container">
+      <% if (page.comments){ %>
+<section id="comment">
+  <!-- <h1 class="title"><%= __('comment') %></h1> -->
+
+  <% if(theme.disqus_shortname) { %>
+  <div id="disqus_thread">
+    <script type="text/javascript">
+    var disqus_config = function () {
+          this.page.url = window.location.href;
+          this.page.identifier = '<%= page.layout %>-<%= page.slug %>';
+          this.page.title = '<%= page.title %>';
+      };
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+  <% } else if (theme.duoshuo_shortname) { %>
+    <!-- 多说评论框 start -->
+    <script type="text/javascript">
+var duoshuoQuery = {short_name:"<%= theme.duoshuo_shortname %>"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.unstable.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+
+    <div class="ds-thread" data-thread-key="<%= page.layout %>-<%= page.slug %>" data-title="<%= page.title %>" data-url="<%= page.permalink %>"></div>
+    <!-- 多说评论框 end -->
+  <% } %>
+</section>
+<% } %>
+
+    </div>
+   
+　　　　
+  </div>
+</div>
+
+
+　　<!-- top -->
+  <div id="rocket-to-top">
+	<div class="level-2"></div>
+	<div class="level-3"></div>
+</div>
+<script src="http://oct3pmpde.bkt.clouddn.com/top.js"></script>
+<script type="text/javascript" src="http://oct3pmpde.bkt.clouddn.com/jquery.js"></script>
+
+  
+  <!-- Footer -->
+  <!-- Footer -->
+<footer class="site-info">
+  <p>
+    <span>th是个小屁孩 &copy; 2017</span>
+    
+      <span class="split">|</span>
+      <span>th是个小屁孩的技术小屋</span>
+    
+  </p>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+本站总访问量<span id="busuanzi_value_site_pv"></span>次
+本站访客数<span id="busuanzi_value_site_uv"></span>人次
+
+</footer>
+
+
+  <!-- After footer scripts -->
+  <!-- scripts -->
+<script src="/blog/js/app.js"></script>
+
+  <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'th720309'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+
+
+
+
+</body>
+
+</html>

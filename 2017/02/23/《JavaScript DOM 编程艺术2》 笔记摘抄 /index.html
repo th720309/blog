@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<!-- Head tag -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!--Description-->
+  
+  <meta name="description" content="笔直向前 说到做到">
+  
+
+  <!--Author-->
+  
+  <meta name="author" content="th是个小屁孩">
+  
+
+  <!--Open Graph Title-->
+  
+      <meta property="og:title" content="《JavaScript DOM 编程艺术2》 笔记摘抄"/>
+  
+  <!--Open Graph Description-->
+  
+      <meta property="og:description" content="笔直向前 说到做到" />
+  
+  <!--Open Graph Site Name-->
+  <meta property="og:site_name" content="th是个小屁孩"/>
+  <!--Type page-->
+  
+      <meta property="og:type" content="article" />
+  
+  <!--Page Cover-->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- 百度统计 -->
+    <script>
+	var _hmt = _hmt || [];
+	(function() {
+  	var hm = document.createElement("script");
+  	hm.src = "https://hm.baidu.com/hm.js?c0451e16533956173997b85f7a8de666";
+  	var s = document.getElementsByTagName("script")[0]; 
+  	s.parentNode.insertBefore(hm, s);
+	})();
+    </script>
+  <!-- Title -->
+  
+  <title>《JavaScript DOM 编程艺术2》 笔记摘抄 - th是个小屁孩</title>
+
+
+  <link rel="shortcut icon" href="/blog/favicon.ico">
+    <!--font-awesome-->
+  <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/blog/css/thplayer.css">
+  <!-- Custom CSS/Sass -->
+  <link rel="stylesheet" href="/blog/css/style.css">
+<script src="http://oct3pmpde.bkt.clouddn.com/jquery.js"></script>
+</head>
+
+
+<body>
+
+  <!-- Nav -->
+  <header class="site-header">
+  <div class="header-inside">
+    
+    <div class="logo">
+      <a href="http://www.tianhao.site" rel="home">
+        
+        <img src="http://oct3pmpde.bkt.clouddn.com/timg.jpg" alt="th是个小屁孩" height="60">
+        
+      </a>
+    </div>
+    <a class="header-name" href="/blog/">
+            <span>th是个小屁孩</span>
+            的部落宅
+        </a>
+    <!-- navbar -->
+    <nav class="navbar">
+      <!--  nav links -->
+      <div class="collapse">
+        <ul class="navbar-nav">
+          
+          
+            <li>
+              <a href="/blog/.">
+                
+                  <i class="fa fa-home "></i>
+                
+                首页
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/archives">
+                
+                  <i class="fa fa-archive "></i>
+                
+                归档
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/about">
+                
+                  <i class="fa fa-user "></i>
+                
+                关于
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/project">
+                
+                  <i class="fa fa-folder-open "></i>
+                
+                项目
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/photo">
+                
+                  <i class="fa fa-photo "></i>
+                
+                相册
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/guestbook">
+                
+                  <i class="fa fa-edit "></i>
+                
+                留言
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/one">
+                
+                  <i class="fa fa-bicycle "></i>
+                
+                one
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/atom.xml">
+                
+                  <i class="fa fa-send "></i>
+                
+                RSS
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </nav>
+    <div class="button-wrap">
+      <button class="menu-toggle">Primary Menu</button>
+    </div>
+  </div>
+</header>
+
+
+  <!-- Main Content -->
+  
+<div class="content-area">
+  <div class="post">
+    <!-- Post Content -->
+    <div class="container">
+      <article>
+        <!-- Title date & tags -->
+        <div class="post-header">
+          <h1 class="entry-title">
+            《JavaScript DOM 编程艺术2》 笔记摘抄
+            
+          </h1>
+         
+        </div>
+　　　　　　　　<p class="a-posted-on">2017-02-23</p>
+        <!-- Post Main Content -->
+        <div class="entry-content">
+          <p><img src="http://oct3pmpde.bkt.clouddn.com/b80eb851f6f5ed423ef96024bc8407861efe3222937d3-McFfSO_fw658.jpg" width="600" height="347"></p>
+<a id="more"></a>
+<h2 id="《JavaScript-DOM-编程艺术2》-笔记摘抄"><a href="#《JavaScript-DOM-编程艺术2》-笔记摘抄" class="headerlink" title="《JavaScript DOM 编程艺术2》 笔记摘抄"></a>《JavaScript DOM 编程艺术2》 笔记摘抄</h2><hr>
+<p> DOM操作有两项原则，分别是<strong>渐进增强(progressive enhancement)</strong>和<strong>平稳退化</strong>这样更符合html+css+javascript的三者分离标准。</p>
+<ul>
+<li>渐进增强(progressive enhancement)</li>
+</ul>
+<blockquote>
+<p>渐进增强原则基于这样一种思想：你应该总是从最核心的部分，也就是从内容开始。 应该根据内容使用标记良好的结构；然后再逐步加强这些内容。 这些增强工作既可以是通过CSS改进呈现效果，也可以是通过DOM添加各种行为。</p>
+</blockquote>
+<ul>
+<li>平稳退化</li>
+</ul>
+<blockquote>
+<p>网站访问者完全有可能使用不支持JavaScript的浏览器，或者禁用了它，如果没有考虑这个问题，就会遇到很多问题，为了让这种情况下也能顺利的浏览这个网页，就要做到平稳退化，就是说，虽然某些功能无法使用，但最基本的操作仍然能完成。渐进增强的实现必然支持平稳退化。 如果你按照渐进增强的原则去充实内容，你为内容添加的样式和行为就自然支持平稳退化。</p>
+</blockquote>
+<hr>
+<ul>
+<li><strong>三者分离</strong></li>
+</ul>
+<blockquote>
+<p>使用(X)HTML去搭建文档的结构（html负责结构层）<br>使用CSS去设置文档的呈现效果（css负责表现层）<br>使用DOM脚本去实现文档的行为（javascript负责行为层）</p>
+</blockquote>
+<hr>
+<ul>
+<li><strong>可用函数调用</strong></li>
+</ul>
+<p>　<em>getElementsByClassName(node,classname) —— 兼容老浏览器</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">function getElementsByClassName(node,classname) &#123;</div><div class="line">    if(node.getElementsByClassName) &#123;</div><div class="line">        //使用现有方法</div><div class="line">        return node.getElementsByClassName(classname);</div><div class="line">    &#125;</div><div class="line">    else&#123;</div><div class="line">        var results = new Array();</div><div class="line">        var elems = node.getElementsByTagName(&quot;*&quot;);</div><div class="line">        for(var i=0;i &lt; elems.length;i++)&#123;</div><div class="line">            if(elems[i].className.indexOf(classname) != -1) &#123;</div><div class="line">            results[results.length] = elems[i];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return results;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>　　<em>getNextElement() —— 获取下一个元素节点</em>
+　　</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function getNextElement(node) &#123;</div><div class="line">    if(node.nodeType == 1) &#123;</div><div class="line">        return node;</div><div class="line">    &#125;</div><div class="line">    if(node.nextSibling) &#123;</div><div class="line">        return getNextElement(node.nextSibling);</div><div class="line">    &#125;</div><div class="line">    return null;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>　　<em>addLoadEvent() —— 共享onload事件</em>
+　　</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function addLoadEvent(func) &#123;</div><div class="line">    var oldonload = window.onload;</div><div class="line">    if(typeof window.onload != &apos;function&apos;) &#123;</div><div class="line">        window.onload = func;</div><div class="line">    &#125;</div><div class="line">    else &#123;</div><div class="line">        window.onload = function()&#123;</div><div class="line">            oldonload();</div><div class="line">            func();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>　　<em>insertAfter() —— 在某元素后插入新元素</em>
+　　</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//DOM已提供，在某元素之前插入新元素</div><div class="line">insertBefore(newElement,targetElement) </div><div class="line"></div><div class="line">function insertAfter(newElement,targetElement) &#123;</div><div class="line">    var parent = targetElement.parentNode();</div><div class="line">    if(parent.lastChild == targetElement)&#123;</div><div class="line">        parent.appendChild(newElement);</div><div class="line">    &#125;</div><div class="line">    else&#123;</div><div class="line">        parent.insertBefore(newElement,targetElement.nextSibling);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>　　<em>addClass() —— 添加新的className</em>
+　　</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function addClass(element,value) &#123;</div><div class="line">    //判断className属性是否为空</div><div class="line">    if(!element.className) &#123;</div><div class="line">    element.className = value;</div><div class="line">    &#125;</div><div class="line">    else &#123;</div><div class="line">    //若不为空，把空格和新的class设置值追加到className属性上去</div><div class="line">    newClassName = element.className;</div><div class="line">    newClassName += &quot; &quot;;</div><div class="line">    newClassName += value;</div><div class="line">    element.className = newClassName;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>　　<em>moveElement() —— 基于CSS属性的动画</em>
+　　</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">function moveElement(elementID,final_x,final_y,interval) &#123;</div><div class="line"></div><div class="line">    //添加安全检查，检测是否支持getElementById</div><div class="line">    if(!document.getElementById) return false;</div><div class="line"></div><div class="line">    //添加安全检查，检测是否有elementId</div><div class="line">    if(!document.getElementById(elementId)) return false;</div><div class="line"></div><div class="line">    var elem = document.getElementById(elementID);</div><div class="line">    if(elem.movement) &#123;</div><div class="line">        clearTimeout(elem.movement);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //添加安全检查，检测elementId是否有left/top属性</div><div class="line">    if(!elem.style.left) &#123;</div><div class="line">        elem.style.left = 0 + &quot;px&quot;;</div><div class="line">    &#125;</div><div class="line">    if(!elem.style.top) &#123;</div><div class="line">        elem.style.top = 0 + &quot;px&quot;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    var xpos = parseInt(elem.style.left);</div><div class="line">    var ypos = paresInt(elem.style.top);</div><div class="line">    var dist = 0;</div><div class="line">    if(xpos == final_x &amp;&amp; ypos == final_y)&#123;</div><div class="line">        return true;</div><div class="line">    &#125;</div><div class="line">    if(xpos &lt; final_x) &#123;</div><div class="line">        dist = Math.ceil((final_x - xpos)/10);</div><div class="line">        xpos = xpos + dist;</div><div class="line">    &#125;</div><div class="line">    if(xpos &gt; final_x) &#123;</div><div class="line">        dist = Math.ceil((xpos - final_x)/10);</div><div class="line">        xpos = xpos - dist;</div><div class="line">    &#125;</div><div class="line">    if(ypos &lt; final_y) &#123;</div><div class="line">        dist = Math.ceil((final_y - xpos)/10);</div><div class="line">        ypos = ypos + dist;</div><div class="line">    &#125;</div><div class="line">    if(ypos &gt; final_y) &#123;</div><div class="line">        dist = Math.ceil((xpos - final_y)/10);</div><div class="line">        ypos = ypos - dist;</div><div class="line">    &#125;</div><div class="line">    elem.style.left = xpos + &quot;px&quot;;</div><div class="line">    elem.style.top = ypos + &quot;px&quot;;</div><div class="line"></div><div class="line">    var repeat = &quot;moveElement(&apos;&quot;+elementID+&quot;&apos;,&quot;+final_x+&quot;,&quot;+final_y+&quot;,&quot;+interval+&quot;)&quot;;</div><div class="line">    elem.movement = setTimeout(repeat,interval);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+        </div>
+      </article>
+    </div>
+    <!-- Pre or Next -->
+    
+	<div class="container" >
+           <ul class="pager">
+    	     
+      	     <li class="previous">
+              <a href="/blog/2017/02/02/hexo-theme-believe 文档/" rel="prev">下一篇</a>
+             </li>
+           
+           
+              <li class="next">
+              <a href="/blog/2017/03/05/hexo-theme-believe version2.0说明文档/" rel="prev">上一篇</a>
+            </li>
+           
+          </ul>
+       </div>
+　　　　<!-- Comments -->
+    <div class="container">
+      <% if (page.comments){ %>
+<section id="comment">
+  <!-- <h1 class="title"><%= __('comment') %></h1> -->
+
+  <% if(theme.disqus_shortname) { %>
+  <div id="disqus_thread">
+    <script type="text/javascript">
+    var disqus_config = function () {
+          this.page.url = window.location.href;
+          this.page.identifier = '<%= page.layout %>-<%= page.slug %>';
+          this.page.title = '<%= page.title %>';
+      };
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+  <% } else if (theme.duoshuo_shortname) { %>
+    <!-- 多说评论框 start -->
+    <script type="text/javascript">
+var duoshuoQuery = {short_name:"<%= theme.duoshuo_shortname %>"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.unstable.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+
+    <div class="ds-thread" data-thread-key="<%= page.layout %>-<%= page.slug %>" data-title="<%= page.title %>" data-url="<%= page.permalink %>"></div>
+    <!-- 多说评论框 end -->
+  <% } %>
+</section>
+<% } %>
+
+    </div>
+   
+　　　　
+  </div>
+</div>
+
+
+　　<!-- top -->
+  <div id="rocket-to-top">
+	<div class="level-2"></div>
+	<div class="level-3"></div>
+</div>
+<script src="http://oct3pmpde.bkt.clouddn.com/top.js"></script>
+<script type="text/javascript" src="http://oct3pmpde.bkt.clouddn.com/jquery.js"></script>
+
+  
+  <!-- Footer -->
+  <!-- Footer -->
+<footer class="site-info">
+  <p>
+    <span>th是个小屁孩 &copy; 2017</span>
+    
+      <span class="split">|</span>
+      <span>th是个小屁孩的技术小屋</span>
+    
+  </p>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+本站总访问量<span id="busuanzi_value_site_pv"></span>次
+本站访客数<span id="busuanzi_value_site_uv"></span>人次
+
+</footer>
+
+
+  <!-- After footer scripts -->
+  <!-- scripts -->
+<script src="/blog/js/app.js"></script>
+
+  <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'th720309'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+
+
+
+
+</body>
+
+</html>

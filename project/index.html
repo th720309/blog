@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<!-- Head tag -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!--Description-->
+  
+  <meta name="description" content="笔直向前 说到做到">
+  
+
+  <!--Author-->
+  
+  <meta name="author" content="th是个小屁孩">
+  
+
+  <!--Open Graph Title-->
+  
+      <meta property="og:title" content="代码库"/>
+  
+  <!--Open Graph Description-->
+  
+      <meta property="og:description" content="笔直向前 说到做到" />
+  
+  <!--Open Graph Site Name-->
+  <meta property="og:site_name" content="th是个小屁孩"/>
+  <!--Type page-->
+  
+      <meta property="og:type" content="article" />
+  
+  <!--Page Cover-->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- 百度统计 -->
+    <script>
+	var _hmt = _hmt || [];
+	(function() {
+  	var hm = document.createElement("script");
+  	hm.src = "https://hm.baidu.com/hm.js?c0451e16533956173997b85f7a8de666";
+  	var s = document.getElementsByTagName("script")[0]; 
+  	s.parentNode.insertBefore(hm, s);
+	})();
+    </script>
+  <!-- Title -->
+  
+  <title>代码库 - th是个小屁孩</title>
+
+
+  <link rel="shortcut icon" href="/blog/favicon.ico">
+    <!--font-awesome-->
+  <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/blog/css/thplayer.css">
+  <!-- Custom CSS/Sass -->
+  <link rel="stylesheet" href="/blog/css/style.css">
+<script src="http://oct3pmpde.bkt.clouddn.com/jquery.js"></script>
+</head>
+
+
+<body>
+
+  <!-- Nav -->
+  <header class="site-header">
+  <div class="header-inside">
+    
+    <div class="logo">
+      <a href="http://www.tianhao.site" rel="home">
+        
+        <img src="http://oct3pmpde.bkt.clouddn.com/timg.jpg" alt="th是个小屁孩" height="60">
+        
+      </a>
+    </div>
+    <a class="header-name" href="/blog/">
+            <span>th是个小屁孩</span>
+            的部落宅
+        </a>
+    <!-- navbar -->
+    <nav class="navbar">
+      <!--  nav links -->
+      <div class="collapse">
+        <ul class="navbar-nav">
+          
+          
+            <li>
+              <a href="/blog/.">
+                
+                  <i class="fa fa-home "></i>
+                
+                首页
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/archives">
+                
+                  <i class="fa fa-archive "></i>
+                
+                归档
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/about">
+                
+                  <i class="fa fa-user "></i>
+                
+                关于
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/project">
+                
+                  <i class="fa fa-folder-open "></i>
+                
+                项目
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/photo">
+                
+                  <i class="fa fa-photo "></i>
+                
+                相册
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/guestbook">
+                
+                  <i class="fa fa-edit "></i>
+                
+                留言
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/one">
+                
+                  <i class="fa fa-bicycle "></i>
+                
+                one
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/atom.xml">
+                
+                  <i class="fa fa-send "></i>
+                
+                RSS
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </nav>
+    <div class="button-wrap">
+      <button class="menu-toggle">Primary Menu</button>
+    </div>
+  </div>
+</header>
+
+
+  <!-- Main Content -->
+  <style>
+#container {
+    margin: auto;
+    max-width: 1280px;
+    margin-top: 5em;
+    margin-bottom: 60px;
+    animation: cont 0.3s;
+    border-radius: 3px;
+    background-color: #fff;
+    padding: 20px 0px 15px 0px;
+    clear: both;
+}
+.about-me .counts, .about-me .profile {
+    border-bottom: 1px solid #eee;
+    margin: 0 0 3%;
+    padding: 0 0 3%;
+    text-align: center;
+}
+.about-me .avatar-450 {
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    border-radius: 100%;
+    border: 3px solid #F2F5F7;
+}
+.avatar-450 {
+    width: 30%;
+    max-width: 150px;
+    height: auto;
+    border-radius: 100%;
+}
+.about-me .about-avatar, .about-me .info {
+    display: inline-block;
+    vertical-align: top;
+    letter-spacing: 0;
+    margin-top: -15px;
+}
+.about-me .info {
+    width: 30%;
+    padding-left: 15px;
+}
+.about-me .info h1 {
+    font-weight: 700;
+    font-size: 20px;
+    color: #333;
+    word-break: break-all;
+}
+.about-me .info h1, .about-me p {
+    color: rgba(0,0,0,.6);
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.repo-list{
+    list-style: none;
+}
+li.repo{
+    width: 32%;
+    display: inline-block;
+    border: 1px solid #ddd;
+    margin: 0.3%;
+    box-shadow: 0 0 8px 0 rgba(0,0,0,.25);
+    transition: all .3s linear;
+}
+li.repo:hover{
+    box-shadow: 0 0 18px 0 rgba(0,0,0,.5);
+}
+li.repo h2 {
+    margin-top: 20px;
+    padding: 10px 20px 5px;
+    color: #CE2323;
+}
+li.repo p.commit {
+    padding: 0 20px 20px;
+    font-size: 0.6em;
+}
+li p.fot{
+    margin: 0 20px 15px;
+}
+
+li span.pic{
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+li span.language{
+    padding-left: 20px;
+    color: #767676;
+}
+@media all and (max-width:1440px){
+    #container{max-width:1100px}
+    .post-random .photo {width: 23%;}
+}
+@media (max-width: 999px) {
+    #container {
+        width: 95%;
+        margin-top: 2em;
+    }
+}
+@media screen and (max-width: 960px) {
+    li.repo {
+        display: block;
+        width: 85%;
+        margin: 10px auto;
+    }
+}
+@media (max-width: 720px) {
+    #container {
+        box-shadow: rgba(0, 0, 0, 0.298039) 0px 0px 0px 0px, rgba(0, 0, 0, 0.298039) 0px 0px 0px 0px;
+        width: 94%;
+        margin: 10px auto auto -3px;
+        padding: 15px;
+
+    }
+}
+
+</style>
+<div id="container">
+    <div class="about-me about_mob" style="display: inherit;">
+        <div class="profile">
+            <img alt="" src="http://oct3pmpde.bkt.clouddn.com/avator.jpg"  class="avatar avatar-450 photo" height="450" width="450">
+            <div class="info aboutinfo">
+                <h1><span>th是个小屁孩</span>的代码库</h1>
+                <p>永远相信</p>
+                <p>美好的事情即将发生</p>
+            </div>
+        </div>
+    </div>
+    <div class="codeBox">
+        <ol class="repo-list">
+		
+		  <li class="repo">
+                    <a href="http://www.tianhao.site/blog/2017/02/23/%E3%80%8AJavaScript%20DOM%20%E7%BC%96%E7%A8%8B%E8%89%BA%E6%9C%AF2%E3%80%8B%20%E7%AC%94%E8%AE%B0%E6%91%98%E6%8A%84%20/" target="_blank">
+                    	<div class="content">
+                          <h2 class="title">《javascript DOM 编程艺术２》</h2>
+                          <p class="commit">读书心得，摘录封装函数</p>
+                          <p class="fot">
+                            <span class="pic" style="background-color: #f1e05a;"></span><span class="language">readnote</span>
+                          </p>
+                        </div>
+                    </a>
+                  </li>
+                
+		  <li class="repo">
+                    <a href="https://github.com/th720309/IFE-2016SP" target="_blank">
+                    	<div class="content">
+                          <h2 class="title">百度前端学院IFE-2016SP</h2>
+                          <p class="commit">百度前端学院2016练习持续更新</p>
+                          <p class="fot">
+                            <span class="pic" style="background-color: #f1e05a;"></span><span class="language">css</span>
+                          </p>
+                        </div>
+                    </a>
+                  </li>
+                
+		  <li class="repo">
+                    <a href="https://github.com/th720309/M-thplayer" target="_blank">
+                    	<div class="content">
+                          <h2 class="title">M-thplayer播放器</h2>
+                          <p class="commit">超级好看的html5浮窗音乐播放器</p>
+                          <p class="fot">
+                            <span class="pic" style="background-color: #f1e05a;"></span><span class="language">javascript</span>
+                          </p>
+                        </div>
+                    </a>
+                  </li>
+                
+		  <li class="repo">
+                    <a href="https://github.com/th720309/gobang-game" target="_blank">
+                    	<div class="content">
+                          <h2 class="title">js实现的五子棋游戏</h2>
+                          <p class="commit">根据慕课网上JS实现人工智能五子棋的教程实现人机部分，之后自己更改了样式添加上了人人大战板块。</p>
+                          <p class="fot">
+                            <span class="pic" style="background-color: #f1e05a;"></span><span class="language">javascript</span>
+                          </p>
+                        </div>
+                    </a>
+                  </li>
+                
+		  <li class="repo">
+                    <a href="https://github.com/th720309/game-2048" target="_blank">
+                    	<div class="content">
+                          <h2 class="title">js实现的2048游戏</h2>
+                          <p class="commit">根据慕课网上JS实现了2048,并且适配移动端，之后自己改动了算法以及动手写了一个火影版的2048.。</p>
+                          <p class="fot">
+                            <span class="pic" style="background-color: #f1e05a;"></span><span class="language">javascript</span>
+                          </p>
+                        </div>
+                    </a>
+                  </li>
+                
+		  <li class="repo">
+                    <a href="https://github.com/th720309/hexo-theme-believe" target="_blank">
+                    	<div class="content">
+                          <h2 class="title">hexo-theme-believe　主题</h2>
+                          <p class="commit">基于ejs和sass自定义化的hexo博客主题框架,demo:www.tianhao,site/blog</p>
+                          <p class="fot">
+                            <span class="pic" style="background-color: #f1e05a;"></span><span class="language">css</span>
+                          </p>
+                        </div>
+                    </a>
+                  </li>
+                
+		  <li class="repo">
+                    <a href="https://github.com/th720309/--MVC" target="_blank">
+                    	<div class="content">
+                          <h2 class="title">模拟登录大连交通大学教务在线</h2>
+                          <p class="commit">模拟登录大连交通大学教务MVC框架，目前实现查分系统，课表查询尚未实现</p>
+                          <p class="fot">
+                            <span class="pic" style="background-color: #f1e05a;"></span><span class="language">java</span>
+                          </p>
+                        </div>
+                    </a>
+                  </li>
+                
+		  <li class="repo">
+                    <a href="https://github.com/th720309/163music_spider" target="_blank">
+                    	<div class="content">
+                          <h2 class="title">网易云音乐歌单爬取</h2>
+                          <p class="commit">使用jsoup解析网页结构爬取网易云音乐歌单，内附民谣歌单收听排行。后续会继续添加其他内容</p>
+                          <p class="fot">
+                            <span class="pic" style="background-color: #f1e05a;"></span><span class="language">java/python</span>
+                          </p>
+                        </div>
+                    </a>
+                  </li>
+                
+		  <li class="repo">
+                    <a href="http://www.tianhao.site/blog/project" target="_blank">
+                    	<div class="content">
+                          <h2 class="title">英语在线学习客户端（java课设）</h2>
+                          <p class="commit">实现注册登录，记住密码，找回密码，提交打分功能，设有听力题，选择题练习</p>
+                          <p class="fot">
+                            <span class="pic" style="background-color: #f1e05a;"></span><span class="language">java</span>
+                          </p>
+                        </div>
+                    </a>
+                  </li>
+                
+
+        </ol>
+    </div>
+</div>
+
+
+　　<!-- top -->
+  <div id="rocket-to-top">
+	<div class="level-2"></div>
+	<div class="level-3"></div>
+</div>
+<script src="http://oct3pmpde.bkt.clouddn.com/top.js"></script>
+<script type="text/javascript" src="http://oct3pmpde.bkt.clouddn.com/jquery.js"></script>
+
+  
+  <!-- Footer -->
+  <!-- Footer -->
+<footer class="site-info">
+  <p>
+    <span>th是个小屁孩 &copy; 2017</span>
+    
+      <span class="split">|</span>
+      <span>th是个小屁孩的技术小屋</span>
+    
+  </p>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+本站总访问量<span id="busuanzi_value_site_pv"></span>次
+本站访客数<span id="busuanzi_value_site_uv"></span>人次
+
+</footer>
+
+
+  <!-- After footer scripts -->
+  <!-- scripts -->
+<script src="/blog/js/app.js"></script>
+
+  <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'th720309'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<!-- Head tag -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!--Description-->
+  
+  <meta name="description" content="笔直向前 说到做到">
+  
+
+  <!--Author-->
+  
+  <meta name="author" content="th是个小屁孩">
+  
+
+  <!--Open Graph Title-->
+  
+      <meta property="og:title" content="算法篇————快速幂"/>
+  
+  <!--Open Graph Description-->
+  
+      <meta property="og:description" content="笔直向前 说到做到" />
+  
+  <!--Open Graph Site Name-->
+  <meta property="og:site_name" content="th是个小屁孩"/>
+  <!--Type page-->
+  
+      <meta property="og:type" content="article" />
+  
+  <!--Page Cover-->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- 百度统计 -->
+    <script>
+	var _hmt = _hmt || [];
+	(function() {
+  	var hm = document.createElement("script");
+  	hm.src = "https://hm.baidu.com/hm.js?c0451e16533956173997b85f7a8de666";
+  	var s = document.getElementsByTagName("script")[0]; 
+  	s.parentNode.insertBefore(hm, s);
+	})();
+    </script>
+  <!-- Title -->
+  
+  <title>算法篇————快速幂 - th是个小屁孩</title>
+
+
+  <link rel="shortcut icon" href="/blog/favicon.ico">
+    <!--font-awesome-->
+  <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/blog/css/thplayer.css">
+  <!-- Custom CSS/Sass -->
+  <link rel="stylesheet" href="/blog/css/style.css">
+<script src="http://oct3pmpde.bkt.clouddn.com/jquery.js"></script>
+</head>
+
+
+<body>
+
+  <!-- Nav -->
+  <header class="site-header">
+  <div class="header-inside">
+    
+    <div class="logo">
+      <a href="http://www.tianhao.site" rel="home">
+        
+        <img src="http://oct3pmpde.bkt.clouddn.com/timg.jpg" alt="th是个小屁孩" height="60">
+        
+      </a>
+    </div>
+    <a class="header-name" href="/blog/">
+            <span>th是个小屁孩</span>
+            的部落宅
+        </a>
+    <!-- navbar -->
+    <nav class="navbar">
+      <!--  nav links -->
+      <div class="collapse">
+        <ul class="navbar-nav">
+          
+          
+            <li>
+              <a href="/blog/.">
+                
+                  <i class="fa fa-home "></i>
+                
+                首页
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/archives">
+                
+                  <i class="fa fa-archive "></i>
+                
+                归档
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/about">
+                
+                  <i class="fa fa-user "></i>
+                
+                关于
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/project">
+                
+                  <i class="fa fa-folder-open "></i>
+                
+                项目
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/photo">
+                
+                  <i class="fa fa-photo "></i>
+                
+                相册
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/guestbook">
+                
+                  <i class="fa fa-edit "></i>
+                
+                留言
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/one">
+                
+                  <i class="fa fa-bicycle "></i>
+                
+                one
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/atom.xml">
+                
+                  <i class="fa fa-send "></i>
+                
+                RSS
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </nav>
+    <div class="button-wrap">
+      <button class="menu-toggle">Primary Menu</button>
+    </div>
+  </div>
+</header>
+
+
+  <!-- Main Content -->
+  
+<div class="content-area">
+  <div class="post">
+    <!-- Post Content -->
+    <div class="container">
+      <article>
+        <!-- Title date & tags -->
+        <div class="post-header">
+          <h1 class="entry-title">
+            算法篇————快速幂
+            
+          </h1>
+         
+        </div>
+　　　　　　　　<p class="a-posted-on">2016-09-15</p>
+        <!-- Post Main Content -->
+        <div class="entry-content">
+          <p>今天介绍第二种算法，快速幂的使用，这个极大的方便了数值较大的数的之间的运算。</p>
+<h2 id="快速幂取模"><a href="#快速幂取模" class="headerlink" title="快速幂取模"></a>快速幂取模</h2><p>假如我们要求a^b，而b是一个非常大的数的话，我们就可以用到快速幂的算法。这样复杂度不高，不会超时。</p>
+<p>假如求 a ^ n 次方</p>
+<p>我们可以把 n 表示为 2^k1 + 2^k2  + 2^k3….，可以证明所有数都可以用前式来表示。（其实就是二进制表示数的原理）<br><a id="more"></a><br>那么 a^n = a^2^k1 <em> a^2^k2 </em> a^2^k3……</p>
+<p>那么就可以利用二进制来加快计算速度了。</p>
+<p>假如 a^22 , 22转化为二进制为 10110， 即 a^22 = a^16 <em> a^4 </em> a^2;</p>
+<p>那么是不是可以在O（logn）的复杂度求解。</p>
+<p>下面是代码实现：（特别注意避免大数超出范围，用long long 存中间值）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">typedef long long LL;</div><div class="line">LL fun(LL x,LL n,)</div><div class="line">&#123;</div><div class="line">    LL res=1;</div><div class="line">    while(n&gt;0)</div><div class="line">    &#123;</div><div class="line">        if(n &amp; 1)</div><div class="line">            res=(res*x)%Max;</div><div class="line">        x=(x*x)%Max;</div><div class="line">        n &gt;&gt;= 1;</div><div class="line">    &#125;</div><div class="line">    return res;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="矩阵快速幂"><a href="#矩阵快速幂" class="headerlink" title="矩阵快速幂"></a>矩阵快速幂</h2><p>前面是数与数之间的幂运算，对于矩阵与矩阵的幂运算，也可以用到快速幂的解决办法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div></pre></td><td class="code"><pre><div class="line">/*===================================*/</div><div class="line">|| 快速幂（quickpow）模板 </div><div class="line">|| P 为等比，I 为单位矩阵</div><div class="line">|| MAX 要初始化！！！！</div><div class="line">||</div><div class="line">/*===================================*/</div><div class="line">/*****************************************************/</div><div class="line">#include &lt;cstdio&gt;</div><div class="line">const int MAX = 3;</div><div class="line"></div><div class="line">typedef  struct&#123;</div><div class="line">        int  m[MAX][MAX];</div><div class="line">&#125;  Matrix;</div><div class="line"></div><div class="line">Matrix P = &#123;5,-7,4,</div><div class="line">            1,0,0,</div><div class="line">            0,1,0,</div><div class="line">           &#125;;</div><div class="line"></div><div class="line">Matrix I = &#123;1,0,0,</div><div class="line">            0,1,0,</div><div class="line">            0,0,1,</div><div class="line">           &#125;;</div><div class="line">           </div><div class="line">Matrix matrixmul(Matrix a,Matrix b) //矩阵乘法</div><div class="line">&#123;</div><div class="line">       int i,j,k;</div><div class="line">       Matrix c;</div><div class="line">       for (i = 0 ; i &lt; MAX; i++)</div><div class="line">           for (j = 0; j &lt; MAX;j++)</div><div class="line">             &#123;</div><div class="line">                 c.m[i][j] = 0;</div><div class="line">                 for (k = 0; k &lt; MAX; k++)</div><div class="line">                     c.m[i][j] += (a.m[i][k] * b.m[k][j])%9997;</div><div class="line">                 c.m[i][j] %= 9997;</div><div class="line">             &#125;</div><div class="line">       return c;</div><div class="line">&#125;</div><div class="line">          </div><div class="line">Matrix quickpow(long long n)</div><div class="line">&#123;</div><div class="line">       Matrix m = P, b = I;</div><div class="line">       while (n &gt;= 1)</div><div class="line">       &#123;</div><div class="line">             if (n &amp; 1)</div><div class="line">                b = matrixmul(b,m);</div><div class="line">             n = n &gt;&gt; 1;</div><div class="line">             m = matrixmul(m,m);</div><div class="line">       &#125;</div><div class="line">       return b;</div><div class="line">&#125;</div><div class="line">               /*************************************/</div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">    Matrix re;</div><div class="line">    int f[3] = &#123;2,6,19&#125;;</div><div class="line">    long long n;</div><div class="line">    while (scanf(&quot;%I64d&quot;,&amp;n) &amp;&amp; n != 0)</div><div class="line">    &#123;</div><div class="line">          if (n == 1)</div><div class="line">             printf(&quot;1\n&quot;);</div><div class="line">          else if (n &lt;= 4)</div><div class="line">                  printf(&quot;%d\n&quot;,f[n-2]);</div><div class="line">               else &#123;</div><div class="line">                      re = quickpow(n - 4);</div><div class="line">                      printf(&quot;%d\n&quot;,(((re.m[0][0]*f[2]) </div><div class="line">                             + (re.m[0][1]*f[1]) + (re.m[0][2]*f[0])) %9997 + 9997) % 9997);</div><div class="line">                      &#125;</div><div class="line">    &#125;</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+        </div>
+      </article>
+    </div>
+    <!-- Pre or Next -->
+    
+	<div class="container" >
+           <ul class="pager">
+    	     
+      	     <li class="previous">
+              <a href="/blog/2016/09/14/算法篇——入门级算法/" rel="prev">下一篇</a>
+             </li>
+           
+           
+              <li class="next">
+              <a href="/blog/2016/09/17/《釜山行》/" rel="prev">上一篇</a>
+            </li>
+           
+          </ul>
+       </div>
+　　　　<!-- Comments -->
+    <div class="container">
+      <% if (page.comments){ %>
+<section id="comment">
+  <!-- <h1 class="title"><%= __('comment') %></h1> -->
+
+  <% if(theme.disqus_shortname) { %>
+  <div id="disqus_thread">
+    <script type="text/javascript">
+    var disqus_config = function () {
+          this.page.url = window.location.href;
+          this.page.identifier = '<%= page.layout %>-<%= page.slug %>';
+          this.page.title = '<%= page.title %>';
+      };
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+  <% } else if (theme.duoshuo_shortname) { %>
+    <!-- 多说评论框 start -->
+    <script type="text/javascript">
+var duoshuoQuery = {short_name:"<%= theme.duoshuo_shortname %>"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.unstable.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+
+    <div class="ds-thread" data-thread-key="<%= page.layout %>-<%= page.slug %>" data-title="<%= page.title %>" data-url="<%= page.permalink %>"></div>
+    <!-- 多说评论框 end -->
+  <% } %>
+</section>
+<% } %>
+
+    </div>
+   
+　　　　
+  </div>
+</div>
+
+
+　　<!-- top -->
+  <div id="rocket-to-top">
+	<div class="level-2"></div>
+	<div class="level-3"></div>
+</div>
+<script src="http://oct3pmpde.bkt.clouddn.com/top.js"></script>
+<script type="text/javascript" src="http://oct3pmpde.bkt.clouddn.com/jquery.js"></script>
+
+  
+  <!-- Footer -->
+  <!-- Footer -->
+<footer class="site-info">
+  <p>
+    <span>th是个小屁孩 &copy; 2017</span>
+    
+      <span class="split">|</span>
+      <span>th是个小屁孩的技术小屋</span>
+    
+  </p>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+本站总访问量<span id="busuanzi_value_site_pv"></span>次
+本站访客数<span id="busuanzi_value_site_uv"></span>人次
+
+</footer>
+
+
+  <!-- After footer scripts -->
+  <!-- scripts -->
+<script src="/blog/js/app.js"></script>
+
+  <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'th720309'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+
+
+
+
+</body>
+
+</html>

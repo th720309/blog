@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<!-- Head tag -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!--Description-->
+  
+  <meta name="description" content="笔直向前 说到做到">
+  
+
+  <!--Author-->
+  
+  <meta name="author" content="th是个小屁孩">
+  
+
+  <!--Open Graph Title-->
+  
+      <meta property="og:title" content="Linux tensorflow 框架搭建与实现风格作画"/>
+  
+  <!--Open Graph Description-->
+  
+      <meta property="og:description" content="笔直向前 说到做到" />
+  
+  <!--Open Graph Site Name-->
+  <meta property="og:site_name" content="th是个小屁孩"/>
+  <!--Type page-->
+  
+      <meta property="og:type" content="article" />
+  
+  <!--Page Cover-->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- 百度统计 -->
+    <script>
+	var _hmt = _hmt || [];
+	(function() {
+  	var hm = document.createElement("script");
+  	hm.src = "https://hm.baidu.com/hm.js?c0451e16533956173997b85f7a8de666";
+  	var s = document.getElementsByTagName("script")[0]; 
+  	s.parentNode.insertBefore(hm, s);
+	})();
+    </script>
+  <!-- Title -->
+  
+  <title>Linux tensorflow 框架搭建与实现风格作画 - th是个小屁孩</title>
+
+
+  <link rel="shortcut icon" href="/blog/favicon.ico">
+    <!--font-awesome-->
+  <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/blog/css/thplayer.css">
+  <!-- Custom CSS/Sass -->
+  <link rel="stylesheet" href="/blog/css/style.css">
+<script src="http://oct3pmpde.bkt.clouddn.com/jquery.js"></script>
+</head>
+
+
+<body>
+
+  <!-- Nav -->
+  <header class="site-header">
+  <div class="header-inside">
+    
+    <div class="logo">
+      <a href="http://www.tianhao.site" rel="home">
+        
+        <img src="http://oct3pmpde.bkt.clouddn.com/timg.jpg" alt="th是个小屁孩" height="60">
+        
+      </a>
+    </div>
+    <a class="header-name" href="/blog/">
+            <span>th是个小屁孩</span>
+            的部落宅
+        </a>
+    <!-- navbar -->
+    <nav class="navbar">
+      <!--  nav links -->
+      <div class="collapse">
+        <ul class="navbar-nav">
+          
+          
+            <li>
+              <a href="/blog/.">
+                
+                  <i class="fa fa-home "></i>
+                
+                首页
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/archives">
+                
+                  <i class="fa fa-archive "></i>
+                
+                归档
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/about">
+                
+                  <i class="fa fa-user "></i>
+                
+                关于
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/project">
+                
+                  <i class="fa fa-folder-open "></i>
+                
+                项目
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/photo">
+                
+                  <i class="fa fa-photo "></i>
+                
+                相册
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/guestbook">
+                
+                  <i class="fa fa-edit "></i>
+                
+                留言
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/one">
+                
+                  <i class="fa fa-bicycle "></i>
+                
+                one
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/atom.xml">
+                
+                  <i class="fa fa-send "></i>
+                
+                RSS
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </nav>
+    <div class="button-wrap">
+      <button class="menu-toggle">Primary Menu</button>
+    </div>
+  </div>
+</header>
+
+
+  <!-- Main Content -->
+  
+<div class="content-area">
+  <div class="post">
+    <!-- Post Content -->
+    <div class="container">
+      <article>
+        <!-- Title date & tags -->
+        <div class="post-header">
+          <h1 class="entry-title">
+            Linux tensorflow 框架搭建与实现风格作画
+            
+          </h1>
+         
+        </div>
+　　　　　　　　<p class="a-posted-on">2016-10-12</p>
+        <!-- Post Main Content -->
+        <div class="entry-content">
+          <h2 id="CPU平台完成两图风格融合完美作画"><a href="#CPU平台完成两图风格融合完美作画" class="headerlink" title="CPU平台完成两图风格融合完美作画"></a>CPU平台完成两图风格融合完美作画</h2><ol>
+<li>该教程根据研究者july教程补充编写</li>
+<li>作者: th是个小屁孩</li>
+<li>实验平台为Ubuntu 14.04 , 版本关系不大，16.04也可以进行实验</li>
+<li>该实验采用谷歌开源框架tensorflow</li>
+</ol>
+<p>##前言<br>  前几日在微博看到july的梵高作画实验，发现挺有意思，便打算进行实验一番，由于学生党，没有什么特别好的机器，只能使用垃圾显卡和还可以的处理器进行实验，没有GPU，加大了时间成本，不过没关系，能跑出来就很成功了。<br> <a id="more"></a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title=" 安装"></a> 安装</h2><pre><code>2.1、安装tensorflow
+</code></pre><p> Windows下打开浏览器，输入：<a href="https://github.com/tensorflow/tensorflow" target="_blank" rel="external">https://github.com/tensorflow/tensorflow</a></p>
+<p>下载Linux CPU-only:Python2  ，下载的是一个whl文件，下面会用到。</p>
+<pre><code>2.2 安装neural-style
+</code></pre><p>再在地址栏输入：<a href="https://github.com/anishathalye/neural-style" target="_blank" rel="external">https://github.com/anishathalye/neural-style</a></p>
+<p>  点击clone or download,将该代码download下来</p>
+<pre><code>2.3 安装vgg19
+</code></pre><p>再在地址栏输入：<a href="http://www.vlfeat.org/matconvnet/models/beta16/imagenet-vgg-verydeep-19.mat" target="_blank" rel="external">http://www.vlfeat.org/matconvnet/models/beta16/imagenet-vgg-verydeep-19.mat</a></p>
+<p>弹出一个下载对话框，直接下载。</p>
+<p>下载后的文件放到刚刚的neural-style文件夹根目录下就行，如图所示</p>
+<p><img src="http://img.blog.csdn.net/20161012143052928" alt="这里写图片描述"></p>
+<h2 id="实验"><a href="#实验" class="headerlink" title=" 实验"></a> 实验</h2><pre><code>1 准备工作 
+</code></pre><p>打开终端窗口，输入：sudo –i</p>
+<p> <em>*</em> （你的密码）</p>
+<p>apt-get update（更新所有源）</p>
+<p> sudo apt-get install python-dev<br> sudo apt-get install python-scipy<br> sudo apt-get install python-pip</p>
+<p> 有的人顺序颠倒会出现问题，尽量别颠倒<br>（以上命令是下载一些tensorflow的必要库）</p>
+<p>接着进入tensorflow保存的位置</p>
+<p>输入：pip install tensorflow-0.10.0-cp27-none-linux_x86_64.whl  //此文件为 之前下载导tensorflow文件</p>
+<pre><code>2 开始实验
+</code></pre><p>成功后输入：cd  进  neural-style-master  进入neural文件夹目录下</p>
+<p>输入：python neural_style.py - -content ./examples/1-content.jpg - -styles ./examples/1-style.jpg - -output ./examples/JulyEdu.jpg      回车键看结果如何</p>
+<pre><code>1.如果是下图所示
+</code></pre><p><img src="http://img.blog.csdn.net/20161012150217679" alt="这里写图片描述"></p>
+<p>  恭喜你，成功了，等待完成就可以看到成果了</p>
+<pre><code>2.如果是下图所示
+</code></pre><p><img src="http://img.blog.csdn.net/20161012150244914" alt="这里写图片描述"></p>
+<p>需要更改一点东西，不急，看完下面的解决方案，就可以成功了。<br>   进入到一下文件夹下面，找到packaging.py</p>
+<p><img src="http://img.blog.csdn.net/20161012150107068" alt="这里写图片描述"></p>
+<p>  如下图所示，在version 下加上return  值，保存就行。</p>
+<p><img src="http://img.blog.csdn.net/20161012150141424" alt="这里写图片描述"></p>
+<p>linux 新手不熟悉命令行的</p>
+<p>在终端中输入下面口令，然后再用gedit编辑器编辑，编辑后即可保存</p>
+<pre><code>sudo gedit /usr/local/lib/python2.7/distpackages/pbr/packaging.py
+</code></pre><p>   然后如上再进行实验，就可以大功告成了。</p>
+<p>  多谢研究者July的教程，以上为我在根据July的实验操作中遇到的问题解决。</p>
+
+        </div>
+      </article>
+    </div>
+    <!-- Pre or Next -->
+    
+	<div class="container" >
+           <ul class="pager">
+    	     
+      	     <li class="previous">
+              <a href="/blog/2016/10/10/linux 迁移各种问题/" rel="prev">下一篇</a>
+             </li>
+           
+           
+              <li class="next">
+              <a href="/blog/2016/10/29/HttpUnit模拟点击以及爬虫实现/" rel="prev">上一篇</a>
+            </li>
+           
+          </ul>
+       </div>
+　　　　<!-- Comments -->
+    <div class="container">
+      <% if (page.comments){ %>
+<section id="comment">
+  <!-- <h1 class="title"><%= __('comment') %></h1> -->
+
+  <% if(theme.disqus_shortname) { %>
+  <div id="disqus_thread">
+    <script type="text/javascript">
+    var disqus_config = function () {
+          this.page.url = window.location.href;
+          this.page.identifier = '<%= page.layout %>-<%= page.slug %>';
+          this.page.title = '<%= page.title %>';
+      };
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+  <% } else if (theme.duoshuo_shortname) { %>
+    <!-- 多说评论框 start -->
+    <script type="text/javascript">
+var duoshuoQuery = {short_name:"<%= theme.duoshuo_shortname %>"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.unstable.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+
+    <div class="ds-thread" data-thread-key="<%= page.layout %>-<%= page.slug %>" data-title="<%= page.title %>" data-url="<%= page.permalink %>"></div>
+    <!-- 多说评论框 end -->
+  <% } %>
+</section>
+<% } %>
+
+    </div>
+   
+　　　　
+  </div>
+</div>
+
+
+　　<!-- top -->
+  <div id="rocket-to-top">
+	<div class="level-2"></div>
+	<div class="level-3"></div>
+</div>
+<script src="http://oct3pmpde.bkt.clouddn.com/top.js"></script>
+<script type="text/javascript" src="http://oct3pmpde.bkt.clouddn.com/jquery.js"></script>
+
+  
+  <!-- Footer -->
+  <!-- Footer -->
+<footer class="site-info">
+  <p>
+    <span>th是个小屁孩 &copy; 2017</span>
+    
+      <span class="split">|</span>
+      <span>th是个小屁孩的技术小屋</span>
+    
+  </p>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+本站总访问量<span id="busuanzi_value_site_pv"></span>次
+本站访客数<span id="busuanzi_value_site_uv"></span>人次
+
+</footer>
+
+
+  <!-- After footer scripts -->
+  <!-- scripts -->
+<script src="/blog/js/app.js"></script>
+
+  <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'th720309'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+
+
+
+
+</body>
+
+</html>

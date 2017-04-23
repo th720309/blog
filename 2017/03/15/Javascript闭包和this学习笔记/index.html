@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<!-- Head tag -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!--Description-->
+  
+  <meta name="description" content="笔直向前 说到做到">
+  
+
+  <!--Author-->
+  
+  <meta name="author" content="th是个小屁孩">
+  
+
+  <!--Open Graph Title-->
+  
+      <meta property="og:title" content="Javascript闭包和this学习笔记"/>
+  
+  <!--Open Graph Description-->
+  
+      <meta property="og:description" content="笔直向前 说到做到" />
+  
+  <!--Open Graph Site Name-->
+  <meta property="og:site_name" content="th是个小屁孩"/>
+  <!--Type page-->
+  
+      <meta property="og:type" content="article" />
+  
+  <!--Page Cover-->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- 百度统计 -->
+    <script>
+	var _hmt = _hmt || [];
+	(function() {
+  	var hm = document.createElement("script");
+  	hm.src = "https://hm.baidu.com/hm.js?c0451e16533956173997b85f7a8de666";
+  	var s = document.getElementsByTagName("script")[0]; 
+  	s.parentNode.insertBefore(hm, s);
+	})();
+    </script>
+  <!-- Title -->
+  
+  <title>Javascript闭包和this学习笔记 - th是个小屁孩</title>
+
+
+  <link rel="shortcut icon" href="/blog/favicon.ico">
+    <!--font-awesome-->
+  <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/blog/css/thplayer.css">
+  <!-- Custom CSS/Sass -->
+  <link rel="stylesheet" href="/blog/css/style.css">
+<script src="http://oct3pmpde.bkt.clouddn.com/jquery.js"></script>
+</head>
+
+
+<body>
+
+  <!-- Nav -->
+  <header class="site-header">
+  <div class="header-inside">
+    
+    <div class="logo">
+      <a href="http://www.tianhao.site" rel="home">
+        
+        <img src="http://oct3pmpde.bkt.clouddn.com/timg.jpg" alt="th是个小屁孩" height="60">
+        
+      </a>
+    </div>
+    <a class="header-name" href="/blog/">
+            <span>th是个小屁孩</span>
+            的部落宅
+        </a>
+    <!-- navbar -->
+    <nav class="navbar">
+      <!--  nav links -->
+      <div class="collapse">
+        <ul class="navbar-nav">
+          
+          
+            <li>
+              <a href="/blog/.">
+                
+                  <i class="fa fa-home "></i>
+                
+                首页
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/archives">
+                
+                  <i class="fa fa-archive "></i>
+                
+                归档
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/about">
+                
+                  <i class="fa fa-user "></i>
+                
+                关于
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/project">
+                
+                  <i class="fa fa-folder-open "></i>
+                
+                项目
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/photo">
+                
+                  <i class="fa fa-photo "></i>
+                
+                相册
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/guestbook">
+                
+                  <i class="fa fa-edit "></i>
+                
+                留言
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/one">
+                
+                  <i class="fa fa-bicycle "></i>
+                
+                one
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/atom.xml">
+                
+                  <i class="fa fa-send "></i>
+                
+                RSS
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </nav>
+    <div class="button-wrap">
+      <button class="menu-toggle">Primary Menu</button>
+    </div>
+  </div>
+</header>
+
+
+  <!-- Main Content -->
+  
+<div class="content-area">
+  <div class="post">
+    <!-- Post Content -->
+    <div class="container">
+      <article>
+        <!-- Title date & tags -->
+        <div class="post-header">
+          <h1 class="entry-title">
+            Javascript闭包和this学习笔记
+            
+          </h1>
+         
+        </div>
+　　　　　　　　<p class="a-posted-on">2017-03-15</p>
+        <!-- Post Main Content -->
+        <div class="entry-content">
+          <p><img src="http://oct3pmpde.bkt.clouddn.com/timg%20%282%29.jpg" width="600" height="347"></p>
+<a id="more"></a>
+<p>上一篇详细说明了我对执行上下文和变量对象的理解，这篇文章记录一下我对Javascript中闭包与this指向的理解。</p>
+<hr>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>　<br>　　首先什么是闭包？《Javascript高级程序设计》书中说，<strong>闭包是指有权访问另一个函数作用域中的变量的函数</strong>，创建闭包的常见方式就是在一个函数内部创建另一个函数。下面我们看一个例子。
+　　</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">　　function th1()&#123;</div><div class="line">　　　　</div><div class="line">　　　　var name = &quot;tian&quot;;</div><div class="line">　　　　</div><div class="line">　　　　return function th2()&#123;</div><div class="line">　　　　　　alert(name); </div><div class="line">　　　　&#125;;</div><div class="line">　　</div><div class="line">　　&#125;</div><div class="line">　　var result = th1();</div><div class="line">　　result(); // tian</div></pre></td></tr></table></figure>
+<p>  我们来分析一下这个例子的完整执行过程。首先，全局执行上下文入栈，声明了一个值result，把函数th1()赋值给了这个变量，这个时候，调用th1()函数，th1()的函数执行环境入栈，之后调用result()，th2()的执行环境入栈，此时输出了name,th2()的作用域包括本身函数作用域，外部函数作用域（即th1()）和全局作用域，所以这里的name是外部函数作用域中的变量。由此可见，我们倘若需要某个函数访问另一个函数作用域内的对象，我们可以使用闭包的方法。</p>
+<hr>
+<p>　我们知道，当一个函数执行完成，局部活动变量就会被销毁，但是当我们使用闭包，就不会发生这种情况，由于闭包会携带包含它的函数的作用域，所以它会比其他函数占用更多的内存，那么除了会占用更多内存外，闭包还有没有别的缺点呢？下面我记录一下另外一个使用闭包值得注意的问题。
+　</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function createFunctions()&#123;</div><div class="line">	 </div><div class="line">	 var result = new Array();</div><div class="line"></div><div class="line">     for (var i=0; i&lt;10; i++)&#123;</div><div class="line">          result[i] = function()&#123;</div><div class="line">               return i;</div><div class="line">          &#125;;</div><div class="line">     &#125;</div><div class="line"> </div><div class="line">     return result;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p> 按照常理，我们会觉得这题随着i的增大，result[i]也会逐渐增大，事实上是不是如此？答案并不是，输出的值都是10，我们在createFunction()里使用了一个闭包，这个闭包是一个匿名函数，返回的是i的值，每个函数的作用域链中都保存着createfunction()函数的活动对象，所以他们引用的是同一个变量i，当外部函数返回后，i=10，此时匿名函数引用着保存变量i的同一个变量对象，所以在每个函数内部i的值都是10,怎么避免掉这个问题呢？我们可以通过创建另一个匿名函数强制让闭包的行为符合预期。如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function createFunctions()&#123;</div><div class="line">	 </div><div class="line">	 var result = new Array();</div><div class="line"></div><div class="line">     for (var i=0; i&lt;10; i++)&#123;</div><div class="line">          result[i] = function(num)&#123;</div><div class="line">          　　　return function()&#123;</div><div class="line">                    return num;</div><div class="line">               &#125;</div><div class="line">          &#125;;</div><div class="line">     &#125;</div><div class="line"> </div><div class="line">     return result;</div></pre></td></tr></table></figure>
+<p>　这个时候，我们没有直接把闭包赋值给数组，而是定义一个匿名函数，并将立即执行该匿名函数的结果赋值给了数组。通过中间量num,result数组中的每个函数都有一个num变量的副本，因此可以返回各自不同的数值。
+　</p>
+<hr>
+<h2 id="this指向"><a href="#this指向" class="headerlink" title="this指向"></a>this指向</h2><p>　<br>　学习javascript的过程中，this的指向问题有时候没有我们想的那么简单。上一篇笔记介绍执行上下文的时候，知道this指向是在执行上下文创建的时候确定的，而执行上下文是在函数调用的时候创建的，所以this指向谁是在函数被调用的时候才确定，而非函数被声明时，在全局函数中，this就等于window,而在函数被作为某个对象的方法被调用时，this等于那个对象，不过匿名函数的执行环境具有全局性，有时候会有一点不同，我们看一个例子。
+　</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var name = &quot;The Window&quot;;</div><div class="line"></div><div class="line">var object = &#123;</div><div class="line">	</div><div class="line">    name: &quot;My Object&quot;;</div><div class="line">  </div><div class="line">    getNameFunc: function()&#123;</div><div class="line">	    return function()&#123;</div><div class="line">		    return this.name;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">alert (object.getNameFunc()); //&quot;The Window&quot;</div></pre></td></tr></table></figure>
+<p> 这题输出的是全局变量里的name,而非外部函数的name,我们知道函数在被调用时都会自动取得两个特殊变量：this和arguments.内部函数在搜索这两个变量时，只会搜索到活动对象为止，不会访问到外部函数的变量。那么怎么样才能让闭包访问这个对象呢？看下面改动的代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var name = &quot;The Window&quot;;</div><div class="line"></div><div class="line">var object = &#123;</div><div class="line">	</div><div class="line">    name: &quot;My Object&quot;;</div><div class="line">  </div><div class="line">    getNameFunc: function()&#123;</div><div class="line">        var that = this;</div><div class="line">	    return function()&#123;</div><div class="line">		    return that.name;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">alert (object.getNameFunc()); //&quot;My Object&quot;</div></pre></td></tr></table></figure>
+<p>　在定义匿名函数之前，我们声明了一个变量叫that,然后把this对象赋值给他，而在关闭闭包之后，闭包也可以访问这个变量，因为它是我们在包含函数中特意声明的一个变量，所以调用object.getNameFunc()，就返回”My Object”.</p>
+
+        </div>
+      </article>
+    </div>
+    <!-- Pre or Next -->
+    
+	<div class="container" >
+           <ul class="pager">
+    	     
+      	     <li class="previous">
+              <a href="/blog/2017/03/14/Javascript变量对象学习笔记/" rel="prev">下一篇</a>
+             </li>
+           
+           
+              <li class="next">
+              <a href="/blog/2017/03/31/360前端星总结/" rel="prev">上一篇</a>
+            </li>
+           
+          </ul>
+       </div>
+　　　　<!-- Comments -->
+    <div class="container">
+      <% if (page.comments){ %>
+<section id="comment">
+  <!-- <h1 class="title"><%= __('comment') %></h1> -->
+
+  <% if(theme.disqus_shortname) { %>
+  <div id="disqus_thread">
+    <script type="text/javascript">
+    var disqus_config = function () {
+          this.page.url = window.location.href;
+          this.page.identifier = '<%= page.layout %>-<%= page.slug %>';
+          this.page.title = '<%= page.title %>';
+      };
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+  <% } else if (theme.duoshuo_shortname) { %>
+    <!-- 多说评论框 start -->
+    <script type="text/javascript">
+var duoshuoQuery = {short_name:"<%= theme.duoshuo_shortname %>"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.unstable.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+
+    <div class="ds-thread" data-thread-key="<%= page.layout %>-<%= page.slug %>" data-title="<%= page.title %>" data-url="<%= page.permalink %>"></div>
+    <!-- 多说评论框 end -->
+  <% } %>
+</section>
+<% } %>
+
+    </div>
+   
+　　　　
+  </div>
+</div>
+
+
+　　<!-- top -->
+  <div id="rocket-to-top">
+	<div class="level-2"></div>
+	<div class="level-3"></div>
+</div>
+<script src="http://oct3pmpde.bkt.clouddn.com/top.js"></script>
+<script type="text/javascript" src="http://oct3pmpde.bkt.clouddn.com/jquery.js"></script>
+
+  
+  <!-- Footer -->
+  <!-- Footer -->
+<footer class="site-info">
+  <p>
+    <span>th是个小屁孩 &copy; 2017</span>
+    
+      <span class="split">|</span>
+      <span>th是个小屁孩的技术小屋</span>
+    
+  </p>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+本站总访问量<span id="busuanzi_value_site_pv"></span>次
+本站访客数<span id="busuanzi_value_site_uv"></span>人次
+
+</footer>
+
+
+  <!-- After footer scripts -->
+  <!-- scripts -->
+<script src="/blog/js/app.js"></script>
+
+  <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'th720309'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+
+
+
+
+</body>
+
+</html>
