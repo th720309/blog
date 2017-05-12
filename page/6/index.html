@@ -7,43 +7,31 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <!--Description-->
-  <% if (page.description){ %>
-  <meta name="description" content="<%= page.description %>">
-  <% } else if (config.description){ %>
-  <meta name="description" content="<%= config.description %>">
-  <% } %>
+  
+  <meta name="description" content="笔直向前 说到做到">
+  
 
   <!--Author-->
-  <% if (config.author){ %>
-  <meta name="author" content="<%= config.author %>">
-  <% } %>
+  
+  <meta name="author" content="th是个小屁孩">
+  
 
   <!--Open Graph Title-->
-  <% if (page.title){ %>
-      <meta property="og:title" content="<%= page.title %>"/>
-  <% } else { %>
-      <meta property="og:title" content="<%= config.title %>"/>
-  <% } %>
+  
+      <meta property="og:title" content="th是个小屁孩"/>
+  
   <!--Open Graph Description-->
-  <% if (page.description){ %>
-      <meta property="og:description" content="<%= page.description %>" />
-  <% } else if (config.description) { %>
-      <meta property="og:description" content="<%= config.description %>" />
-  <% } %>
+  
+      <meta property="og:description" content="笔直向前 说到做到" />
+  
   <!--Open Graph Site Name-->
-  <meta property="og:site_name" content="<%= config.title %>"/>
+  <meta property="og:site_name" content="th是个小屁孩"/>
   <!--Type page-->
-  <% if(page.title) { %>
-      <meta property="og:type" content="article" />
-  <% } else { %>
+  
       <meta property="og:type" content="website" />
-  <% } %>
+  
   <!--Page Cover-->
-  <% if (page.share_cover) { %>
-      <meta property="og:image" content="<%= config.url %><%= page.share_cover %>" />
-  <% } else if (config.cover) { %>
-      <meta property="og:image" content="<%= config.url %><%= config.cover %>"/>
-  <% } %>
+  
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <!-- 百度统计 -->
@@ -57,28 +45,17 @@
 	})();
     </script>
   <!-- Title -->
-  <%
-  var title = [];
-  if (page.title) title.push(page.title);
-  if (page.category) title.push(page.category);
-  if (page.tag) title.push(page.tag);
-  if (page.archive) {
-      if (page.year) title.push(__('archive_b', page.year + (page.month ? '/' + page.month : '')));
-      else title.push(__('archive_a'));
-  }
-  title.push(config.title);
-  if (is_home() && config.subtitle) title.push(config.subtitle);
-  %>
-  <title><%= title.join(' - ') %></title>
+  
+  <title>th是个小屁孩 - 笔直向前 说到做到</title>
 
 
-  <link rel="shortcut icon" href="<%- url_for(config.favicon || theme.favicon) %>">
+  <link rel="shortcut icon" href="/blog/favicon.ico">
     <!--font-awesome-->
   <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <%- css('css/thplayer') %>
+  <link rel="stylesheet" href="/blog/css/thplayer.css">
   <!-- Custom CSS/Sass -->
-  <%- css('css/style') %>
-
+  <link rel="stylesheet" href="/blog/css/style.css">
+<script src="http://oct3pmpde.bkt.clouddn.com/jquery.js"></script>
 </head>
 
 
@@ -90,13 +67,13 @@
     
     <div class="logo">
       <a href="http://www.tianhao.site" rel="home">
-        <% if (config.logo || theme.logo) { %>
-        <img src="<%- config.logo || theme.logo %>" alt="<%- config.title %>" height="60">
-        <% } %>
+        
+        <img src="http://oct3pmpde.bkt.clouddn.com/timg.jpg" alt="th是个小屁孩" height="60">
+        
       </a>
     </div>
-    <a class="header-name" href="<%= url_for() %>">
-            <span><%- config.title %></span>
+    <a class="header-name" href="/blog/">
+            <span>th是个小屁孩</span>
             的部落宅
         </a>
     <!-- navbar -->
@@ -104,17 +81,80 @@
       <!--  nav links -->
       <div class="collapse">
         <ul class="navbar-nav">
-          <% var site_navs = config.nav || theme.nav  %>
-          <% for (var i in site_navs){ %>
+          
+          
             <li>
-              <a href="<%- site_navs[i].url ? url_for(site_navs[i].url) : url_for(site_navs[i]) %>">
-                <% if (site_navs[i].icon) { %>
-                  <i class="fa fa-<%= site_navs[i].icon %> "></i>
-                <% } %>
-                <%= site_navs[i].id %>
+              <a href="/blog/.">
+                
+                  <i class="fa fa-home "></i>
+                
+                首页
               </a>
             </li>
-          <% } %>
+          
+            <li>
+              <a href="/blog/archives">
+                
+                  <i class="fa fa-archive "></i>
+                
+                归档
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/about">
+                
+                  <i class="fa fa-user "></i>
+                
+                关于
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/project">
+                
+                  <i class="fa fa-folder-open "></i>
+                
+                项目
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/photo">
+                
+                  <i class="fa fa-photo "></i>
+                
+                相册
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/guestbook">
+                
+                  <i class="fa fa-edit "></i>
+                
+                留言
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/one">
+                
+                  <i class="fa fa-bicycle "></i>
+                
+                one
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/atom.xml">
+                
+                  <i class="fa fa-send "></i>
+                
+                RSS
+              </a>
+            </li>
+          
         </ul>
       </div>
       <!-- /.navbar-collapse -->
@@ -173,34 +213,34 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
-      <a href="/blog/2016/11/12/2016-11-12随记/" rel="bookmark">
-        2016-11-12随记  
+      <a href="<%- config.root %><%- item.path %>" rel="bookmark">
+        <%- item.title || theme.default_post_title || "Untitled" %>  
       </a>
     </h1>
-    
+    <% if (item.excerpt){ %>
     <div class="entry-content">
       <p>
-        <p><img src="http://oct3pmpde.bkt.clouddn.com/31189058_1392186616852.jpg" width="600" height="347" /></p>
+        <%- item.excerpt %>
       </p>
     </div>
     <div class="post-more-link text-center">
-            <a class="btn" href="/blog/2016/11/12/2016-11-12随记/" rel="contents">
+            <a class="btn" href="<%- config.root %><%- item.path %>" rel="contents">
               阅读全文 »
             </a>
     </div>
     <p class="posted-on">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-    	2016-11-12
+    	<%= item.date.format(config.date_format) %>
     </p>
     <div class="tags-links">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      
-      <a href="/blog/tags/感悟/" rel="tag">
-        感悟
+      <% item.tags.each(function(tag){ %>
+      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
+        <%- tag.name %>
       </a>
-      
+      <% }); %>
     </div>
-    
+    <% } %>
   </article>
 </div>
 
@@ -210,34 +250,34 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
-      <a href="/blog/2016/10/30/git上传本地代码到github（不需配置ssh）/" rel="bookmark">
-        git上传本地代码到github(最简易教程，不需配置ssh)  
+      <a href="<%- config.root %><%- item.path %>" rel="bookmark">
+        <%- item.title || theme.default_post_title || "Untitled" %>  
       </a>
     </h1>
-    
+    <% if (item.excerpt){ %>
     <div class="entry-content">
       <p>
-        <p><img src="http://oct3pmpde.bkt.clouddn.com/20160130201735_521.jpg" width="600" height="347" /></p>
+        <%- item.excerpt %>
       </p>
     </div>
     <div class="post-more-link text-center">
-            <a class="btn" href="/blog/2016/10/30/git上传本地代码到github（不需配置ssh）/" rel="contents">
+            <a class="btn" href="<%- config.root %><%- item.path %>" rel="contents">
               阅读全文 »
             </a>
     </div>
     <p class="posted-on">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-    	2016-10-30
+    	<%= item.date.format(config.date_format) %>
     </p>
     <div class="tags-links">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      
-      <a href="/blog/tags/git/" rel="tag">
-        git
+      <% item.tags.each(function(tag){ %>
+      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
+        <%- tag.name %>
       </a>
-      
+      <% }); %>
     </div>
-    
+    <% } %>
   </article>
 </div>
 
@@ -247,41 +287,34 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
-      <a href="/blog/2016/10/29/HttpUnit模拟点击以及爬虫实现/" rel="bookmark">
-        HttpUnit模拟点击以及爬虫实现  
+      <a href="<%- config.root %><%- item.path %>" rel="bookmark">
+        <%- item.title || theme.default_post_title || "Untitled" %>  
       </a>
     </h1>
-    
+    <% if (item.excerpt){ %>
     <div class="entry-content">
       <p>
-        <h2 id="HttpUnit-简介"><a href="#HttpUnit-简介" class="headerlink" title="HttpUnit 简介"></a>HttpUnit 简介</h2><blockquote>
-<p>HttpUnit 本质上相当于一个后台的透明的浏览器引擎，使用java中的HttpUnit可以实现模拟点击按钮，抓取网页元素，实现动态爬虫，之前一直使用jsoup进行爬虫，不过这次爬取一个生物论坛时候，需要动态处理，发现了httpUnit这个好的框架。</p>
-</blockquote>
-<hr>
-<h2 id="HttpUnit-demo"><a href="#HttpUnit-demo" class="headerlink" title="HttpUnit demo"></a>HttpUnit demo</h2><hr>
-<p>1.几行代码实现获取网页源代码。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">final WebClient webClient=new WebClient();</div><div class="line">final HtmlPage page=webClient.getPage(&quot;http://www.baidu.com&quot;);</div><div class="line">System.out.println(page.asText());  //asText()是以文本格式显示</div><div class="line">System.out.println(page.asXml());   //asXml()是以xml格式显示</div><div class="line">webClient.closeAllWindows();</div></pre></td></tr></table></figure>
-<hr>
+        <%- item.excerpt %>
       </p>
     </div>
     <div class="post-more-link text-center">
-            <a class="btn" href="/blog/2016/10/29/HttpUnit模拟点击以及爬虫实现/" rel="contents">
+            <a class="btn" href="<%- config.root %><%- item.path %>" rel="contents">
               阅读全文 »
             </a>
     </div>
     <p class="posted-on">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-    	2016-10-29
+    	<%= item.date.format(config.date_format) %>
     </p>
     <div class="tags-links">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      
-      <a href="/blog/tags/爬虫/" rel="tag">
-        爬虫
+      <% item.tags.each(function(tag){ %>
+      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
+        <%- tag.name %>
       </a>
-      
+      <% }); %>
     </div>
-    
+    <% } %>
   </article>
 </div>
 
@@ -354,11 +387,11 @@
 
   <!-- After footer scripts -->
   <!-- scripts -->
-<%- js('js/app.js') %>
-<% if (theme.duoshuo_shortname) { %>
+<script src="/blog/js/app.js"></script>
+
   <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
-    var duoshuoQuery = {short_name:'<%= theme.duoshuo_shortname %>'};
+    var duoshuoQuery = {short_name:'th720309'};
       (function() {
         var ds = document.createElement('script');
         ds.type = 'text/javascript';ds.async = true;
@@ -369,7 +402,7 @@
       })();
       </script>
     <!-- 多说公共JS代码 end -->
-<% } %>
+
 
 
 
