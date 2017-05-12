@@ -214,26 +214,20 @@
       </div>
     </div>
   </div>
-  <% if (page.prev || page.next){ %>
+  
 <div class="container" >
   <ul class="pager">
-    <% if (page.prev){ %>
-      <li class="previous">
-        <a href="<%- config.root %><%- page.prev_link %>">
-          <%- __('next')%>
-        </a>
-      </li>
-    <% } %>
-    <% if (page.next){ %>
+    
+    
       <li class="next">
-        <a href="<%- config.root %><%- page.next_link %>">
-          <%- __('prev')%>
+        <a href="/blog/tags/感悟/page/2/">
+          上一页
         </a>
       </li>
-    <% } %>
+    
   </ul>
 </div>
-<% } %>
+
 
 </div>
 
@@ -266,11 +260,11 @@
 
   <!-- After footer scripts -->
   <!-- scripts -->
-<%- js('js/app.js') %>
-<% if (theme.duoshuo_shortname) { %>
+<script src="/blog/js/app.js"></script>
+
   <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
-    var duoshuoQuery = {short_name:'<%= theme.duoshuo_shortname %>'};
+    var duoshuoQuery = {short_name:'th720309'};
       (function() {
         var ds = document.createElement('script');
         ds.type = 'text/javascript';ds.async = true;
@@ -281,7 +275,7 @@
       })();
       </script>
     <!-- 多说公共JS代码 end -->
-<% } %>
+
 
 
 

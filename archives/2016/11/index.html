@@ -167,47 +167,312 @@
 
 
   <!-- Main Content -->
-  <%
-// use "site.posts" to make all articles in one page. (Need not install hexo-generator-archive)
-    var title = '';
-    if (page.category) title = page.category;
-    if (page.tag) title = "#" + page.tag;
-    if (page.archive) {
-        if (page.year) title = page.year + (page.month ? '/' + page.month : '');
-        else title = __('archive_a');
-    }
-    if (page.photo) {<%- partial('photo') %>}
-%>
+  
 
 <!-- Main Content -->
 <div class="archive content-area">
   <div class="container">
-    <h1 class="entry-title"><%- title %></h1>
+    <h1 class="entry-title">2016/11</h1>
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <!-- Use lodash to classify posts. See https://lodash.com/docs#groupBy
           1. group site.posts by year
           2. sort posts-in-one-year by Month and Day
         -->
-        <%
-          var groupObj = _.groupBy(site.posts.toArray(), function(p){return p.date.format('YYYY')});
-          var groupArr = [];
-          for (var year in groupObj){
-            var postsInThisYear = groupObj[year];
-            var sortedPosts = _.sortBy(postsInThisYear, function(p) { return p.date.format('MMDD') });
-            groupArr.push({
-              year: year,
-              posts: sortedPosts.reverse()
-            });
-          }
-        %>
+        
 
-        <% groupArr.reverse().forEach(function(item) { %>
-          <h2 class="year"><%- item.year %></h2>
+        
+          <h2 class="year">2017</h2>
           <ul class="list">
-            <%- partial('_partial/article-archive', {posts: item.posts}) %>
+            
+  <li>
+    <span class="date">
+      2017-05-10
+    </span>
+    <a href="/blog/2017/05/10/Node.js+Express+Mongodb实现学校论坛/" class="title">
+      Node.js+Express+Mongodb 实现学校论坛
+    </a>
+  </li>
+
+  <li>
+    <span class="date">
+      2017-04-02
+    </span>
+    <a href="/blog/2017/04/02/Ｍ-thplayer正式完工啦/" class="title">
+      M-thplayer正式完工啦！
+    </a>
+  </li>
+
+  <li>
+    <span class="date">
+      2017-03-31
+    </span>
+    <a href="/blog/2017/03/31/360前端星总结/" class="title">
+      360前端星总结
+    </a>
+  </li>
+
+  <li>
+    <span class="date">
+      2017-03-15
+    </span>
+    <a href="/blog/2017/03/15/Javascript闭包和this学习笔记/" class="title">
+      Javascript闭包和this学习笔记
+    </a>
+  </li>
+
+  <li>
+    <span class="date">
+      2017-03-14
+    </span>
+    <a href="/blog/2017/03/14/Javascript变量对象学习笔记/" class="title">
+      《JavaScript变量对象学习笔记》
+    </a>
+  </li>
+
+  <li>
+    <span class="date">
+      2017-03-05
+    </span>
+    <a href="/blog/2017/03/05/hexo-theme-believe version2.0说明文档/" class="title">
+      hexo-theme-believe 说明文档(2)
+    </a>
+  </li>
+
+  <li>
+    <span class="date">
+      2017-02-23
+    </span>
+    <a href="/blog/2017/02/23/《JavaScript DOM 编程艺术2》 笔记摘抄 /" class="title">
+      《JavaScript DOM 编程艺术2》 笔记摘抄
+    </a>
+  </li>
+
+  <li>
+    <span class="date">
+      2017-02-02
+    </span>
+    <a href="/blog/2017/02/02/hexo-theme-believe 文档/" class="title">
+      hexo-theme-believe 文档
+    </a>
+  </li>
+
+  <li>
+    <span class="date">
+      2017-01-06
+    </span>
+    <a href="/blog/2017/01/06/IFE-2016SP(百度前端技术学院）（长期更新）/" class="title">
+      IFE-2016SP(百度前端技术学院）（长期更新）
+    </a>
+  </li>
+
+
           </ul>
-        <% }) %>
+        
+          <h2 class="year">2016</h2>
+          <ul class="list">
+            
+  <li>
+    <span class="date">
+      2016-12-31
+    </span>
+    <a href="/blog/2016/12/31/2016年终总结，2017何去何从？/" class="title">
+      2016年终总结，2017何去何从？
+    </a>
+  </li>
+
+  <li>
+    <span class="date">
+      2016-12-29
+    </span>
+    <a href="/blog/2016/12/29/带cookie访问服务器实现模拟登录/" class="title">
+      带cookie访问服务器实现模拟登录
+    </a>
+  </li>
+
+  <li>
+    <span class="date">
+      2016-12-19
+    </span>
+    <a href="/blog/2016/12/19/《请回答1988》/" class="title">
+      《请回答1988》——影评
+    </a>
+  </li>
+
+  <li>
+    <span class="date">
+      2016-12-12
+    </span>
+    <a href="/blog/2016/12/12/网易云音乐歌单爬虫 收听量分析/" class="title">
+      网易云音乐歌单爬虫 收听量分析
+    </a>
+  </li>
+
+  <li>
+    <span class="date">
+      2016-11-26
+    </span>
+    <a href="/blog/2016/11/26/2016-11-26随记/" class="title">
+      2016-11-26随记
+    </a>
+  </li>
+
+  <li>
+    <span class="date">
+      2016-11-16
+    </span>
+    <a href="/blog/2016/11/16/Python处理矩阵（自然语言处理）/" class="title">
+      Python处理矩阵（自然语言处理）
+    </a>
+  </li>
+
+  <li>
+    <span class="date">
+      2016-11-12
+    </span>
+    <a href="/blog/2016/11/12/2016-11-12随记/" class="title">
+      2016-11-12随记
+    </a>
+  </li>
+
+  <li>
+    <span class="date">
+      2016-10-30
+    </span>
+    <a href="/blog/2016/10/30/git上传本地代码到github（不需配置ssh）/" class="title">
+      git上传本地代码到github(最简易教程，不需配置ssh)
+    </a>
+  </li>
+
+  <li>
+    <span class="date">
+      2016-10-29
+    </span>
+    <a href="/blog/2016/10/29/HttpUnit模拟点击以及爬虫实现/" class="title">
+      HttpUnit模拟点击以及爬虫实现
+    </a>
+  </li>
+
+  <li>
+    <span class="date">
+      2016-10-12
+    </span>
+    <a href="/blog/2016/10/12/Linux实现tensorflow搭建与实现风格作画/" class="title">
+      Linux tensorflow 框架搭建与实现风格作画
+    </a>
+  </li>
+
+  <li>
+    <span class="date">
+      2016-10-10
+    </span>
+    <a href="/blog/2016/10/10/linux 迁移各种问题/" class="title">
+      Linux 迁移各种问题
+    </a>
+  </li>
+
+  <li>
+    <span class="date">
+      2016-09-22
+    </span>
+    <a href="/blog/2016/09/22/2016-9-22随记/" class="title">
+      2016-9-22随记
+    </a>
+  </li>
+
+  <li>
+    <span class="date">
+      2016-09-18
+    </span>
+    <a href="/blog/2016/09/18/算法篇————二分查找算法/" class="title">
+      算法篇————二分查找算法
+    </a>
+  </li>
+
+  <li>
+    <span class="date">
+      2016-09-17
+    </span>
+    <a href="/blog/2016/09/17/《釜山行》/" class="title">
+      《釜山行》
+    </a>
+  </li>
+
+  <li>
+    <span class="date">
+      2016-09-15
+    </span>
+    <a href="/blog/2016/09/15/算法篇————快速幂/" class="title">
+      算法篇————快速幂
+    </a>
+  </li>
+
+  <li>
+    <span class="date">
+      2016-09-14
+    </span>
+    <a href="/blog/2016/09/14/算法篇——入门级算法/" class="title">
+      算法篇————入门级算法
+    </a>
+  </li>
+
+  <li>
+    <span class="date">
+      2016-09-13
+    </span>
+    <a href="/blog/2016/09/13/hexo-next-搭建博客相册页和音乐页教程/" class="title">
+      hexo + next 搭建博客相册页和音乐页教程
+    </a>
+  </li>
+
+  <li>
+    <span class="date">
+      2016-09-13
+    </span>
+    <a href="/blog/2016/09/13/2016-9-13随记/" class="title">
+      2016-9-13随记
+    </a>
+  </li>
+
+  <li>
+    <span class="date">
+      2016-09-11
+    </span>
+    <a href="/blog/2016/09/11/浪客剑心——影评/" class="title">
+      《浪客剑心》——影评
+    </a>
+  </li>
+
+  <li>
+    <span class="date">
+      2016-09-08
+    </span>
+    <a href="/blog/2016/09/08/抓取正方教务学生照片/" class="title">
+      抓取正方教务学生照片
+    </a>
+  </li>
+
+  <li>
+    <span class="date">
+      2016-09-03
+    </span>
+    <a href="/blog/2016/09/03/博客建立完完完成/" class="title">
+      博客建立完成
+    </a>
+  </li>
+
+  <li>
+    <span class="date">
+      2016-09-01
+    </span>
+    <a href="/blog/2016/09/01/我的第一篇博客/" class="title">
+      我的第一篇博客
+    </a>
+  </li>
+
+
+          </ul>
+        
       </div>
     </div>
   </div>
@@ -242,11 +507,11 @@
 
   <!-- After footer scripts -->
   <!-- scripts -->
-<%- js('js/app.js') %>
-<% if (theme.duoshuo_shortname) { %>
+<script src="/blog/js/app.js"></script>
+
   <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
-    var duoshuoQuery = {short_name:'<%= theme.duoshuo_shortname %>'};
+    var duoshuoQuery = {short_name:'th720309'};
       (function() {
         var ds = document.createElement('script');
         ds.type = 'text/javascript';ds.async = true;
@@ -257,7 +522,7 @@
       })();
       </script>
     <!-- 多说公共JS代码 end -->
-<% } %>
+
 
 
 
