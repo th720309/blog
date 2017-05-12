@@ -213,40 +213,34 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
-      <a href="/blog/2016/10/12/Linux实现tensorflow搭建与实现风格作画/" rel="bookmark">
-        Linux tensorflow 框架搭建与实现风格作画  
+      <a href="<%- config.root %><%- item.path %>" rel="bookmark">
+        <%- item.title || theme.default_post_title || "Untitled" %>  
       </a>
     </h1>
-    
+    <% if (item.excerpt){ %>
     <div class="entry-content">
       <p>
-        <h2 id="CPU平台完成两图风格融合完美作画"><a href="#CPU平台完成两图风格融合完美作画" class="headerlink" title="CPU平台完成两图风格融合完美作画"></a>CPU平台完成两图风格融合完美作画</h2><ol>
-<li>该教程根据研究者july教程补充编写</li>
-<li>作者: th是个小屁孩</li>
-<li>实验平台为Ubuntu 14.04 , 版本关系不大，16.04也可以进行实验</li>
-<li>该实验采用谷歌开源框架tensorflow</li>
-</ol>
-<p>##前言<br>  前几日在微博看到july的梵高作画实验，发现挺有意思，便打算进行实验一番，由于学生党，没有什么特别好的机器，只能使用垃圾显卡和还可以的处理器进行实验，没有GPU，加大了时间成本，不过没关系，能跑出来就很成功了。<br>
+        <%- item.excerpt %>
       </p>
     </div>
     <div class="post-more-link text-center">
-            <a class="btn" href="/blog/2016/10/12/Linux实现tensorflow搭建与实现风格作画/" rel="contents">
+            <a class="btn" href="<%- config.root %><%- item.path %>" rel="contents">
               阅读全文 »
             </a>
     </div>
     <p class="posted-on">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-    	2016-10-12
+    	<%= item.date.format(config.date_format) %>
     </p>
     <div class="tags-links">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      
-      <a href="/blog/tags/Linux/" rel="tag">
-        Linux
+      <% item.tags.each(function(tag){ %>
+      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
+        <%- tag.name %>
       </a>
-      
+      <% }); %>
     </div>
-    
+    <% } %>
   </article>
 </div>
 
@@ -256,36 +250,34 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
-      <a href="/blog/2016/10/10/linux 迁移各种问题/" rel="bookmark">
-        Linux 迁移各种问题  
+      <a href="<%- config.root %><%- item.path %>" rel="bookmark">
+        <%- item.title || theme.default_post_title || "Untitled" %>  
       </a>
     </h1>
-    
+    <% if (item.excerpt){ %>
     <div class="entry-content">
       <p>
-        <h1 id="Linux-安装各种情况记录"><a href="#Linux-安装各种情况记录" class="headerlink" title="Linux 安装各种情况记录"></a>Linux 安装各种情况记录</h1><p>  这几天一直没有更新博客，一个是国庆节放假在家放纵了几天没有学习，另一个原因是一直在搞Linux系统，下面记录一下我安装的坑爹过程。</p>
-<hr>
-<h2 id="系统安装的问题"><a href="#系统安装的问题" class="headerlink" title="系统安装的问题"></a>系统安装的问题</h2><p>我安装的是Ubuntu 14.04，据说是最稳定的版本，安装过程中出了一些问题，首先，一开始，我的无线网卡没有识别，无法上网，然后我就打算先用有线网络，然后再下载无线驱动进行无线上网配置，然而苦逼的我不但无线连不上，连有线网络也无法连接。弄了一上午，配置锐捷也配置mentohust,都提示认证成功但是就是无法上网，找了很多教程也没弄明白怎么回事，最后想想好像有线网络对我来说在学校也没什么用，就开始研究无线驱动，好在看到一篇教程，在Ubuntu安装开始时先在试用版中找到附加驱动，将无线驱动安装完成，然后再正式安装这样就解决了我的无线驱动问题，另外，说真的，Linux下的输入法总是出现一些问题，搜狗输入法也是，有时候切换不了中文。<br>
+        <%- item.excerpt %>
       </p>
     </div>
     <div class="post-more-link text-center">
-            <a class="btn" href="/blog/2016/10/10/linux 迁移各种问题/" rel="contents">
+            <a class="btn" href="<%- config.root %><%- item.path %>" rel="contents">
               阅读全文 »
             </a>
     </div>
     <p class="posted-on">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-    	2016-10-10
+    	<%= item.date.format(config.date_format) %>
     </p>
     <div class="tags-links">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      
-      <a href="/blog/tags/Linux/" rel="tag">
-        Linux
+      <% item.tags.each(function(tag){ %>
+      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
+        <%- tag.name %>
       </a>
-      
+      <% }); %>
     </div>
-    
+    <% } %>
   </article>
 </div>
 
@@ -295,34 +287,34 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
-      <a href="/blog/2016/09/22/2016-9-22随记/" rel="bookmark">
-        2016-9-22随记  
+      <a href="<%- config.root %><%- item.path %>" rel="bookmark">
+        <%- item.title || theme.default_post_title || "Untitled" %>  
       </a>
     </h1>
-    
+    <% if (item.excerpt){ %>
     <div class="entry-content">
       <p>
-        <h2 id="随记"><a href="#随记" class="headerlink" title="随记"></a>随记</h2><p>腾讯出了一部电影《@互联网人》，最近阿里的月饼事件炒的挺火，前段时间百度的魏则西事件让百度亏损了不少，更站在了舆论风头，这个时候，好像觉得腾讯确实是一家良心公司了，看完这部《@互联网人》，对产品经理有了一些不一样的认识。<br>
+        <%- item.excerpt %>
       </p>
     </div>
     <div class="post-more-link text-center">
-            <a class="btn" href="/blog/2016/09/22/2016-9-22随记/" rel="contents">
+            <a class="btn" href="<%- config.root %><%- item.path %>" rel="contents">
               阅读全文 »
             </a>
     </div>
     <p class="posted-on">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-    	2016-09-22
+    	<%= item.date.format(config.date_format) %>
     </p>
     <div class="tags-links">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      
-      <a href="/blog/tags/感悟/" rel="tag">
-        感悟
+      <% item.tags.each(function(tag){ %>
+      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
+        <%- tag.name %>
       </a>
-      
+      <% }); %>
     </div>
-    
+    <% } %>
   </article>
 </div>
 
@@ -395,11 +387,11 @@
 
   <!-- After footer scripts -->
   <!-- scripts -->
-<script src="/blog/js/app.js"></script>
-
+<%- js('js/app.js') %>
+<% if (theme.duoshuo_shortname) { %>
   <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
-    var duoshuoQuery = {short_name:'th720309'};
+    var duoshuoQuery = {short_name:'<%= theme.duoshuo_shortname %>'};
       (function() {
         var ds = document.createElement('script');
         ds.type = 'text/javascript';ds.async = true;
@@ -410,7 +402,7 @@
       })();
       </script>
     <!-- 多说公共JS代码 end -->
-
+<% } %>
 
 
 

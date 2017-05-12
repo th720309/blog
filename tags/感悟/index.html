@@ -266,11 +266,11 @@
 
   <!-- After footer scripts -->
   <!-- scripts -->
-<script src="/blog/js/app.js"></script>
-
+<%- js('js/app.js') %>
+<% if (theme.duoshuo_shortname) { %>
   <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
-    var duoshuoQuery = {short_name:'th720309'};
+    var duoshuoQuery = {short_name:'<%= theme.duoshuo_shortname %>'};
       (function() {
         var ds = document.createElement('script');
         ds.type = 'text/javascript';ds.async = true;
@@ -281,7 +281,7 @@
       })();
       </script>
     <!-- 多说公共JS代码 end -->
-
+<% } %>
 
 
 

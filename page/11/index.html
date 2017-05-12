@@ -213,34 +213,34 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
-      <a href="/blog/2016/09/01/我的第一篇博客/" rel="bookmark">
-        我的第一篇博客  
+      <a href="<%- config.root %><%- item.path %>" rel="bookmark">
+        <%- item.title || theme.default_post_title || "Untitled" %>  
       </a>
     </h1>
-    
+    <% if (item.excerpt){ %>
     <div class="entry-content">
       <p>
-        <p>今天花了一天时间用hexo框架搭建了这个博客，总算初步完工了，还差几个功能没有写，之前CSDN一直在更新博客，之后这两个博客会同步更新，谢谢朋友光临。<br><br\><br>
+        <%- item.excerpt %>
       </p>
     </div>
     <div class="post-more-link text-center">
-            <a class="btn" href="/blog/2016/09/01/我的第一篇博客/" rel="contents">
+            <a class="btn" href="<%- config.root %><%- item.path %>" rel="contents">
               阅读全文 »
             </a>
     </div>
     <p class="posted-on">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-    	2016-09-01
+    	<%= item.date.format(config.date_format) %>
     </p>
     <div class="tags-links">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      
-      <a href="/blog/tags/感悟/" rel="tag">
-        感悟
+      <% item.tags.each(function(tag){ %>
+      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
+        <%- tag.name %>
       </a>
-      
+      <% }); %>
     </div>
-    
+    <% } %>
   </article>
 </div>
 
@@ -313,11 +313,11 @@
 
   <!-- After footer scripts -->
   <!-- scripts -->
-<script src="/blog/js/app.js"></script>
-
+<%- js('js/app.js') %>
+<% if (theme.duoshuo_shortname) { %>
   <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
-    var duoshuoQuery = {short_name:'th720309'};
+    var duoshuoQuery = {short_name:'<%= theme.duoshuo_shortname %>'};
       (function() {
         var ds = document.createElement('script');
         ds.type = 'text/javascript';ds.async = true;
@@ -328,7 +328,7 @@
       })();
       </script>
     <!-- 多说公共JS代码 end -->
-
+<% } %>
 
 
 
