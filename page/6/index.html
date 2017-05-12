@@ -213,34 +213,34 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
-      <a href="<%- config.root %><%- item.path %>" rel="bookmark">
-        <%- item.title || theme.default_post_title || "Untitled" %>  
+      <a href="/blog/2016/11/12/2016-11-12随记/" rel="bookmark">
+        2016-11-12随记  
       </a>
     </h1>
-    <% if (item.excerpt){ %>
+    
     <div class="entry-content">
       <p>
-        <%- item.excerpt %>
+        <p><img src="http://oct3pmpde.bkt.clouddn.com/31189058_1392186616852.jpg" width="600" height="347" /></p>
       </p>
     </div>
     <div class="post-more-link text-center">
-            <a class="btn" href="<%- config.root %><%- item.path %>" rel="contents">
+            <a class="btn" href="/blog/2016/11/12/2016-11-12随记/" rel="contents">
               阅读全文 »
             </a>
     </div>
     <p class="posted-on">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-    	<%= item.date.format(config.date_format) %>
+    	2016-11-12
     </p>
     <div class="tags-links">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      <% item.tags.each(function(tag){ %>
-      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
-        <%- tag.name %>
+      
+      <a href="/blog/tags/感悟/" rel="tag">
+        感悟
       </a>
-      <% }); %>
+      
     </div>
-    <% } %>
+    
   </article>
 </div>
 
@@ -250,34 +250,34 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
-      <a href="<%- config.root %><%- item.path %>" rel="bookmark">
-        <%- item.title || theme.default_post_title || "Untitled" %>  
+      <a href="/blog/2016/10/30/git上传本地代码到github（不需配置ssh）/" rel="bookmark">
+        git上传本地代码到github(最简易教程，不需配置ssh)  
       </a>
     </h1>
-    <% if (item.excerpt){ %>
+    
     <div class="entry-content">
       <p>
-        <%- item.excerpt %>
+        <p><img src="http://oct3pmpde.bkt.clouddn.com/20160130201735_521.jpg" width="600" height="347" /></p>
       </p>
     </div>
     <div class="post-more-link text-center">
-            <a class="btn" href="<%- config.root %><%- item.path %>" rel="contents">
+            <a class="btn" href="/blog/2016/10/30/git上传本地代码到github（不需配置ssh）/" rel="contents">
               阅读全文 »
             </a>
     </div>
     <p class="posted-on">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-    	<%= item.date.format(config.date_format) %>
+    	2016-10-30
     </p>
     <div class="tags-links">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      <% item.tags.each(function(tag){ %>
-      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
-        <%- tag.name %>
+      
+      <a href="/blog/tags/git/" rel="tag">
+        git
       </a>
-      <% }); %>
+      
     </div>
-    <% } %>
+    
   </article>
 </div>
 
@@ -287,60 +287,67 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
-      <a href="<%- config.root %><%- item.path %>" rel="bookmark">
-        <%- item.title || theme.default_post_title || "Untitled" %>  
+      <a href="/blog/2016/10/29/HttpUnit模拟点击以及爬虫实现/" rel="bookmark">
+        HttpUnit模拟点击以及爬虫实现  
       </a>
     </h1>
-    <% if (item.excerpt){ %>
+    
     <div class="entry-content">
       <p>
-        <%- item.excerpt %>
+        <h2 id="HttpUnit-简介"><a href="#HttpUnit-简介" class="headerlink" title="HttpUnit 简介"></a>HttpUnit 简介</h2><blockquote>
+<p>HttpUnit 本质上相当于一个后台的透明的浏览器引擎，使用java中的HttpUnit可以实现模拟点击按钮，抓取网页元素，实现动态爬虫，之前一直使用jsoup进行爬虫，不过这次爬取一个生物论坛时候，需要动态处理，发现了httpUnit这个好的框架。</p>
+</blockquote>
+<hr>
+<h2 id="HttpUnit-demo"><a href="#HttpUnit-demo" class="headerlink" title="HttpUnit demo"></a>HttpUnit demo</h2><hr>
+<p>1.几行代码实现获取网页源代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">final WebClient webClient=new WebClient();</div><div class="line">final HtmlPage page=webClient.getPage(&quot;http://www.baidu.com&quot;);</div><div class="line">System.out.println(page.asText());  //asText()是以文本格式显示</div><div class="line">System.out.println(page.asXml());   //asXml()是以xml格式显示</div><div class="line">webClient.closeAllWindows();</div></pre></td></tr></table></figure>
+<hr>
       </p>
     </div>
     <div class="post-more-link text-center">
-            <a class="btn" href="<%- config.root %><%- item.path %>" rel="contents">
+            <a class="btn" href="/blog/2016/10/29/HttpUnit模拟点击以及爬虫实现/" rel="contents">
               阅读全文 »
             </a>
     </div>
     <p class="posted-on">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-    	<%= item.date.format(config.date_format) %>
+    	2016-10-29
     </p>
     <div class="tags-links">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      <% item.tags.each(function(tag){ %>
-      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
-        <%- tag.name %>
+      
+      <a href="/blog/tags/爬虫/" rel="tag">
+        爬虫
       </a>
-      <% }); %>
+      
     </div>
-    <% } %>
+    
   </article>
 </div>
 
         </div> 
     
 
-    
+    <% if (page.prev || page.next){ %>
 <div class="container" >
   <ul class="pager">
-    
+    <% if (page.prev){ %>
       <li class="previous">
-        <a href="/blog/page/5/">
-          下一页
+        <a href="<%- config.root %><%- page.prev_link %>">
+          <%- __('next')%>
         </a>
       </li>
-    
-    
+    <% } %>
+    <% if (page.next){ %>
       <li class="next">
-        <a href="/blog/page/7/">
-          上一页
+        <a href="<%- config.root %><%- page.next_link %>">
+          <%- __('prev')%>
         </a>
       </li>
-    
+    <% } %>
   </ul>
 </div>
-
+<% } %>
 
   </main>
   <!-- THplayer -->
