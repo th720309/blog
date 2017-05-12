@@ -7,31 +7,43 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <!--Description-->
-  
-  <meta name="description" content="笔直向前 说到做到">
-  
+  <% if (page.description){ %>
+  <meta name="description" content="<%= page.description %>">
+  <% } else if (config.description){ %>
+  <meta name="description" content="<%= config.description %>">
+  <% } %>
 
   <!--Author-->
-  
-  <meta name="author" content="th是个小屁孩">
-  
+  <% if (config.author){ %>
+  <meta name="author" content="<%= config.author %>">
+  <% } %>
 
   <!--Open Graph Title-->
-  
-      <meta property="og:title" content="th是个小屁孩"/>
-  
+  <% if (page.title){ %>
+      <meta property="og:title" content="<%= page.title %>"/>
+  <% } else { %>
+      <meta property="og:title" content="<%= config.title %>"/>
+  <% } %>
   <!--Open Graph Description-->
-  
-      <meta property="og:description" content="笔直向前 说到做到" />
-  
+  <% if (page.description){ %>
+      <meta property="og:description" content="<%= page.description %>" />
+  <% } else if (config.description) { %>
+      <meta property="og:description" content="<%= config.description %>" />
+  <% } %>
   <!--Open Graph Site Name-->
-  <meta property="og:site_name" content="th是个小屁孩"/>
+  <meta property="og:site_name" content="<%= config.title %>"/>
   <!--Type page-->
-  
+  <% if(page.title) { %>
+      <meta property="og:type" content="article" />
+  <% } else { %>
       <meta property="og:type" content="website" />
-  
+  <% } %>
   <!--Page Cover-->
-  
+  <% if (page.share_cover) { %>
+      <meta property="og:image" content="<%= config.url %><%= page.share_cover %>" />
+  <% } else if (config.cover) { %>
+      <meta property="og:image" content="<%= config.url %><%= config.cover %>"/>
+  <% } %>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <!-- 百度统计 -->
@@ -45,17 +57,28 @@
 	})();
     </script>
   <!-- Title -->
-  
-  <title>th是个小屁孩 - 笔直向前 说到做到</title>
+  <%
+  var title = [];
+  if (page.title) title.push(page.title);
+  if (page.category) title.push(page.category);
+  if (page.tag) title.push(page.tag);
+  if (page.archive) {
+      if (page.year) title.push(__('archive_b', page.year + (page.month ? '/' + page.month : '')));
+      else title.push(__('archive_a'));
+  }
+  title.push(config.title);
+  if (is_home() && config.subtitle) title.push(config.subtitle);
+  %>
+  <title><%= title.join(' - ') %></title>
 
 
-  <link rel="shortcut icon" href="/blog/favicon.ico">
+  <link rel="shortcut icon" href="<%- url_for(config.favicon || theme.favicon) %>">
     <!--font-awesome-->
   <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/blog/css/thplayer.css">
+  <%- css('css/thplayer') %>
   <!-- Custom CSS/Sass -->
-  <link rel="stylesheet" href="/blog/css/style.css">
-<script src="http://oct3pmpde.bkt.clouddn.com/jquery.js"></script>
+  <%- css('css/style') %>
+
 </head>
 
 
@@ -67,13 +90,13 @@
     
     <div class="logo">
       <a href="http://www.tianhao.site" rel="home">
-        
-        <img src="http://oct3pmpde.bkt.clouddn.com/timg.jpg" alt="th是个小屁孩" height="60">
-        
+        <% if (config.logo || theme.logo) { %>
+        <img src="<%- config.logo || theme.logo %>" alt="<%- config.title %>" height="60">
+        <% } %>
       </a>
     </div>
-    <a class="header-name" href="/blog/">
-            <span>th是个小屁孩</span>
+    <a class="header-name" href="<%= url_for() %>">
+            <span><%- config.title %></span>
             的部落宅
         </a>
     <!-- navbar -->
@@ -81,80 +104,17 @@
       <!--  nav links -->
       <div class="collapse">
         <ul class="navbar-nav">
-          
-          
+          <% var site_navs = config.nav || theme.nav  %>
+          <% for (var i in site_navs){ %>
             <li>
-              <a href="/blog/.">
-                
-                  <i class="fa fa-home "></i>
-                
-                首页
+              <a href="<%- site_navs[i].url ? url_for(site_navs[i].url) : url_for(site_navs[i]) %>">
+                <% if (site_navs[i].icon) { %>
+                  <i class="fa fa-<%= site_navs[i].icon %> "></i>
+                <% } %>
+                <%= site_navs[i].id %>
               </a>
             </li>
-          
-            <li>
-              <a href="/blog/archives">
-                
-                  <i class="fa fa-archive "></i>
-                
-                归档
-              </a>
-            </li>
-          
-            <li>
-              <a href="/blog/about">
-                
-                  <i class="fa fa-user "></i>
-                
-                关于
-              </a>
-            </li>
-          
-            <li>
-              <a href="/blog/project">
-                
-                  <i class="fa fa-folder-open "></i>
-                
-                项目
-              </a>
-            </li>
-          
-            <li>
-              <a href="/blog/photo">
-                
-                  <i class="fa fa-photo "></i>
-                
-                相册
-              </a>
-            </li>
-          
-            <li>
-              <a href="/blog/guestbook">
-                
-                  <i class="fa fa-edit "></i>
-                
-                留言
-              </a>
-            </li>
-          
-            <li>
-              <a href="/blog/one">
-                
-                  <i class="fa fa-bicycle "></i>
-                
-                one
-              </a>
-            </li>
-          
-            <li>
-              <a href="/blog/atom.xml">
-                
-                  <i class="fa fa-send "></i>
-                
-                RSS
-              </a>
-            </li>
-          
+          <% } %>
         </ul>
       </div>
       <!-- /.navbar-collapse -->
@@ -381,11 +341,11 @@
 
   <!-- After footer scripts -->
   <!-- scripts -->
-<script src="/blog/js/app.js"></script>
-
+<%- js('js/app.js') %>
+<% if (theme.duoshuo_shortname) { %>
   <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
-    var duoshuoQuery = {short_name:'th720309'};
+    var duoshuoQuery = {short_name:'<%= theme.duoshuo_shortname %>'};
       (function() {
         var ds = document.createElement('script');
         ds.type = 'text/javascript';ds.async = true;
@@ -396,7 +356,7 @@
       })();
       </script>
     <!-- 多说公共JS代码 end -->
-
+<% } %>
 
 
 
