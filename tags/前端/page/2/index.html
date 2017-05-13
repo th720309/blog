@@ -67,13 +67,13 @@
     
     <div class="logo">
       <a href="http://www.tianhao.site" rel="home">
-        
-        <img src="http://oct3pmpde.bkt.clouddn.com/timg.jpg" alt="th是个小屁孩" height="60">
-        
+        <% if (config.logo || theme.logo) { %>
+        <img src="<%- config.logo || theme.logo %>" alt="<%- config.title %>" height="60">
+        <% } %>
       </a>
     </div>
-    <a class="header-name" href="/blog/">
-            <span>th是个小屁孩</span>
+    <a class="header-name" href="<%= url_for() %>">
+            <span><%- config.title %></span>
             的部落宅
         </a>
     <!-- navbar -->
@@ -81,80 +81,17 @@
       <!--  nav links -->
       <div class="collapse">
         <ul class="navbar-nav">
-          
-          
+          <% var site_navs = config.nav || theme.nav  %>
+          <% for (var i in site_navs){ %>
             <li>
-              <a href="/blog/.">
-                
-                  <i class="fa fa-home "></i>
-                
-                首页
+              <a href="<%- site_navs[i].url ? url_for(site_navs[i].url) : url_for(site_navs[i]) %>">
+                <% if (site_navs[i].icon) { %>
+                  <i class="fa fa-<%= site_navs[i].icon %> "></i>
+                <% } %>
+                <%= site_navs[i].id %>
               </a>
             </li>
-          
-            <li>
-              <a href="/blog/archives">
-                
-                  <i class="fa fa-archive "></i>
-                
-                归档
-              </a>
-            </li>
-          
-            <li>
-              <a href="/blog/about">
-                
-                  <i class="fa fa-user "></i>
-                
-                关于
-              </a>
-            </li>
-          
-            <li>
-              <a href="/blog/project">
-                
-                  <i class="fa fa-folder-open "></i>
-                
-                项目
-              </a>
-            </li>
-          
-            <li>
-              <a href="/blog/photo">
-                
-                  <i class="fa fa-photo "></i>
-                
-                相册
-              </a>
-            </li>
-          
-            <li>
-              <a href="/blog/guestbook">
-                
-                  <i class="fa fa-edit "></i>
-                
-                留言
-              </a>
-            </li>
-          
-            <li>
-              <a href="/blog/one">
-                
-                  <i class="fa fa-bicycle "></i>
-                
-                one
-              </a>
-            </li>
-          
-            <li>
-              <a href="/blog/atom.xml">
-                
-                  <i class="fa fa-send "></i>
-                
-                RSS
-              </a>
-            </li>
-          
+          <% } %>
         </ul>
       </div>
       <!-- /.navbar-collapse -->
@@ -214,20 +151,26 @@
       </div>
     </div>
   </div>
-  
+  <% if (page.prev || page.next){ %>
 <div class="container" >
   <ul class="pager">
-    
+    <% if (page.prev){ %>
       <li class="previous">
-        <a href="/blog/tags/前端/">
-          下一页
+        <a href="<%- config.root %><%- page.prev_link %>">
+          <%- __('next')%>
         </a>
       </li>
-    
-    
+    <% } %>
+    <% if (page.next){ %>
+      <li class="next">
+        <a href="<%- config.root %><%- page.next_link %>">
+          <%- __('prev')%>
+        </a>
+      </li>
+    <% } %>
   </ul>
 </div>
-
+<% } %>
 
 </div>
 
@@ -242,30 +185,14 @@
 
   
   <!-- Footer -->
-  <!-- Footer-widgets -->
-<div class="footer-widgets">
-      <div class="header-content">
-        <div class="header-info-link">
-          <% if (config.social) { %>
-            <% _.forIn(config.social, function(val, key){ %>
-              <a href="<%- val %>" class="icon icon-<%- key %>" target="_blank"><i class="fa fa-<%- key %>" aria-hidden="true"></i></a>
-            <% }) %>
-          <% } else { %>
-            <% _.forIn(theme.social, function(val, key){ %>
-              <a href="<%- val %>" class="icon icon-<%- key %>" target="_blank"><i class="fa fa-<%- key %>" aria-hidden="true"></i></a>
-            <% }) %>
-          <% } %>
-        </div>
-    </div>
-</div>
-<!-- Footer -->
+  <!-- Footer -->
 <footer class="site-info">
   <p>
-    <span><%- config.title %> &copy; <%= (new Date()).getFullYear() %></span>
-    <% if(config.footer !== null) { %>
+    <span>th是个小屁孩 &copy; 2017</span>
+    
       <span class="split">|</span>
-      <span><%- config.footer || theme.footer %></span>
-    <% } %>
+      <span>th是个小屁孩的技术小屋</span>
+    
   </p>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 本站总访问量<span id="busuanzi_value_site_pv"></span>次

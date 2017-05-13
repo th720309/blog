@@ -67,13 +67,13 @@
     
     <div class="logo">
       <a href="http://www.tianhao.site" rel="home">
-        
-        <img src="http://oct3pmpde.bkt.clouddn.com/timg.jpg" alt="th是个小屁孩" height="60">
-        
+        <% if (config.logo || theme.logo) { %>
+        <img src="<%- config.logo || theme.logo %>" alt="<%- config.title %>" height="60">
+        <% } %>
       </a>
     </div>
-    <a class="header-name" href="/blog/">
-            <span>th是个小屁孩</span>
+    <a class="header-name" href="<%= url_for() %>">
+            <span><%- config.title %></span>
             的部落宅
         </a>
     <!-- navbar -->
@@ -81,80 +81,17 @@
       <!--  nav links -->
       <div class="collapse">
         <ul class="navbar-nav">
-          
-          
+          <% var site_navs = config.nav || theme.nav  %>
+          <% for (var i in site_navs){ %>
             <li>
-              <a href="/blog/.">
-                
-                  <i class="fa fa-home "></i>
-                
-                首页
+              <a href="<%- site_navs[i].url ? url_for(site_navs[i].url) : url_for(site_navs[i]) %>">
+                <% if (site_navs[i].icon) { %>
+                  <i class="fa fa-<%= site_navs[i].icon %> "></i>
+                <% } %>
+                <%= site_navs[i].id %>
               </a>
             </li>
-          
-            <li>
-              <a href="/blog/archives">
-                
-                  <i class="fa fa-archive "></i>
-                
-                归档
-              </a>
-            </li>
-          
-            <li>
-              <a href="/blog/about">
-                
-                  <i class="fa fa-user "></i>
-                
-                关于
-              </a>
-            </li>
-          
-            <li>
-              <a href="/blog/project">
-                
-                  <i class="fa fa-folder-open "></i>
-                
-                项目
-              </a>
-            </li>
-          
-            <li>
-              <a href="/blog/photo">
-                
-                  <i class="fa fa-photo "></i>
-                
-                相册
-              </a>
-            </li>
-          
-            <li>
-              <a href="/blog/guestbook">
-                
-                  <i class="fa fa-edit "></i>
-                
-                留言
-              </a>
-            </li>
-          
-            <li>
-              <a href="/blog/one">
-                
-                  <i class="fa fa-bicycle "></i>
-                
-                one
-              </a>
-            </li>
-          
-            <li>
-              <a href="/blog/atom.xml">
-                
-                  <i class="fa fa-send "></i>
-                
-                RSS
-              </a>
-            </li>
-          
+          <% } %>
         </ul>
       </div>
       <!-- /.navbar-collapse -->
@@ -229,14 +166,25 @@
        </div>
 　　　　<!-- Comments -->
     <div class="container">
-      
+      <% if (page.comments){ %>
 <section id="comment">
-  <!-- <h1 class="title">Comments</h1> -->
+  <!-- <h1 class="title"><%= __('comment') %></h1> -->
 
-  
+  <% if(theme.disqus_shortname) { %>
+  <div id="disqus_thread">
+    <script type="text/javascript">
+    var disqus_config = function () {
+          this.page.url = window.location.href;
+          this.page.identifier = '<%= page.layout %>-<%= page.slug %>';
+          this.page.title = '<%= page.title %>';
+      };
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+  <% } else if (theme.duoshuo_shortname) { %>
     <!-- 多说评论框 start -->
     <script type="text/javascript">
-var duoshuoQuery = {short_name:"th720309"};
+var duoshuoQuery = {short_name:"<%= theme.duoshuo_shortname %>"};
 	(function() {
 		var ds = document.createElement('script');
 		ds.type = 'text/javascript';ds.async = true;
@@ -247,11 +195,11 @@ var duoshuoQuery = {short_name:"th720309"};
 	})();
 	</script>
 
-    <div class="ds-thread" data-thread-key="post-Javascript闭包和this学习笔记" data-title="Javascript闭包和this学习笔记" data-url="http://www.tianhao.site/blog/2017/03/15/Javascript闭包和this学习笔记/"></div>
+    <div class="ds-thread" data-thread-key="<%= page.layout %>-<%= page.slug %>" data-title="<%= page.title %>" data-url="<%= page.permalink %>"></div>
     <!-- 多说评论框 end -->
-  
+  <% } %>
 </section>
-
+<% } %>
 
     </div>
    
@@ -270,30 +218,14 @@ var duoshuoQuery = {short_name:"th720309"};
 
   
   <!-- Footer -->
-  <!-- Footer-widgets -->
-<div class="footer-widgets">
-      <div class="header-content">
-        <div class="header-info-link">
-          <% if (config.social) { %>
-            <% _.forIn(config.social, function(val, key){ %>
-              <a href="<%- val %>" class="icon icon-<%- key %>" target="_blank"><i class="fa fa-<%- key %>" aria-hidden="true"></i></a>
-            <% }) %>
-          <% } else { %>
-            <% _.forIn(theme.social, function(val, key){ %>
-              <a href="<%- val %>" class="icon icon-<%- key %>" target="_blank"><i class="fa fa-<%- key %>" aria-hidden="true"></i></a>
-            <% }) %>
-          <% } %>
-        </div>
-    </div>
-</div>
-<!-- Footer -->
+  <!-- Footer -->
 <footer class="site-info">
   <p>
-    <span><%- config.title %> &copy; <%= (new Date()).getFullYear() %></span>
-    <% if(config.footer !== null) { %>
+    <span>th是个小屁孩 &copy; 2017</span>
+    
       <span class="split">|</span>
-      <span><%- config.footer || theme.footer %></span>
-    <% } %>
+      <span>th是个小屁孩的技术小屋</span>
+    
   </p>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 本站总访问量<span id="busuanzi_value_site_pv"></span>次

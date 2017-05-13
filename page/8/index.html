@@ -67,13 +67,13 @@
     
     <div class="logo">
       <a href="http://www.tianhao.site" rel="home">
-        
-        <img src="http://oct3pmpde.bkt.clouddn.com/timg.jpg" alt="th是个小屁孩" height="60">
-        
+        <% if (config.logo || theme.logo) { %>
+        <img src="<%- config.logo || theme.logo %>" alt="<%- config.title %>" height="60">
+        <% } %>
       </a>
     </div>
-    <a class="header-name" href="/blog/">
-            <span>th是个小屁孩</span>
+    <a class="header-name" href="<%= url_for() %>">
+            <span><%- config.title %></span>
             的部落宅
         </a>
     <!-- navbar -->
@@ -81,80 +81,17 @@
       <!--  nav links -->
       <div class="collapse">
         <ul class="navbar-nav">
-          
-          
+          <% var site_navs = config.nav || theme.nav  %>
+          <% for (var i in site_navs){ %>
             <li>
-              <a href="/blog/.">
-                
-                  <i class="fa fa-home "></i>
-                
-                首页
+              <a href="<%- site_navs[i].url ? url_for(site_navs[i].url) : url_for(site_navs[i]) %>">
+                <% if (site_navs[i].icon) { %>
+                  <i class="fa fa-<%= site_navs[i].icon %> "></i>
+                <% } %>
+                <%= site_navs[i].id %>
               </a>
             </li>
-          
-            <li>
-              <a href="/blog/archives">
-                
-                  <i class="fa fa-archive "></i>
-                
-                归档
-              </a>
-            </li>
-          
-            <li>
-              <a href="/blog/about">
-                
-                  <i class="fa fa-user "></i>
-                
-                关于
-              </a>
-            </li>
-          
-            <li>
-              <a href="/blog/project">
-                
-                  <i class="fa fa-folder-open "></i>
-                
-                项目
-              </a>
-            </li>
-          
-            <li>
-              <a href="/blog/photo">
-                
-                  <i class="fa fa-photo "></i>
-                
-                相册
-              </a>
-            </li>
-          
-            <li>
-              <a href="/blog/guestbook">
-                
-                  <i class="fa fa-edit "></i>
-                
-                留言
-              </a>
-            </li>
-          
-            <li>
-              <a href="/blog/one">
-                
-                  <i class="fa fa-bicycle "></i>
-                
-                one
-              </a>
-            </li>
-          
-            <li>
-              <a href="/blog/atom.xml">
-                
-                  <i class="fa fa-send "></i>
-                
-                RSS
-              </a>
-            </li>
-          
+          <% } %>
         </ul>
       </div>
       <!-- /.navbar-collapse -->
@@ -213,34 +150,37 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
-      <a href="<%- config.root %><%- item.path %>" rel="bookmark">
-        <%- item.title || theme.default_post_title || "Untitled" %>  
+      <a href="/blog/2016/09/18/算法篇————二分查找算法/" rel="bookmark">
+        算法篇————二分查找算法  
       </a>
     </h1>
-    <% if (item.excerpt){ %>
+    
     <div class="entry-content">
       <p>
-        <%- item.excerpt %>
+        <h2 id="二分查找算法总结"><a href="#二分查找算法总结" class="headerlink" title="二分查找算法总结"></a>二分查找算法总结</h2><ol>
+<li>典型的二分查找</li>
+<li>复杂度低的二分查找</li>
+<li><p>例子</p>
       </p>
     </div>
     <div class="post-more-link text-center">
-            <a class="btn" href="<%- config.root %><%- item.path %>" rel="contents">
+            <a class="btn" href="/blog/2016/09/18/算法篇————二分查找算法/" rel="contents">
               阅读全文 »
             </a>
     </div>
     <p class="posted-on">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-    	<%= item.date.format(config.date_format) %>
+    	2016-09-18
     </p>
     <div class="tags-links">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      <% item.tags.each(function(tag){ %>
-      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
-        <%- tag.name %>
+      
+      <a href="/blog/tags/算法篇/" rel="tag">
+        算法篇
       </a>
-      <% }); %>
+      
     </div>
-    <% } %>
+    
   </article>
 </div>
 
@@ -250,34 +190,34 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
-      <a href="<%- config.root %><%- item.path %>" rel="bookmark">
-        <%- item.title || theme.default_post_title || "Untitled" %>  
+      <a href="/blog/2016/09/17/《釜山行》/" rel="bookmark">
+        《釜山行》  
       </a>
     </h1>
-    <% if (item.excerpt){ %>
+    
     <div class="entry-content">
       <p>
-        <%- item.excerpt %>
+        <p><blockquote class="blockquote-center">世间有两种东西不能直视 一是太阳 二是人性</blockquote><br>下午抽时间看完了这段时间挺火的这部丧尸灾难片《釜山行》，然后心一直闷闷的，好像有什么堵着，无论怎么样，这是一部演员，剧情双在线的好电影。真的，这部电影可以写的点太多了，我都不知道从哪下手了，每个人物都想写一长篇，2个小时把每个人物刻画的那么鲜明，真的是很佩服导演。<br>
       </p>
     </div>
     <div class="post-more-link text-center">
-            <a class="btn" href="<%- config.root %><%- item.path %>" rel="contents">
+            <a class="btn" href="/blog/2016/09/17/《釜山行》/" rel="contents">
               阅读全文 »
             </a>
     </div>
     <p class="posted-on">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-    	<%= item.date.format(config.date_format) %>
+    	2016-09-17
     </p>
     <div class="tags-links">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      <% item.tags.each(function(tag){ %>
-      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
-        <%- tag.name %>
+      
+      <a href="/blog/tags/影评/" rel="tag">
+        影评
       </a>
-      <% }); %>
+      
     </div>
-    <% } %>
+    
   </article>
 </div>
 
@@ -287,60 +227,63 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
-      <a href="<%- config.root %><%- item.path %>" rel="bookmark">
-        <%- item.title || theme.default_post_title || "Untitled" %>  
+      <a href="/blog/2016/09/15/算法篇————快速幂/" rel="bookmark">
+        算法篇————快速幂  
       </a>
     </h1>
-    <% if (item.excerpt){ %>
+    
     <div class="entry-content">
       <p>
-        <%- item.excerpt %>
+        <p>今天介绍第二种算法，快速幂的使用，这个极大的方便了数值较大的数的之间的运算。</p>
+<h2 id="快速幂取模"><a href="#快速幂取模" class="headerlink" title="快速幂取模"></a>快速幂取模</h2><p>假如我们要求a^b，而b是一个非常大的数的话，我们就可以用到快速幂的算法。这样复杂度不高，不会超时。</p>
+<p>假如求 a ^ n 次方</p>
+<p>我们可以把 n 表示为 2^k1 + 2^k2  + 2^k3….，可以证明所有数都可以用前式来表示。（其实就是二进制表示数的原理）<br>
       </p>
     </div>
     <div class="post-more-link text-center">
-            <a class="btn" href="<%- config.root %><%- item.path %>" rel="contents">
+            <a class="btn" href="/blog/2016/09/15/算法篇————快速幂/" rel="contents">
               阅读全文 »
             </a>
     </div>
     <p class="posted-on">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-    	<%= item.date.format(config.date_format) %>
+    	2016-09-15
     </p>
     <div class="tags-links">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      <% item.tags.each(function(tag){ %>
-      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
-        <%- tag.name %>
+      
+      <a href="/blog/tags/算法篇/" rel="tag">
+        算法篇
       </a>
-      <% }); %>
+      
     </div>
-    <% } %>
+    
   </article>
 </div>
 
         </div> 
     
 
-    
+    <% if (page.prev || page.next){ %>
 <div class="container" >
   <ul class="pager">
-    
+    <% if (page.prev){ %>
       <li class="previous">
-        <a href="/blog/page/7/">
-          下一页
+        <a href="<%- config.root %><%- page.prev_link %>">
+          <%- __('next')%>
         </a>
       </li>
-    
-    
+    <% } %>
+    <% if (page.next){ %>
       <li class="next">
-        <a href="/blog/page/9/">
-          上一页
+        <a href="<%- config.root %><%- page.next_link %>">
+          <%- __('prev')%>
         </a>
       </li>
-    
+    <% } %>
   </ul>
 </div>
-
+<% } %>
 
   </main>
   <!-- THplayer -->
@@ -369,30 +312,14 @@
 
   
   <!-- Footer -->
-  <!-- Footer-widgets -->
-<div class="footer-widgets">
-      <div class="header-content">
-        <div class="header-info-link">
-          <% if (config.social) { %>
-            <% _.forIn(config.social, function(val, key){ %>
-              <a href="<%- val %>" class="icon icon-<%- key %>" target="_blank"><i class="fa fa-<%- key %>" aria-hidden="true"></i></a>
-            <% }) %>
-          <% } else { %>
-            <% _.forIn(theme.social, function(val, key){ %>
-              <a href="<%- val %>" class="icon icon-<%- key %>" target="_blank"><i class="fa fa-<%- key %>" aria-hidden="true"></i></a>
-            <% }) %>
-          <% } %>
-        </div>
-    </div>
-</div>
-<!-- Footer -->
+  <!-- Footer -->
 <footer class="site-info">
   <p>
-    <span><%- config.title %> &copy; <%= (new Date()).getFullYear() %></span>
-    <% if(config.footer !== null) { %>
+    <span>th是个小屁孩 &copy; 2017</span>
+    
       <span class="split">|</span>
-      <span><%- config.footer || theme.footer %></span>
-    <% } %>
+      <span>th是个小屁孩的技术小屋</span>
+    
   </p>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 本站总访问量<span id="busuanzi_value_site_pv"></span>次
