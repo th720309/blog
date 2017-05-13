@@ -213,34 +213,34 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
-      <a href="/blog/2016/09/01/我的第一篇博客/" rel="bookmark">
-        我的第一篇博客  
+      <a href="<%- config.root %><%- item.path %>" rel="bookmark">
+        <%- item.title || theme.default_post_title || "Untitled" %>  
       </a>
     </h1>
-    
+    <% if (item.excerpt){ %>
     <div class="entry-content">
       <p>
-        <p>今天花了一天时间用hexo框架搭建了这个博客，总算初步完工了，还差几个功能没有写，之前CSDN一直在更新博客，之后这两个博客会同步更新，谢谢朋友光临。<br><br\><br>
+        <%- item.excerpt %>
       </p>
     </div>
     <div class="post-more-link text-center">
-            <a class="btn" href="/blog/2016/09/01/我的第一篇博客/" rel="contents">
+            <a class="btn" href="<%- config.root %><%- item.path %>" rel="contents">
               阅读全文 »
             </a>
     </div>
     <p class="posted-on">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-    	2016-09-01
+    	<%= item.date.format(config.date_format) %>
     </p>
     <div class="tags-links">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      
-      <a href="/blog/tags/感悟/" rel="tag">
-        感悟
+      <% item.tags.each(function(tag){ %>
+      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
+        <%- tag.name %>
       </a>
-      
+      <% }); %>
     </div>
-    
+    <% } %>
   </article>
 </div>
 
@@ -289,14 +289,30 @@
 
   
   <!-- Footer -->
-  <!-- Footer -->
+  <!-- Footer-widgets -->
+<div class="footer-widgets">
+      <div class="header-content">
+        <div class="header-info-link">
+          <% if (config.social) { %>
+            <% _.forIn(config.social, function(val, key){ %>
+              <a href="<%- val %>" class="icon icon-<%- key %>" target="_blank"><i class="fa fa-<%- key %>" aria-hidden="true"></i></a>
+            <% }) %>
+          <% } else { %>
+            <% _.forIn(theme.social, function(val, key){ %>
+              <a href="<%- val %>" class="icon icon-<%- key %>" target="_blank"><i class="fa fa-<%- key %>" aria-hidden="true"></i></a>
+            <% }) %>
+          <% } %>
+        </div>
+    </div>
+</div>
+<!-- Footer -->
 <footer class="site-info">
   <p>
-    <span>th是个小屁孩 &copy; 2017</span>
-    
+    <span><%- config.title %> &copy; <%= (new Date()).getFullYear() %></span>
+    <% if(config.footer !== null) { %>
       <span class="split">|</span>
-      <span>th是个小屁孩的技术小屋</span>
-    
+      <span><%- config.footer || theme.footer %></span>
+    <% } %>
   </p>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 本站总访问量<span id="busuanzi_value_site_pv"></span>次

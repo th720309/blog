@@ -218,25 +218,14 @@
        </div>
 　　　　<!-- Comments -->
     <div class="container">
-      <% if (page.comments){ %>
+      
 <section id="comment">
-  <!-- <h1 class="title"><%= __('comment') %></h1> -->
+  <!-- <h1 class="title">Comments</h1> -->
 
-  <% if(theme.disqus_shortname) { %>
-  <div id="disqus_thread">
-    <script type="text/javascript">
-    var disqus_config = function () {
-          this.page.url = window.location.href;
-          this.page.identifier = '<%= page.layout %>-<%= page.slug %>';
-          this.page.title = '<%= page.title %>';
-      };
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  </div>
-  <% } else if (theme.duoshuo_shortname) { %>
+  
     <!-- 多说评论框 start -->
     <script type="text/javascript">
-var duoshuoQuery = {short_name:"<%= theme.duoshuo_shortname %>"};
+var duoshuoQuery = {short_name:"th720309"};
 	(function() {
 		var ds = document.createElement('script');
 		ds.type = 'text/javascript';ds.async = true;
@@ -247,11 +236,11 @@ var duoshuoQuery = {short_name:"<%= theme.duoshuo_shortname %>"};
 	})();
 	</script>
 
-    <div class="ds-thread" data-thread-key="<%= page.layout %>-<%= page.slug %>" data-title="<%= page.title %>" data-url="<%= page.permalink %>"></div>
+    <div class="ds-thread" data-thread-key="post-hexo-next-搭建博客相册页和音乐页教程" data-title="hexo + next 搭建博客相册页和音乐页教程" data-url="http://www.tianhao.site/blog/2016/09/13/hexo-next-搭建博客相册页和音乐页教程/"></div>
     <!-- 多说评论框 end -->
-  <% } %>
+  
 </section>
-<% } %>
+
 
     </div>
    
@@ -270,14 +259,30 @@ var duoshuoQuery = {short_name:"<%= theme.duoshuo_shortname %>"};
 
   
   <!-- Footer -->
-  <!-- Footer -->
+  <!-- Footer-widgets -->
+<div class="footer-widgets">
+      <div class="header-content">
+        <div class="header-info-link">
+          <% if (config.social) { %>
+            <% _.forIn(config.social, function(val, key){ %>
+              <a href="<%- val %>" class="icon icon-<%- key %>" target="_blank"><i class="fa fa-<%- key %>" aria-hidden="true"></i></a>
+            <% }) %>
+          <% } else { %>
+            <% _.forIn(theme.social, function(val, key){ %>
+              <a href="<%- val %>" class="icon icon-<%- key %>" target="_blank"><i class="fa fa-<%- key %>" aria-hidden="true"></i></a>
+            <% }) %>
+          <% } %>
+        </div>
+    </div>
+</div>
+<!-- Footer -->
 <footer class="site-info">
   <p>
-    <span>th是个小屁孩 &copy; 2017</span>
-    
+    <span><%- config.title %> &copy; <%= (new Date()).getFullYear() %></span>
+    <% if(config.footer !== null) { %>
       <span class="split">|</span>
-      <span>th是个小屁孩的技术小屋</span>
-    
+      <span><%- config.footer || theme.footer %></span>
+    <% } %>
   </p>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 本站总访问量<span id="busuanzi_value_site_pv"></span>次

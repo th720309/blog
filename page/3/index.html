@@ -213,34 +213,34 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
-      <a href="/blog/2017/02/23/《JavaScript DOM 编程艺术2》 笔记摘抄 /" rel="bookmark">
-        《JavaScript DOM 编程艺术2》 笔记摘抄  
+      <a href="<%- config.root %><%- item.path %>" rel="bookmark">
+        <%- item.title || theme.default_post_title || "Untitled" %>  
       </a>
     </h1>
-    
+    <% if (item.excerpt){ %>
     <div class="entry-content">
       <p>
-        <p><img src="http://oct3pmpde.bkt.clouddn.com/b80eb851f6f5ed423ef96024bc8407861efe3222937d3-McFfSO_fw658.jpg" width="600" height="347" /></p>
+        <%- item.excerpt %>
       </p>
     </div>
     <div class="post-more-link text-center">
-            <a class="btn" href="/blog/2017/02/23/《JavaScript DOM 编程艺术2》 笔记摘抄 /" rel="contents">
+            <a class="btn" href="<%- config.root %><%- item.path %>" rel="contents">
               阅读全文 »
             </a>
     </div>
     <p class="posted-on">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-    	2017-02-23
+    	<%= item.date.format(config.date_format) %>
     </p>
     <div class="tags-links">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      
-      <a href="/blog/tags/前端/" rel="tag">
-        前端
+      <% item.tags.each(function(tag){ %>
+      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
+        <%- tag.name %>
       </a>
-      
+      <% }); %>
     </div>
-    
+    <% } %>
   </article>
 </div>
 
@@ -250,34 +250,34 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
-      <a href="/blog/2017/02/02/hexo-theme-believe 文档/" rel="bookmark">
-        hexo-theme-believe 文档  
+      <a href="<%- config.root %><%- item.path %>" rel="bookmark">
+        <%- item.title || theme.default_post_title || "Untitled" %>  
       </a>
     </h1>
-    
+    <% if (item.excerpt){ %>
     <div class="entry-content">
       <p>
-        <p><img src="http://oct3pmpde.bkt.clouddn.com/fengmian.jpg" width="600" height="347" /><br>
+        <%- item.excerpt %>
       </p>
     </div>
     <div class="post-more-link text-center">
-            <a class="btn" href="/blog/2017/02/02/hexo-theme-believe 文档/" rel="contents">
+            <a class="btn" href="<%- config.root %><%- item.path %>" rel="contents">
               阅读全文 »
             </a>
     </div>
     <p class="posted-on">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-    	2017-02-02
+    	<%= item.date.format(config.date_format) %>
     </p>
     <div class="tags-links">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      
-      <a href="/blog/tags/前端/" rel="tag">
-        前端
+      <% item.tags.each(function(tag){ %>
+      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
+        <%- tag.name %>
       </a>
-      
+      <% }); %>
     </div>
-    
+    <% } %>
   </article>
 </div>
 
@@ -287,34 +287,34 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
-      <a href="/blog/2017/01/06/IFE-2016SP(百度前端技术学院）（长期更新）/" rel="bookmark">
-        IFE-2016SP(百度前端技术学院）（长期更新）  
+      <a href="<%- config.root %><%- item.path %>" rel="bookmark">
+        <%- item.title || theme.default_post_title || "Untitled" %>  
       </a>
     </h1>
-    
+    <% if (item.excerpt){ %>
     <div class="entry-content">
       <p>
-        <p><img src="http://oct3pmpde.bkt.clouddn.com/1-160411140440X2.jpg" width="600" height="347" /></p>
+        <%- item.excerpt %>
       </p>
     </div>
     <div class="post-more-link text-center">
-            <a class="btn" href="/blog/2017/01/06/IFE-2016SP(百度前端技术学院）（长期更新）/" rel="contents">
+            <a class="btn" href="<%- config.root %><%- item.path %>" rel="contents">
               阅读全文 »
             </a>
     </div>
     <p class="posted-on">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-    	2017-01-06
+    	<%= item.date.format(config.date_format) %>
     </p>
     <div class="tags-links">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      
-      <a href="/blog/tags/前端/" rel="tag">
-        前端
+      <% item.tags.each(function(tag){ %>
+      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
+        <%- tag.name %>
       </a>
-      
+      <% }); %>
     </div>
-    
+    <% } %>
   </article>
 </div>
 
@@ -369,14 +369,30 @@
 
   
   <!-- Footer -->
-  <!-- Footer -->
+  <!-- Footer-widgets -->
+<div class="footer-widgets">
+      <div class="header-content">
+        <div class="header-info-link">
+          <% if (config.social) { %>
+            <% _.forIn(config.social, function(val, key){ %>
+              <a href="<%- val %>" class="icon icon-<%- key %>" target="_blank"><i class="fa fa-<%- key %>" aria-hidden="true"></i></a>
+            <% }) %>
+          <% } else { %>
+            <% _.forIn(theme.social, function(val, key){ %>
+              <a href="<%- val %>" class="icon icon-<%- key %>" target="_blank"><i class="fa fa-<%- key %>" aria-hidden="true"></i></a>
+            <% }) %>
+          <% } %>
+        </div>
+    </div>
+</div>
+<!-- Footer -->
 <footer class="site-info">
   <p>
-    <span>th是个小屁孩 &copy; 2017</span>
-    
+    <span><%- config.title %> &copy; <%= (new Date()).getFullYear() %></span>
+    <% if(config.footer !== null) { %>
       <span class="split">|</span>
-      <span>th是个小屁孩的技术小屋</span>
-    
+      <span><%- config.footer || theme.footer %></span>
+    <% } %>
   </p>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 本站总访问量<span id="busuanzi_value_site_pv"></span>次

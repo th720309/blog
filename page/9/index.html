@@ -213,34 +213,34 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
-      <a href="/blog/2016/09/14/算法篇——入门级算法/" rel="bookmark">
-        算法篇————入门级算法  
+      <a href="<%- config.root %><%- item.path %>" rel="bookmark">
+        <%- item.title || theme.default_post_title || "Untitled" %>  
       </a>
     </h1>
-    
+    <% if (item.excerpt){ %>
     <div class="entry-content">
       <p>
-        <p> 从今天开始，复习各种算法，每天都会去理解一种算法，争取贴出自己对每种算法的理解，今天介绍的是最基础的入门算法，最大公约数，最小公倍数，快速幂（后面会重点介绍），简单并查集（后面会重点介绍），还有排列组合（后面会重点介绍）的算法。<br>
+        <%- item.excerpt %>
       </p>
     </div>
     <div class="post-more-link text-center">
-            <a class="btn" href="/blog/2016/09/14/算法篇——入门级算法/" rel="contents">
+            <a class="btn" href="<%- config.root %><%- item.path %>" rel="contents">
               阅读全文 »
             </a>
     </div>
     <p class="posted-on">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-    	2016-09-14
+    	<%= item.date.format(config.date_format) %>
     </p>
     <div class="tags-links">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      
-      <a href="/blog/tags/算法篇/" rel="tag">
-        算法篇
+      <% item.tags.each(function(tag){ %>
+      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
+        <%- tag.name %>
       </a>
-      
+      <% }); %>
     </div>
-    
+    <% } %>
   </article>
 </div>
 
@@ -250,34 +250,34 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
-      <a href="/blog/2016/09/13/2016-9-13随记/" rel="bookmark">
-        2016-9-13随记  
+      <a href="<%- config.root %><%- item.path %>" rel="bookmark">
+        <%- item.title || theme.default_post_title || "Untitled" %>  
       </a>
     </h1>
-    
+    <% if (item.excerpt){ %>
     <div class="entry-content">
       <p>
-        <h2 id="随记"><a href="#随记" class="headerlink" title="随记"></a>随记</h2><p>这两天借着一个小伙伴的笔试经历，我发现了自己的很大不足。大众点评和腾讯的笔试都不是那么简单。操作系统，编译原理，COA，数据结构，数据库，真的是什么都考啊，感觉基础课真的很不扎实，逻辑题好像也挺重要，不过，说真的，那些题型真的有点变态，一堆数字放在一起，让你选下一个数字，貌似一年级时候训练过的找规律，可是尼玛，谁能告诉我规律是什么?可能这靠的就是对数字和计算机的观察度和专业素养的积累吧。<br>
+        <%- item.excerpt %>
       </p>
     </div>
     <div class="post-more-link text-center">
-            <a class="btn" href="/blog/2016/09/13/2016-9-13随记/" rel="contents">
+            <a class="btn" href="<%- config.root %><%- item.path %>" rel="contents">
               阅读全文 »
             </a>
     </div>
     <p class="posted-on">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-    	2016-09-13
+    	<%= item.date.format(config.date_format) %>
     </p>
     <div class="tags-links">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      
-      <a href="/blog/tags/感悟/" rel="tag">
-        感悟
+      <% item.tags.each(function(tag){ %>
+      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
+        <%- tag.name %>
       </a>
-      
+      <% }); %>
     </div>
-    
+    <% } %>
   </article>
 </div>
 
@@ -287,37 +287,34 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
-      <a href="/blog/2016/09/13/hexo-next-搭建博客相册页和音乐页教程/" rel="bookmark">
-        hexo + next 搭建博客相册页和音乐页教程  
+      <a href="<%- config.root %><%- item.path %>" rel="bookmark">
+        <%- item.title || theme.default_post_title || "Untitled" %>  
       </a>
     </h1>
-    
+    <% if (item.excerpt){ %>
     <div class="entry-content">
       <p>
-        <h2 id="搭建相册页"><a href="#搭建相册页" class="headerlink" title="搭建相册页"></a>搭建相册页</h2><ol>
-<li>在git上输入 hexo new page “photos”,创建photos页面，之后在sourse文件夹下能够找到photos文件夹，在index.md里添加type: photos.</li>
-<li>进入theme里的next下的config,在menu菜单下添加上photos页。</li>
-<li>如果语言选择是zh-hans的话，记得在languanges里把photos添加进去，以确保网页显示的菜单为photos.
+        <%- item.excerpt %>
       </p>
     </div>
     <div class="post-more-link text-center">
-            <a class="btn" href="/blog/2016/09/13/hexo-next-搭建博客相册页和音乐页教程/" rel="contents">
+            <a class="btn" href="<%- config.root %><%- item.path %>" rel="contents">
               阅读全文 »
             </a>
     </div>
     <p class="posted-on">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-    	2016-09-13
+    	<%= item.date.format(config.date_format) %>
     </p>
     <div class="tags-links">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      
-      <a href="/blog/tags/hexo/" rel="tag">
-        hexo
+      <% item.tags.each(function(tag){ %>
+      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
+        <%- tag.name %>
       </a>
-      
+      <% }); %>
     </div>
-    
+    <% } %>
   </article>
 </div>
 
@@ -372,14 +369,30 @@
 
   
   <!-- Footer -->
-  <!-- Footer -->
+  <!-- Footer-widgets -->
+<div class="footer-widgets">
+      <div class="header-content">
+        <div class="header-info-link">
+          <% if (config.social) { %>
+            <% _.forIn(config.social, function(val, key){ %>
+              <a href="<%- val %>" class="icon icon-<%- key %>" target="_blank"><i class="fa fa-<%- key %>" aria-hidden="true"></i></a>
+            <% }) %>
+          <% } else { %>
+            <% _.forIn(theme.social, function(val, key){ %>
+              <a href="<%- val %>" class="icon icon-<%- key %>" target="_blank"><i class="fa fa-<%- key %>" aria-hidden="true"></i></a>
+            <% }) %>
+          <% } %>
+        </div>
+    </div>
+</div>
+<!-- Footer -->
 <footer class="site-info">
   <p>
-    <span>th是个小屁孩 &copy; 2017</span>
-    
+    <span><%- config.title %> &copy; <%= (new Date()).getFullYear() %></span>
+    <% if(config.footer !== null) { %>
       <span class="split">|</span>
-      <span>th是个小屁孩的技术小屋</span>
-    
+      <span><%- config.footer || theme.footer %></span>
+    <% } %>
   </p>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 本站总访问量<span id="busuanzi_value_site_pv"></span>次

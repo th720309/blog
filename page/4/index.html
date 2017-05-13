@@ -213,34 +213,34 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
-      <a href="/blog/2016/12/31/2016年终总结，2017何去何从？/" rel="bookmark">
-        2016年终总结，2017何去何从？  
+      <a href="<%- config.root %><%- item.path %>" rel="bookmark">
+        <%- item.title || theme.default_post_title || "Untitled" %>  
       </a>
     </h1>
-    
+    <% if (item.excerpt){ %>
     <div class="entry-content">
       <p>
-        <p><img src="http://oct3pmpde.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20161231133754.png" width="600" height="347" /></p>
+        <%- item.excerpt %>
       </p>
     </div>
     <div class="post-more-link text-center">
-            <a class="btn" href="/blog/2016/12/31/2016年终总结，2017何去何从？/" rel="contents">
+            <a class="btn" href="<%- config.root %><%- item.path %>" rel="contents">
               阅读全文 »
             </a>
     </div>
     <p class="posted-on">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-    	2016-12-31
+    	<%= item.date.format(config.date_format) %>
     </p>
     <div class="tags-links">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      
-      <a href="/blog/tags/感悟/" rel="tag">
-        感悟
+      <% item.tags.each(function(tag){ %>
+      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
+        <%- tag.name %>
       </a>
-      
+      <% }); %>
     </div>
-    
+    <% } %>
   </article>
 </div>
 
@@ -250,34 +250,34 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
-      <a href="/blog/2016/12/29/带cookie访问服务器实现模拟登录/" rel="bookmark">
-        带cookie访问服务器实现模拟登录  
+      <a href="<%- config.root %><%- item.path %>" rel="bookmark">
+        <%- item.title || theme.default_post_title || "Untitled" %>  
       </a>
     </h1>
-    
+    <% if (item.excerpt){ %>
     <div class="entry-content">
       <p>
-        <p><img src="http://oct3pmpde.bkt.clouddn.com/201206191345109414.jpg" width="600" height="347" /></p>
+        <%- item.excerpt %>
       </p>
     </div>
     <div class="post-more-link text-center">
-            <a class="btn" href="/blog/2016/12/29/带cookie访问服务器实现模拟登录/" rel="contents">
+            <a class="btn" href="<%- config.root %><%- item.path %>" rel="contents">
               阅读全文 »
             </a>
     </div>
     <p class="posted-on">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-    	2016-12-29
+    	<%= item.date.format(config.date_format) %>
     </p>
     <div class="tags-links">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      
-      <a href="/blog/tags/Web/" rel="tag">
-        Web
+      <% item.tags.each(function(tag){ %>
+      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
+        <%- tag.name %>
       </a>
-      
+      <% }); %>
     </div>
-    
+    <% } %>
   </article>
 </div>
 
@@ -287,34 +287,34 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
-      <a href="/blog/2016/12/19/《请回答1988》/" rel="bookmark">
-        《请回答1988》——影评  
+      <a href="<%- config.root %><%- item.path %>" rel="bookmark">
+        <%- item.title || theme.default_post_title || "Untitled" %>  
       </a>
     </h1>
-    
+    <% if (item.excerpt){ %>
     <div class="entry-content">
       <p>
-        <p> <img src="http://oct3pmpde.bkt.clouddn.com/p2358593521.jpg" width="600" height="800" /><br>
+        <%- item.excerpt %>
       </p>
     </div>
     <div class="post-more-link text-center">
-            <a class="btn" href="/blog/2016/12/19/《请回答1988》/" rel="contents">
+            <a class="btn" href="<%- config.root %><%- item.path %>" rel="contents">
               阅读全文 »
             </a>
     </div>
     <p class="posted-on">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-    	2016-12-19
+    	<%= item.date.format(config.date_format) %>
     </p>
     <div class="tags-links">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      
-      <a href="/blog/tags/影评/" rel="tag">
-        影评
+      <% item.tags.each(function(tag){ %>
+      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
+        <%- tag.name %>
       </a>
-      
+      <% }); %>
     </div>
-    
+    <% } %>
   </article>
 </div>
 
@@ -369,14 +369,30 @@
 
   
   <!-- Footer -->
-  <!-- Footer -->
+  <!-- Footer-widgets -->
+<div class="footer-widgets">
+      <div class="header-content">
+        <div class="header-info-link">
+          <% if (config.social) { %>
+            <% _.forIn(config.social, function(val, key){ %>
+              <a href="<%- val %>" class="icon icon-<%- key %>" target="_blank"><i class="fa fa-<%- key %>" aria-hidden="true"></i></a>
+            <% }) %>
+          <% } else { %>
+            <% _.forIn(theme.social, function(val, key){ %>
+              <a href="<%- val %>" class="icon icon-<%- key %>" target="_blank"><i class="fa fa-<%- key %>" aria-hidden="true"></i></a>
+            <% }) %>
+          <% } %>
+        </div>
+    </div>
+</div>
+<!-- Footer -->
 <footer class="site-info">
   <p>
-    <span>th是个小屁孩 &copy; 2017</span>
-    
+    <span><%- config.title %> &copy; <%= (new Date()).getFullYear() %></span>
+    <% if(config.footer !== null) { %>
       <span class="split">|</span>
-      <span>th是个小屁孩的技术小屋</span>
-    
+      <span><%- config.footer || theme.footer %></span>
+    <% } %>
   </p>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 本站总访问量<span id="busuanzi_value_site_pv"></span>次
