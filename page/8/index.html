@@ -213,34 +213,34 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
-      <a href="/blog/2016/09/22/2016-9-22随记/" rel="bookmark">
-        2016-9-22随记  
+      <a href="<%- config.root %><%- item.path %>" rel="bookmark">
+        <%- item.title || theme.default_post_title || "Untitled" %>  
       </a>
     </h1>
-    
+    <% if (item.excerpt){ %>
     <div class="entry-content">
       <p>
-        <h2 id="随记"><a href="#随记" class="headerlink" title="随记"></a>随记</h2><p>腾讯出了一部电影《@互联网人》，最近阿里的月饼事件炒的挺火，前段时间百度的魏则西事件让百度亏损了不少，更站在了舆论风头，这个时候，好像觉得腾讯确实是一家良心公司了，看完这部《@互联网人》，对产品经理有了一些不一样的认识。<br>
+        <%- item.excerpt %>
       </p>
     </div>
     <div class="post-more-link text-center">
-            <a class="btn" href="/blog/2016/09/22/2016-9-22随记/" rel="contents">
+            <a class="btn" href="<%- config.root %><%- item.path %>" rel="contents">
               阅读全文 »
             </a>
     </div>
     <p class="posted-on">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-    	2016-09-22
+    	<%= item.date.format(config.date_format) %>
     </p>
     <div class="tags-links">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      
-      <a href="/blog/tags/感悟/" rel="tag">
-        感悟
+      <% item.tags.each(function(tag){ %>
+      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
+        <%- tag.name %>
       </a>
-      
+      <% }); %>
     </div>
-    
+    <% } %>
   </article>
 </div>
 
@@ -250,37 +250,34 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
-      <a href="/blog/2016/09/18/算法篇————二分查找算法/" rel="bookmark">
-        算法篇————二分查找算法  
+      <a href="<%- config.root %><%- item.path %>" rel="bookmark">
+        <%- item.title || theme.default_post_title || "Untitled" %>  
       </a>
     </h1>
-    
+    <% if (item.excerpt){ %>
     <div class="entry-content">
       <p>
-        <h2 id="二分查找算法总结"><a href="#二分查找算法总结" class="headerlink" title="二分查找算法总结"></a>二分查找算法总结</h2><ol>
-<li>典型的二分查找</li>
-<li>复杂度低的二分查找</li>
-<li><p>例子</p>
+        <%- item.excerpt %>
       </p>
     </div>
     <div class="post-more-link text-center">
-            <a class="btn" href="/blog/2016/09/18/算法篇————二分查找算法/" rel="contents">
+            <a class="btn" href="<%- config.root %><%- item.path %>" rel="contents">
               阅读全文 »
             </a>
     </div>
     <p class="posted-on">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-    	2016-09-18
+    	<%= item.date.format(config.date_format) %>
     </p>
     <div class="tags-links">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      
-      <a href="/blog/tags/算法篇/" rel="tag">
-        算法篇
+      <% item.tags.each(function(tag){ %>
+      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
+        <%- tag.name %>
       </a>
-      
+      <% }); %>
     </div>
-    
+    <% } %>
   </article>
 </div>
 
@@ -290,60 +287,60 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
-      <a href="/blog/2016/09/17/《釜山行》/" rel="bookmark">
-        《釜山行》  
+      <a href="<%- config.root %><%- item.path %>" rel="bookmark">
+        <%- item.title || theme.default_post_title || "Untitled" %>  
       </a>
     </h1>
-    
+    <% if (item.excerpt){ %>
     <div class="entry-content">
       <p>
-        <p><blockquote class="blockquote-center">世间有两种东西不能直视 一是太阳 二是人性</blockquote><br>下午抽时间看完了这段时间挺火的这部丧尸灾难片《釜山行》，然后心一直闷闷的，好像有什么堵着，无论怎么样，这是一部演员，剧情双在线的好电影。真的，这部电影可以写的点太多了，我都不知道从哪下手了，每个人物都想写一长篇，2个小时把每个人物刻画的那么鲜明，真的是很佩服导演。<br>
+        <%- item.excerpt %>
       </p>
     </div>
     <div class="post-more-link text-center">
-            <a class="btn" href="/blog/2016/09/17/《釜山行》/" rel="contents">
+            <a class="btn" href="<%- config.root %><%- item.path %>" rel="contents">
               阅读全文 »
             </a>
     </div>
     <p class="posted-on">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-    	2016-09-17
+    	<%= item.date.format(config.date_format) %>
     </p>
     <div class="tags-links">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      
-      <a href="/blog/tags/影评/" rel="tag">
-        影评
+      <% item.tags.each(function(tag){ %>
+      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
+        <%- tag.name %>
       </a>
-      
+      <% }); %>
     </div>
-    
+    <% } %>
   </article>
 </div>
 
         </div> 
     
 
-    
+    <% if (page.prev || page.next){ %>
 <div class="container" >
   <ul class="pager">
-    
+    <% if (page.prev){ %>
       <li class="previous">
-        <a href="/blog/page/7/">
-          下一页
+        <a href="<%- config.root %><%- page.prev_link %>">
+          <%- __('next')%>
         </a>
       </li>
-    
-    
+    <% } %>
+    <% if (page.next){ %>
       <li class="next">
-        <a href="/blog/page/9/">
-          上一页
+        <a href="<%- config.root %><%- page.next_link %>">
+          <%- __('prev')%>
         </a>
       </li>
-    
+    <% } %>
   </ul>
 </div>
-
+<% } %>
 
   </main>
   <!-- THplayer -->

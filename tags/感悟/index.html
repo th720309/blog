@@ -214,20 +214,26 @@
       </div>
     </div>
   </div>
-  
+  <% if (page.prev || page.next){ %>
 <div class="container" >
   <ul class="pager">
-    
-    
-      <li class="next">
-        <a href="/blog/tags/感悟/page/2/">
-          上一页
+    <% if (page.prev){ %>
+      <li class="previous">
+        <a href="<%- config.root %><%- page.prev_link %>">
+          <%- __('next')%>
         </a>
       </li>
-    
+    <% } %>
+    <% if (page.next){ %>
+      <li class="next">
+        <a href="<%- config.root %><%- page.next_link %>">
+          <%- __('prev')%>
+        </a>
+      </li>
+    <% } %>
   </ul>
 </div>
-
+<% } %>
 
 </div>
 

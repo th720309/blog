@@ -213,34 +213,34 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
-      <a href="/blog/2016/09/03/博客建立完完完成/" rel="bookmark">
-        博客建立完成  
+      <a href="<%- config.root %><%- item.path %>" rel="bookmark">
+        <%- item.title || theme.default_post_title || "Untitled" %>  
       </a>
     </h1>
-    
+    <% if (item.excerpt){ %>
     <div class="entry-content">
       <p>
-        <p>今天博客初步功能全部实现，之后想到什么还会再加上，在昨天的基础上，添加了one专栏，之前一直都挺喜欢《one一个》这个app,这次加入这个专栏，让这个博客增添点文艺气息，每天更新的one都会在我的博客中自动更新。<br><br\><br>
+        <%- item.excerpt %>
       </p>
     </div>
     <div class="post-more-link text-center">
-            <a class="btn" href="/blog/2016/09/03/博客建立完完完成/" rel="contents">
+            <a class="btn" href="<%- config.root %><%- item.path %>" rel="contents">
               阅读全文 »
             </a>
     </div>
     <p class="posted-on">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-    	2016-09-03
+    	<%= item.date.format(config.date_format) %>
     </p>
     <div class="tags-links">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      
-      <a href="/blog/tags/博客/" rel="tag">
-        博客
+      <% item.tags.each(function(tag){ %>
+      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
+        <%- tag.name %>
       </a>
-      
+      <% }); %>
     </div>
-    
+    <% } %>
   </article>
 </div>
 
@@ -250,54 +250,60 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
-      <a href="/blog/2016/09/01/我的第一篇博客/" rel="bookmark">
-        我的第一篇博客  
+      <a href="<%- config.root %><%- item.path %>" rel="bookmark">
+        <%- item.title || theme.default_post_title || "Untitled" %>  
       </a>
     </h1>
-    
+    <% if (item.excerpt){ %>
     <div class="entry-content">
       <p>
-        <p>今天花了一天时间用hexo框架搭建了这个博客，总算初步完工了，还差几个功能没有写，之前CSDN一直在更新博客，之后这两个博客会同步更新，谢谢朋友光临。<br><br\><br>
+        <%- item.excerpt %>
       </p>
     </div>
     <div class="post-more-link text-center">
-            <a class="btn" href="/blog/2016/09/01/我的第一篇博客/" rel="contents">
+            <a class="btn" href="<%- config.root %><%- item.path %>" rel="contents">
               阅读全文 »
             </a>
     </div>
     <p class="posted-on">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-    	2016-09-01
+    	<%= item.date.format(config.date_format) %>
     </p>
     <div class="tags-links">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      
-      <a href="/blog/tags/感悟/" rel="tag">
-        感悟
+      <% item.tags.each(function(tag){ %>
+      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
+        <%- tag.name %>
       </a>
-      
+      <% }); %>
     </div>
-    
+    <% } %>
   </article>
 </div>
 
         </div> 
     
 
-    
+    <% if (page.prev || page.next){ %>
 <div class="container" >
   <ul class="pager">
-    
+    <% if (page.prev){ %>
       <li class="previous">
-        <a href="/blog/page/10/">
-          下一页
+        <a href="<%- config.root %><%- page.prev_link %>">
+          <%- __('next')%>
         </a>
       </li>
-    
-    
+    <% } %>
+    <% if (page.next){ %>
+      <li class="next">
+        <a href="<%- config.root %><%- page.next_link %>">
+          <%- __('prev')%>
+        </a>
+      </li>
+    <% } %>
   </ul>
 </div>
-
+<% } %>
 
   </main>
   <!-- THplayer -->
