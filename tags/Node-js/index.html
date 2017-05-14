@@ -186,7 +186,7 @@
       2017-05-10
     </span>
     <a href="/blog/2017/05/10/Node.js+Express+Mongodb实现学校论坛 - 副本/" class="title">
-      Node.js+Express+Mongodb ʵ��ѧУ��̳
+      Node.js+Express+Mongodb 实现学校论坛
     </a>
   </li>
 
@@ -196,26 +196,7 @@
       </div>
     </div>
   </div>
-  <% if (page.prev || page.next){ %>
-<div class="container" >
-  <ul class="pager">
-    <% if (page.prev){ %>
-      <li class="previous">
-        <a href="<%- config.root %><%- page.prev_link %>">
-          <%- __('next')%>
-        </a>
-      </li>
-    <% } %>
-    <% if (page.next){ %>
-      <li class="next">
-        <a href="<%- config.root %><%- page.next_link %>">
-          <%- __('prev')%>
-        </a>
-      </li>
-    <% } %>
-  </ul>
-</div>
-<% } %>
+  
 
 </div>
 
@@ -248,11 +229,11 @@
 
   <!-- After footer scripts -->
   <!-- scripts -->
-<script src="/blog/js/app.js"></script>
-
+<%- js('js/app.js') %>
+<% if (theme.duoshuo_shortname) { %>
   <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
-    var duoshuoQuery = {short_name:'th720309'};
+    var duoshuoQuery = {short_name:'<%= theme.duoshuo_shortname %>'};
       (function() {
         var ds = document.createElement('script');
         ds.type = 'text/javascript';ds.async = true;
@@ -263,7 +244,7 @@
       })();
       </script>
     <!-- 多说公共JS代码 end -->
-
+<% } %>
 
 
 

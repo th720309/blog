@@ -321,26 +321,26 @@
         </div> 
     
 
-    <% if (page.prev || page.next){ %>
+    
 <div class="container" >
   <ul class="pager">
-    <% if (page.prev){ %>
+    
       <li class="previous">
-        <a href="<%- config.root %><%- page.prev_link %>">
-          <%- __('next')%>
+        <a href="/blog/page/5/">
+          下一页
         </a>
       </li>
-    <% } %>
-    <% if (page.next){ %>
+    
+    
       <li class="next">
-        <a href="<%- config.root %><%- page.next_link %>">
-          <%- __('prev')%>
+        <a href="/blog/page/7/">
+          上一页
         </a>
       </li>
-    <% } %>
+    
   </ul>
 </div>
-<% } %>
+
 
   </main>
   <!-- THplayer -->
@@ -387,11 +387,11 @@
 
   <!-- After footer scripts -->
   <!-- scripts -->
-<script src="/blog/js/app.js"></script>
-
+<%- js('js/app.js') %>
+<% if (theme.duoshuo_shortname) { %>
   <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
-    var duoshuoQuery = {short_name:'th720309'};
+    var duoshuoQuery = {short_name:'<%= theme.duoshuo_shortname %>'};
       (function() {
         var ds = document.createElement('script');
         ds.type = 'text/javascript';ds.async = true;
@@ -402,7 +402,7 @@
       })();
       </script>
     <!-- 多说公共JS代码 end -->
-
+<% } %>
 
 
 
