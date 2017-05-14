@@ -213,34 +213,37 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
-      <a href="<%- config.root %><%- item.path %>" rel="bookmark">
-        <%- item.title || theme.default_post_title || "Untitled" %>  
+      <a href="/blog/2016/09/15/算法篇————快速幂/" rel="bookmark">
+        算法篇————快速幂  
       </a>
     </h1>
-    <% if (item.excerpt){ %>
+    
     <div class="entry-content">
       <p>
-        <%- item.excerpt %>
+        <p>今天介绍第二种算法，快速幂的使用，这个极大的方便了数值较大的数的之间的运算。</p>
+<h2 id="快速幂取模"><a href="#快速幂取模" class="headerlink" title="快速幂取模"></a>快速幂取模</h2><p>假如我们要求a^b，而b是一个非常大的数的话，我们就可以用到快速幂的算法。这样复杂度不高，不会超时。</p>
+<p>假如求 a ^ n 次方</p>
+<p>我们可以把 n 表示为 2^k1 + 2^k2  + 2^k3….，可以证明所有数都可以用前式来表示。（其实就是二进制表示数的原理）<br>
       </p>
     </div>
     <div class="post-more-link text-center">
-            <a class="btn" href="<%- config.root %><%- item.path %>" rel="contents">
+            <a class="btn" href="/blog/2016/09/15/算法篇————快速幂/" rel="contents">
               阅读全文 »
             </a>
     </div>
     <p class="posted-on">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-    	<%= item.date.format(config.date_format) %>
+    	2016-09-15
     </p>
     <div class="tags-links">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      <% item.tags.each(function(tag){ %>
-      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
-        <%- tag.name %>
+      
+      <a href="/blog/tags/算法篇/" rel="tag">
+        算法篇
       </a>
-      <% }); %>
+      
     </div>
-    <% } %>
+    
   </article>
 </div>
 
@@ -250,34 +253,34 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
-      <a href="<%- config.root %><%- item.path %>" rel="bookmark">
-        <%- item.title || theme.default_post_title || "Untitled" %>  
+      <a href="/blog/2016/09/14/算法篇——入门级算法/" rel="bookmark">
+        算法篇————入门级算法  
       </a>
     </h1>
-    <% if (item.excerpt){ %>
+    
     <div class="entry-content">
       <p>
-        <%- item.excerpt %>
+        <p> 从今天开始，复习各种算法，每天都会去理解一种算法，争取贴出自己对每种算法的理解，今天介绍的是最基础的入门算法，最大公约数，最小公倍数，快速幂（后面会重点介绍），简单并查集（后面会重点介绍），还有排列组合（后面会重点介绍）的算法。<br>
       </p>
     </div>
     <div class="post-more-link text-center">
-            <a class="btn" href="<%- config.root %><%- item.path %>" rel="contents">
+            <a class="btn" href="/blog/2016/09/14/算法篇——入门级算法/" rel="contents">
               阅读全文 »
             </a>
     </div>
     <p class="posted-on">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-    	<%= item.date.format(config.date_format) %>
+    	2016-09-14
     </p>
     <div class="tags-links">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      <% item.tags.each(function(tag){ %>
-      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
-        <%- tag.name %>
+      
+      <a href="/blog/tags/算法篇/" rel="tag">
+        算法篇
       </a>
-      <% }); %>
+      
     </div>
-    <% } %>
+    
   </article>
 </div>
 
@@ -287,60 +290,60 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
-      <a href="<%- config.root %><%- item.path %>" rel="bookmark">
-        <%- item.title || theme.default_post_title || "Untitled" %>  
+      <a href="/blog/2016/09/13/2016-9-13随记/" rel="bookmark">
+        2016-9-13随记  
       </a>
     </h1>
-    <% if (item.excerpt){ %>
+    
     <div class="entry-content">
       <p>
-        <%- item.excerpt %>
+        <h2 id="随记"><a href="#随记" class="headerlink" title="随记"></a>随记</h2><p>这两天借着一个小伙伴的笔试经历，我发现了自己的很大不足。大众点评和腾讯的笔试都不是那么简单。操作系统，编译原理，COA，数据结构，数据库，真的是什么都考啊，感觉基础课真的很不扎实，逻辑题好像也挺重要，不过，说真的，那些题型真的有点变态，一堆数字放在一起，让你选下一个数字，貌似一年级时候训练过的找规律，可是尼玛，谁能告诉我规律是什么?可能这靠的就是对数字和计算机的观察度和专业素养的积累吧。<br>
       </p>
     </div>
     <div class="post-more-link text-center">
-            <a class="btn" href="<%- config.root %><%- item.path %>" rel="contents">
+            <a class="btn" href="/blog/2016/09/13/2016-9-13随记/" rel="contents">
               阅读全文 »
             </a>
     </div>
     <p class="posted-on">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-    	<%= item.date.format(config.date_format) %>
+    	2016-09-13
     </p>
     <div class="tags-links">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      <% item.tags.each(function(tag){ %>
-      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
-        <%- tag.name %>
+      
+      <a href="/blog/tags/感悟/" rel="tag">
+        感悟
       </a>
-      <% }); %>
+      
     </div>
-    <% } %>
+    
   </article>
 </div>
 
         </div> 
     
 
-    <% if (page.prev || page.next){ %>
+    
 <div class="container" >
   <ul class="pager">
-    <% if (page.prev){ %>
+    
       <li class="previous">
-        <a href="<%- config.root %><%- page.prev_link %>">
-          <%- __('next')%>
+        <a href="/blog/page/8/">
+          下一页
         </a>
       </li>
-    <% } %>
-    <% if (page.next){ %>
+    
+    
       <li class="next">
-        <a href="<%- config.root %><%- page.next_link %>">
-          <%- __('prev')%>
+        <a href="/blog/page/10/">
+          上一页
         </a>
       </li>
-    <% } %>
+    
   </ul>
 </div>
-<% } %>
+
 
   </main>
   <!-- THplayer -->
@@ -365,7 +368,7 @@
 	<div class="level-3"></div>
 </div>
 <script src="http://oct3pmpde.bkt.clouddn.com/top.js"></script>
-
+<script type="text/javascript" src="http://oct3pmpde.bkt.clouddn.com/jquery.js"></script>
 
   
   <!-- Footer -->

@@ -213,34 +213,34 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
-      <a href="<%- config.root %><%- item.path %>" rel="bookmark">
-        <%- item.title || theme.default_post_title || "Untitled" %>  
+      <a href="/blog/2016/11/16/Python处理矩阵（自然语言处理）/" rel="bookmark">
+        Python处理矩阵（自然语言处理）  
       </a>
     </h1>
-    <% if (item.excerpt){ %>
+    
     <div class="entry-content">
       <p>
-        <%- item.excerpt %>
+        <p><img src="http://oct3pmpde.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20161119133306.png" width="600" height="347" /><br>
       </p>
     </div>
     <div class="post-more-link text-center">
-            <a class="btn" href="<%- config.root %><%- item.path %>" rel="contents">
+            <a class="btn" href="/blog/2016/11/16/Python处理矩阵（自然语言处理）/" rel="contents">
               阅读全文 »
             </a>
     </div>
     <p class="posted-on">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-    	<%= item.date.format(config.date_format) %>
+    	2016-11-16
     </p>
     <div class="tags-links">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      <% item.tags.each(function(tag){ %>
-      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
-        <%- tag.name %>
+      
+      <a href="/blog/tags/Python/" rel="tag">
+        Python
       </a>
-      <% }); %>
+      
     </div>
-    <% } %>
+    
   </article>
 </div>
 
@@ -250,34 +250,34 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
-      <a href="<%- config.root %><%- item.path %>" rel="bookmark">
-        <%- item.title || theme.default_post_title || "Untitled" %>  
+      <a href="/blog/2016/11/12/2016-11-12随记/" rel="bookmark">
+        2016-11-12随记  
       </a>
     </h1>
-    <% if (item.excerpt){ %>
+    
     <div class="entry-content">
       <p>
-        <%- item.excerpt %>
+        <p><img src="http://oct3pmpde.bkt.clouddn.com/31189058_1392186616852.jpg" width="600" height="347" /></p>
       </p>
     </div>
     <div class="post-more-link text-center">
-            <a class="btn" href="<%- config.root %><%- item.path %>" rel="contents">
+            <a class="btn" href="/blog/2016/11/12/2016-11-12随记/" rel="contents">
               阅读全文 »
             </a>
     </div>
     <p class="posted-on">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-    	<%= item.date.format(config.date_format) %>
+    	2016-11-12
     </p>
     <div class="tags-links">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      <% item.tags.each(function(tag){ %>
-      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
-        <%- tag.name %>
+      
+      <a href="/blog/tags/感悟/" rel="tag">
+        感悟
       </a>
-      <% }); %>
+      
     </div>
-    <% } %>
+    
   </article>
 </div>
 
@@ -287,60 +287,60 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
-      <a href="<%- config.root %><%- item.path %>" rel="bookmark">
-        <%- item.title || theme.default_post_title || "Untitled" %>  
+      <a href="/blog/2016/10/30/git上传本地代码到github（不需配置ssh）/" rel="bookmark">
+        git上传本地代码到github(最简易教程，不需配置ssh)  
       </a>
     </h1>
-    <% if (item.excerpt){ %>
+    
     <div class="entry-content">
       <p>
-        <%- item.excerpt %>
+        <p><img src="http://oct3pmpde.bkt.clouddn.com/20160130201735_521.jpg" width="600" height="347" /></p>
       </p>
     </div>
     <div class="post-more-link text-center">
-            <a class="btn" href="<%- config.root %><%- item.path %>" rel="contents">
+            <a class="btn" href="/blog/2016/10/30/git上传本地代码到github（不需配置ssh）/" rel="contents">
               阅读全文 »
             </a>
     </div>
     <p class="posted-on">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-    	<%= item.date.format(config.date_format) %>
+    	2016-10-30
     </p>
     <div class="tags-links">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      <% item.tags.each(function(tag){ %>
-      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
-        <%- tag.name %>
+      
+      <a href="/blog/tags/git/" rel="tag">
+        git
       </a>
-      <% }); %>
+      
     </div>
-    <% } %>
+    
   </article>
 </div>
 
         </div> 
     
 
-    <% if (page.prev || page.next){ %>
+    
 <div class="container" >
   <ul class="pager">
-    <% if (page.prev){ %>
+    
       <li class="previous">
-        <a href="<%- config.root %><%- page.prev_link %>">
-          <%- __('next')%>
+        <a href="/blog/page/5/">
+          下一页
         </a>
       </li>
-    <% } %>
-    <% if (page.next){ %>
+    
+    
       <li class="next">
-        <a href="<%- config.root %><%- page.next_link %>">
-          <%- __('prev')%>
+        <a href="/blog/page/7/">
+          上一页
         </a>
       </li>
-    <% } %>
+    
   </ul>
 </div>
-<% } %>
+
 
   </main>
   <!-- THplayer -->
@@ -365,7 +365,7 @@
 	<div class="level-3"></div>
 </div>
 <script src="http://oct3pmpde.bkt.clouddn.com/top.js"></script>
-
+<script type="text/javascript" src="http://oct3pmpde.bkt.clouddn.com/jquery.js"></script>
 
   
   <!-- Footer -->

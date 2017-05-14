@@ -213,34 +213,37 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
-      <a href="<%- config.root %><%- item.path %>" rel="bookmark">
-        <%- item.title || theme.default_post_title || "Untitled" %>  
+      <a href="/blog/2016/09/13/hexo-next-搭建博客相册页和音乐页教程/" rel="bookmark">
+        hexo + next 搭建博客相册页和音乐页教程  
       </a>
     </h1>
-    <% if (item.excerpt){ %>
+    
     <div class="entry-content">
       <p>
-        <%- item.excerpt %>
+        <h2 id="搭建相册页"><a href="#搭建相册页" class="headerlink" title="搭建相册页"></a>搭建相册页</h2><ol>
+<li>在git上输入 hexo new page “photos”,创建photos页面，之后在sourse文件夹下能够找到photos文件夹，在index.md里添加type: photos.</li>
+<li>进入theme里的next下的config,在menu菜单下添加上photos页。</li>
+<li>如果语言选择是zh-hans的话，记得在languanges里把photos添加进去，以确保网页显示的菜单为photos.
       </p>
     </div>
     <div class="post-more-link text-center">
-            <a class="btn" href="<%- config.root %><%- item.path %>" rel="contents">
+            <a class="btn" href="/blog/2016/09/13/hexo-next-搭建博客相册页和音乐页教程/" rel="contents">
               阅读全文 »
             </a>
     </div>
     <p class="posted-on">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-    	<%= item.date.format(config.date_format) %>
+    	2016-09-13
     </p>
     <div class="tags-links">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      <% item.tags.each(function(tag){ %>
-      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
-        <%- tag.name %>
+      
+      <a href="/blog/tags/hexo/" rel="tag">
+        hexo
       </a>
-      <% }); %>
+      
     </div>
-    <% } %>
+    
   </article>
 </div>
 
@@ -250,34 +253,35 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
-      <a href="<%- config.root %><%- item.path %>" rel="bookmark">
-        <%- item.title || theme.default_post_title || "Untitled" %>  
+      <a href="/blog/2016/09/11/浪客剑心——影评/" rel="bookmark">
+        《浪客剑心》——影评  
       </a>
     </h1>
-    <% if (item.excerpt){ %>
+    
     <div class="entry-content">
       <p>
-        <%- item.excerpt %>
+        <h2 id="影评"><a href="#影评" class="headerlink" title="影评"></a>影评</h2><p>昨天，我同学各种恳求，让我看看《浪客剑心》系列电影，印象中不知道他跟我提过多少次这系列电影，昨晚抽了点空看了第一部，算是了了他的心愿。不过，说实话，虽然只看了第一部，不过感触还是蛮大的，在开篇之前，我想说，里面的女主角笑起来绝对的好看，很适合这个角色，长得有点像杨丞琳，对角色的内心把握的很好。</p>
+<p></p><br><blockquote class="blockquote-center">浪花淘尽英雄客，拔剑四顾心茫然。十年隐迹无人问，冲冠一怒为红颜。</blockquote><br><img src="http://oct3pmpde.bkt.clouddn.com/a686c9177f3e670936eec8773dc79f3df9dc5548.jpg" width="500" height="343" /><br><p></p><br>
       </p>
     </div>
     <div class="post-more-link text-center">
-            <a class="btn" href="<%- config.root %><%- item.path %>" rel="contents">
+            <a class="btn" href="/blog/2016/09/11/浪客剑心——影评/" rel="contents">
               阅读全文 »
             </a>
     </div>
     <p class="posted-on">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-    	<%= item.date.format(config.date_format) %>
+    	2016-09-11
     </p>
     <div class="tags-links">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      <% item.tags.each(function(tag){ %>
-      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
-        <%- tag.name %>
+      
+      <a href="/blog/tags/影评/" rel="tag">
+        影评
       </a>
-      <% }); %>
+      
     </div>
-    <% } %>
+    
   </article>
 </div>
 
@@ -287,60 +291,61 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
-      <a href="<%- config.root %><%- item.path %>" rel="bookmark">
-        <%- item.title || theme.default_post_title || "Untitled" %>  
+      <a href="/blog/2016/09/08/抓取正方教务学生照片/" rel="bookmark">
+        抓取正方教务学生照片  
       </a>
     </h1>
-    <% if (item.excerpt){ %>
+    
     <div class="entry-content">
       <p>
-        <%- item.excerpt %>
+        <p>全国据说大部分学校采用的都是正方教务的教务系统，个人感觉安全性做的真的不是很好，比起综合教务，安全性差远了，利用爬虫能非常轻易的获得教务的学生照片。</p>
+<p>这里只提供图片下载的代码，关于获取图片的url,懂点计算机的都明白（还是要吐槽一下这个教务的安全性），幸亏我们学校用的不是正方系统，不然感觉隐私泄露有点那啥啊！（逃）完整代码不提供。<br><br\><br>
       </p>
     </div>
     <div class="post-more-link text-center">
-            <a class="btn" href="<%- config.root %><%- item.path %>" rel="contents">
+            <a class="btn" href="/blog/2016/09/08/抓取正方教务学生照片/" rel="contents">
               阅读全文 »
             </a>
     </div>
     <p class="posted-on">
         <i class="fa fa-calendar" aria-hidden="true"></i>
-    	<%= item.date.format(config.date_format) %>
+    	2016-09-08
     </p>
     <div class="tags-links">
       <i class="fa fa-tags" aria-hidden="true"></i>
-      <% item.tags.each(function(tag){ %>
-      <a href="<%= config.root %>tags/<%= tag.name %>/" rel="tag">
-        <%- tag.name %>
+      
+      <a href="/blog/tags/爬虫/" rel="tag">
+        爬虫
       </a>
-      <% }); %>
+      
     </div>
-    <% } %>
+    
   </article>
 </div>
 
         </div> 
     
 
-    <% if (page.prev || page.next){ %>
+    
 <div class="container" >
   <ul class="pager">
-    <% if (page.prev){ %>
+    
       <li class="previous">
-        <a href="<%- config.root %><%- page.prev_link %>">
-          <%- __('next')%>
+        <a href="/blog/page/9/">
+          下一页
         </a>
       </li>
-    <% } %>
-    <% if (page.next){ %>
+    
+    
       <li class="next">
-        <a href="<%- config.root %><%- page.next_link %>">
-          <%- __('prev')%>
+        <a href="/blog/page/11/">
+          上一页
         </a>
       </li>
-    <% } %>
+    
   </ul>
 </div>
-<% } %>
+
 
   </main>
   <!-- THplayer -->
@@ -365,7 +370,7 @@
 	<div class="level-3"></div>
 </div>
 <script src="http://oct3pmpde.bkt.clouddn.com/top.js"></script>
-
+<script type="text/javascript" src="http://oct3pmpde.bkt.clouddn.com/jquery.js"></script>
 
   
   <!-- Footer -->
