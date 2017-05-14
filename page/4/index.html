@@ -321,26 +321,26 @@
         </div> 
     
 
-    
+    <% if (page.prev || page.next){ %>
 <div class="container" >
   <ul class="pager">
-    
+    <% if (page.prev){ %>
       <li class="previous">
-        <a href="/blog/page/3/">
-          下一页
+        <a href="<%- config.root %><%- page.prev_link %>">
+          <%- __('next')%>
         </a>
       </li>
-    
-    
+    <% } %>
+    <% if (page.next){ %>
       <li class="next">
-        <a href="/blog/page/5/">
-          上一页
+        <a href="<%- config.root %><%- page.next_link %>">
+          <%- __('prev')%>
         </a>
       </li>
-    
+    <% } %>
   </ul>
 </div>
-
+<% } %>
 
   </main>
   <!-- THplayer -->
