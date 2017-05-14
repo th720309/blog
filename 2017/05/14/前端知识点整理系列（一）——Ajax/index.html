@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<!-- Head tag -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!--Description-->
+  
+  <meta name="description" content="笔直向前 说到做到">
+  
+
+  <!--Author-->
+  
+  <meta name="author" content="th是个小屁孩">
+  
+
+  <!--Open Graph Title-->
+  
+      <meta property="og:title" content="前端知识点整理系列（一）—— Ajax"/>
+  
+  <!--Open Graph Description-->
+  
+      <meta property="og:description" content="笔直向前 说到做到" />
+  
+  <!--Open Graph Site Name-->
+  <meta property="og:site_name" content="th是个小屁孩"/>
+  <!--Type page-->
+  
+      <meta property="og:type" content="article" />
+  
+  <!--Page Cover-->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- 百度统计 -->
+    <script>
+	var _hmt = _hmt || [];
+	(function() {
+  	var hm = document.createElement("script");
+  	hm.src = "https://hm.baidu.com/hm.js?c0451e16533956173997b85f7a8de666";
+  	var s = document.getElementsByTagName("script")[0]; 
+  	s.parentNode.insertBefore(hm, s);
+	})();
+    </script>
+  <!-- Title -->
+  
+  <title>前端知识点整理系列（一）—— Ajax - th是个小屁孩</title>
+
+
+  <link rel="shortcut icon" href="/blog/favicon.ico">
+    <!--font-awesome-->
+  <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/blog/css/thplayer.css">
+  <!-- Custom CSS/Sass -->
+  <link rel="stylesheet" href="/blog/css/style.css">
+<script src="http://oct3pmpde.bkt.clouddn.com/jquery.js"></script>
+</head>
+
+
+<body>
+
+  <!-- Nav -->
+  <header class="site-header">
+  <div class="header-inside">
+    
+    <div class="logo">
+      <a href="http://www.tianhao.site" rel="home">
+        
+        <img src="http://oct3pmpde.bkt.clouddn.com/timg.jpg" alt="th是个小屁孩" height="60">
+        
+      </a>
+    </div>
+    <a class="header-name" href="/blog/">
+            <span>th是个小屁孩</span>
+            的部落宅
+        </a>
+    <!-- navbar -->
+    <nav class="navbar">
+      <!--  nav links -->
+      <div class="collapse">
+        <ul class="navbar-nav">
+          
+          
+            <li>
+              <a href="/blog/.">
+                
+                  <i class="fa fa-home "></i>
+                
+                首页
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/archives">
+                
+                  <i class="fa fa-archive "></i>
+                
+                归档
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/about">
+                
+                  <i class="fa fa-user "></i>
+                
+                关于
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/project">
+                
+                  <i class="fa fa-folder-open "></i>
+                
+                项目
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/photo">
+                
+                  <i class="fa fa-photo "></i>
+                
+                相册
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/guestbook">
+                
+                  <i class="fa fa-edit "></i>
+                
+                留言
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/one">
+                
+                  <i class="fa fa-bicycle "></i>
+                
+                one
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/atom.xml">
+                
+                  <i class="fa fa-send "></i>
+                
+                RSS
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </nav>
+    <div class="button-wrap">
+      <button class="menu-toggle">Primary Menu</button>
+    </div>
+  </div>
+</header>
+
+
+  <!-- Main Content -->
+  
+<div class="content-area">
+  <div class="post">
+    <!-- Post Content -->
+    <div class="container">
+      <article>
+        <!-- Title date & tags -->
+        <div class="post-header">
+          <h1 class="entry-title">
+            前端知识点整理系列（一）—— Ajax
+            
+          </h1>
+         
+        </div>
+　　　　　　　　<p class="a-posted-on">2017-05-14</p>
+        <!-- Post Main Content -->
+        <div class="entry-content">
+          <p><img src="http://oct3pmpde.bkt.clouddn.com/wall-303.jpg" width="600" height="347"></p>
+<a id="more"></a>
+<p>准备找实习了，打算对前端的基础知识点做一些整理，做为找实习前的准备，这将会是一个系列的文章总结。</p>
+<hr>
+<p>今天，我们来谈谈<code>Ajax</code>。</p>
+<blockquote>
+<p>首先来看看<code>Ajax</code>的全称是什么？ <code>AJAX</code> = Asynchronous JavaScript and XML（异步的 JavaScript<br>和 XML）。</p>
+</blockquote>
+<p>在<code>Ajax</code>被使用之前，假如我们要更新页面内容的话，需要重新加载整个的页面，但<code>Ajax</code>出现后，改变了这个劣势，我们可以在不重新加载整个网页的情况下，对网页的某部分进行更新。现如今，Web开发的过程中，<code>Ajax</code>已经普遍化了，在我们身边处处可见。例如谷歌，百度的搜索引擎，当我们在搜索框输入查询的内容时，提示框会实时更新而不需要重新加载网页，这就是用到了<code>Ajax</code>技术。<br>下面整理一下<code>Ajax</code>的工作原理。<br><code>Ajax</code>的核心是<code>XMLHttpRequest</code>对象，它是<code>Ajax</code>实现的关键——发送异步请求，接收响应及执行回调都是通过它来完成的。</p>
+<h2 id="实现Ajax的基本步骤"><a href="#实现Ajax的基本步骤" class="headerlink" title="实现Ajax的基本步骤"></a>实现Ajax的基本步骤</h2><blockquote>
+<ol>
+<li>创建<code>XMLHttpRequest</code>对象,也就是创建一个异步调用对象.</li>
+<li>创建一个新的HTTP请求,并指定该HTTP请求的方法、URL及验证信息.</li>
+<li>设置响应HTTP请求状态变化的函数.</li>
+<li>发送HTTP请求.</li>
+<li>获取异步调用返回的数据.</li>
+<li>使用JavaScript和DOM实现局部刷新.</li>
+</ol>
+</blockquote>
+<p>我们先来看看原生javascript的ajax实现。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">function Ajax()&#123;</div><div class="line">	//声明一个空对象来装入XMLHttpRequest对象</div><div class="line">	var xmlHttpReq = null;</div><div class="line">	//实例化XMLHttpRequest对象</div><div class="line">	if(window.ActiveXobject)&#123;          //IE5.6是以ActiveXobject的方式实现</div><div class="line">		xmlHttpReq = new ActiveXobject(&quot;Microsoft.XMLHTTP&quot;);</div><div class="line">	&#125;else if(window.XMLHttpRequest)&#123;      //除IE5,6以外的浏览器实现</div><div class="line">		xmlHttpReq = new XMLHttpRequest();  </div><div class="line">	&#125;</div><div class="line">	//调用open()方法并采用异步方式</div><div class="line">	xmlHttpReq.open(&quot;GET&quot;,&quot;test.php&quot;,true);   </div><div class="line">	//将请求发送到服务器（post可加入参数string）</div><div class="line">	xmlHttpReq.send();   </div><div class="line">	//请求状态改变回调</div><div class="line">	xmlHttpReq.onreadystatechange=function()&#123;</div><div class="line">		if (xmlHttpReq.readyState==4 &amp;&amp; xmlHttpReq.status==200)&#123;</div><div class="line">		    document.getElementById(&quot;myDiv&quot;).innerHTML=xmlHttpReq.responseText;</div><div class="line">	    &#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>下表是<code>readyState</code>对应的状态码和描述<br>| 属性 | 描述 |<br>| ————- |:————-:|<br>| onreadystatechange | 存储函数（或函数名），每当 readyState 属性改变时，就会调用该函数。 |<br>| readyState 0| 请求未初始化 |<br>| readyState 1 | 服务器连接已建立 |<br>| readyState 2 | 请求已接收 |<br>| readyState 3 | 请求处理中 |<br>| readyState 4 | 请求已完成，且响应已就绪 | </p>
+<hr>
+<p>再罗列一些http状态码吧。<br>| 状态码 | 描述 |<br>| ————- |:————-:|<br>| 200 | OK   一切正常，对GET和POST请求的应答文档跟在后面 |<br>| 301 | Moved Permanently 客户请求的文档在其他地方，新的URL在Location头中给出，浏览器应该自动地访问新的URL。 |<br>| 302 | Found  类似于301，但新的URL应该被视为临时性的替代，而不是永久性的。 |<br>| 304 | Not Modified   客户端有缓冲的文档并发出了一个条件性的请求（一般是提供If-Modified-Since头表示客户只想比指定日期更新的文档）。服务器告诉客户，原来缓冲的文档还可以继续使用。 |<br>| 400 | Bad Request  请求出现语法错误。 |<br>| 403 | Forbidden 资源不可用。 |<br>| 404 | Not Found  无法找到指定位置的资源 |<br>| 500 | Internal Server Error  服务器遇到了意料不到的情况，不能完成客户的请求 |<br>| 501 | Not Implemented  服务器不支持实现请求所需要的功能。例如，客户发出了一个服务器不支持的PUT请求 | </p>
+<hr>
+<p>我们再看看<code>jQuery</code>对<code>ajax</code>的实现是怎么样的。在<code>jQuery</code>中<code>$.ajax()</code>方法属于最底层的方法，第二层是<code>load()</code>,<code>$.get()</code>方法，第三层是<code>$.getScript()和$.getJSON()</code>方法。我只整理一下<code>$.ajax()</code>方法，因为我平时用的最多。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123; </div><div class="line">    url: &quot;http://www.microsoft.com&quot;,    //请求的url地址 </div><div class="line">    dataType: &quot;json&quot;,   //返回格式为json </div><div class="line">    async: true, //请求是否异步，默认为异步，这也是ajax重要特性 </div><div class="line">    data: &#123; &quot;id&quot;: &quot;value&quot; &#125;,    //参数值 </div><div class="line">    type: &quot;GET&quot;,   //请求方式 </div><div class="line">    beforeSend: function() &#123; </div><div class="line">        //请求前的处理 </div><div class="line">    &#125;, </div><div class="line">    success: function(data，textStatus) &#123; </div><div class="line">        //请求成功时处理 </div><div class="line">        alert(data);</div><div class="line">    &#125;, </div><div class="line">    complete: function() &#123; </div><div class="line">        //请求完成的处理 </div><div class="line">    &#125;, </div><div class="line">    error: function() &#123; </div><div class="line">        //请求出错处理 </div><div class="line">    &#125; </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>本篇的<code>Ajax</code>使用就总结到这里，当然还有一些方法并未能全部的总结。在以后使用中，我会把它们也总结下来。</p>
+
+        </div>
+      </article>
+    </div>
+    <!-- Pre or Next -->
+    
+	<div class="container" >
+           <ul class="pager">
+    	     
+      	     <li class="previous">
+              <a href="/blog/2017/05/10/Node.js+Express+Mongodb实现学校论坛 - 副本/" rel="prev">下一篇</a>
+             </li>
+           
+           
+          </ul>
+       </div>
+　　　　<!-- Comments -->
+    <div class="container">
+      
+<section id="comment">
+  <!-- <h1 class="title">Comments</h1> -->
+
+  
+    <!-- 多说评论框 start -->
+    <script type="text/javascript">
+var duoshuoQuery = {short_name:"th720309"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.unstable.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+
+    <div class="ds-thread" data-thread-key="post-前端知识点整理系列（一）——Ajax" data-title="前端知识点整理系列（一）—— Ajax" data-url="http://www.tianhao.site/blog/2017/05/14/前端知识点整理系列（一）——Ajax/"></div>
+    <!-- 多说评论框 end -->
+  
+</section>
+
+
+    </div>
+   
+　　　　
+  </div>
+</div>
+
+
+　　<!-- top -->
+  <div id="rocket-to-top">
+	<div class="level-2"></div>
+	<div class="level-3"></div>
+</div>
+<script src="http://oct3pmpde.bkt.clouddn.com/top.js"></script>
+
+
+  
+  <!-- Footer -->
+  <!-- Footer -->
+<footer class="site-info">
+  <p>
+    <span>th是个小屁孩 &copy; 2017</span>
+    
+      <span class="split">|</span>
+      <span>th是个小屁孩的技术小屋</span>
+    
+  </p>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+本站总访问量<span id="busuanzi_value_site_pv"></span>次
+本站访客数<span id="busuanzi_value_site_uv"></span>人次
+
+</footer>
+
+
+  <!-- After footer scripts -->
+  <!-- scripts -->
+<script src="/blog/js/app.js"></script>
+
+  <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'th720309'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+
+
+
+
+</body>
+
+</html>
