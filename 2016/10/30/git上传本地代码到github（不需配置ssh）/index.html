@@ -234,14 +234,25 @@
        </div>
 　　　　<!-- Comments -->
     <div class="container">
-      
+      <% if (page.comments){ %>
 <section id="comment">
-  <!-- <h1 class="title">Comments</h1> -->
+  <!-- <h1 class="title"><%= __('comment') %></h1> -->
 
-  
+  <% if(theme.disqus_shortname) { %>
+  <div id="disqus_thread">
+    <script type="text/javascript">
+    var disqus_config = function () {
+          this.page.url = window.location.href;
+          this.page.identifier = '<%= page.layout %>-<%= page.slug %>';
+          this.page.title = '<%= page.title %>';
+      };
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+  <% } else if (theme.duoshuo_shortname) { %>
     <!-- 多说评论框 start -->
     <script type="text/javascript">
-var duoshuoQuery = {short_name:"th720309"};
+var duoshuoQuery = {short_name:"<%= theme.duoshuo_shortname %>"};
 	(function() {
 		var ds = document.createElement('script');
 		ds.type = 'text/javascript';ds.async = true;
@@ -252,11 +263,11 @@ var duoshuoQuery = {short_name:"th720309"};
 	})();
 	</script>
 
-    <div class="ds-thread" data-thread-key="post-git上传本地代码到github（不需配置ssh）" data-title="git上传本地代码到github(最简易教程，不需配置ssh)" data-url="http://www.tianhao.site/blog/2016/10/30/git上传本地代码到github（不需配置ssh）/"></div>
+    <div class="ds-thread" data-thread-key="<%= page.layout %>-<%= page.slug %>" data-title="<%= page.title %>" data-url="<%= page.permalink %>"></div>
     <!-- 多说评论框 end -->
-  
+  <% } %>
 </section>
-
+<% } %>
 
     </div>
    
@@ -271,7 +282,7 @@ var duoshuoQuery = {short_name:"th720309"};
 	<div class="level-3"></div>
 </div>
 <script src="http://oct3pmpde.bkt.clouddn.com/top.js"></script>
-<script type="text/javascript" src="http://oct3pmpde.bkt.clouddn.com/jquery.js"></script>
+
 
   
   <!-- Footer -->

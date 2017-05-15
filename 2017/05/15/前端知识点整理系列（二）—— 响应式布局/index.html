@@ -18,7 +18,7 @@
 
   <!--Open Graph Title-->
   
-      <meta property="og:title" content="带cookie访问服务器实现模拟登录"/>
+      <meta property="og:title" content="前端知识点整理系列（二）—— 响应式布局"/>
   
   <!--Open Graph Description-->
   
@@ -46,7 +46,7 @@
     </script>
   <!-- Title -->
   
-  <title>带cookie访问服务器实现模拟登录 - th是个小屁孩</title>
+  <title>前端知识点整理系列（二）—— 响应式布局 - th是个小屁孩</title>
 
 
   <link rel="shortcut icon" href="/blog/favicon.ico">
@@ -176,19 +176,31 @@
         <!-- Title date & tags -->
         <div class="post-header">
           <h1 class="entry-title">
-            带cookie访问服务器实现模拟登录
+            前端知识点整理系列（二）—— 响应式布局
             
           </h1>
          
         </div>
-　　　　　　　　<p class="a-posted-on">2016-12-29</p>
+　　　　　　　　<p class="a-posted-on">2017-05-15</p>
         <!-- Post Main Content -->
         <div class="entry-content">
-          <p><img src="http://oct3pmpde.bkt.clouddn.com/201206191345109414.jpg" width="600" height="347"></p>
+          <p><img src="http://oct3pmpde.bkt.clouddn.com/wall-1.jpg" width="600" height="347"></p>
 <a id="more"></a>
-<p>当我们需要抓取需要登录的网站的信息或者实现模拟登录时，我们需要得到第一次登录网站的cookie,以便于下次登录可以不用post参数实现登录，只要将cookie放入头文件就好，这是之前写的模拟登录学校教务的代码，记录以便查阅。</p>
+<p>今天整理关于响应式布局的知识。响应式布局这个名词现在应该已经很熟悉了，随着移动端的普及，我们的网站的用户体验需要提升，响应式布局可以解决我们的问题。</p>
 <hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line">public String DoLogin(final String user, final String password, final String verifation) &#123;</div><div class="line">   </div><div class="line">                DefaultHttpClient   defaultclient = new DefaultHttpClient();  </div><div class="line"></div><div class="line">                //设置post参数</div><div class="line">                List&lt;NameValuePair&gt; params = new ArrayList&lt;NameValuePair&gt;();</div><div class="line"></div><div class="line">                params.add(new BasicNameValuePair(&quot;groupId&quot;, &quot;&quot;));</div><div class="line">                params.add(new BasicNameValuePair(&quot;j_username&quot;, user));</div><div class="line">                params.add(new BasicNameValuePair(&quot;j_password&quot;, password));</div><div class="line">                params.add(new BasicNameValuePair(&quot;j_captcha&quot;, verifation));</div><div class="line">                params.add(new BasicNameValuePair(&quot;login&quot;, &quot;登录&quot;));</div><div class="line"></div><div class="line">                //获得个人主界面的HTML</div><div class="line">                try &#123;</div><div class="line">                	 HttpPost httpPost = new HttpPost(LOGINURL);</div><div class="line">                	 System.out.println(LOGINURL);                	</div><div class="line">                     httpPost.setHeader(&quot;Cookie&quot;, Cookie);                    </div><div class="line">                     HttpResponse httpResponse;</div><div class="line">                     httpPost.setEntity((HttpEntity) new UrlEncodedFormEntity(params, HTTP.UTF_8));</div><div class="line">                     httpResponse = defaultclient.execute(httpPost);</div><div class="line">                     httpPost.setHeader(&quot;Cookie&quot;, Cookie);</div><div class="line">                     System.out.println(Cookie);</div><div class="line">                     if (httpResponse.getStatusLine().getStatusCode() == 200) &#123;</div><div class="line">                          StringBuffer sb = new StringBuffer();</div><div class="line">                          HttpEntity entity = httpResponse.getEntity();</div><div class="line">                          MAINBODYHTML = EntityUtils.toString(entity);        </div><div class="line"></div><div class="line">                          </div><div class="line">                    &#125;</div><div class="line"></div><div class="line">                    if(httpResponse.getStatusLine().getStatusCode() == 302)&#123;</div><div class="line">                    	String locationUrl=httpResponse.getLastHeader(&quot;Location&quot;).getValue();  </div><div class="line">                        System.out.println(locationUrl);</div><div class="line">                        LOGINURL=locationUrl;</div><div class="line">                        System.out.println(&quot;302&quot;);</div><div class="line">                        DoLogin(user, password, verifation);</div><div class="line">                    &#125;                 </div><div class="line">                    else&#123;</div><div class="line">                        StringBuffer sb = new StringBuffer();</div><div class="line">                        HttpEntity entity = httpResponse.getEntity();</div><div class="line">                        MAINBODYHTML = EntityUtils.toString(entity);</div><div class="line">                       System.out.println( MAINBODYHTML);</div><div class="line">                    &#125;</div><div class="line">                &#125; catch (UnsupportedEncodingException e) &#123;</div><div class="line">                	</div><div class="line">                    System.out.println(&quot;验证码不正确&quot;);</div><div class="line">                    e.printStackTrace();</div><div class="line">                &#125; catch (ClientProtocolException e) &#123;</div><div class="line">					// TODO Auto-generated catch block</div><div class="line">					e.printStackTrace();</div><div class="line">				&#125; catch (IOException e) &#123;</div><div class="line">					// TODO Auto-generated catch block</div><div class="line">					e.printStackTrace();</div><div class="line">				&#125;</div><div class="line">                LOGINURL=&quot;http://jw.djtu.edu.cn/academic/j_acegi_security_check&quot;;      </div><div class="line">    </div><div class="line">				return MAINBODYHTML; </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h2 id="什么是响应式布局？"><a href="#什么是响应式布局？" class="headerlink" title="什么是响应式布局？"></a>什么是响应式布局？</h2><p>简单点说，就是同一个页面可以适应不同的屏幕大小设备的设计方案，做一个网站同时能兼容多个终端，通过CSS中Media Query（媒介查询）@media功能，来判断我们的终端设备宽度在多少像素内，然后就执行与之对应的CSS样式。</p>
+<h2 id="布局及设置meta标签"><a href="#布局及设置meta标签" class="headerlink" title="布局及设置meta标签"></a>布局及设置meta标签</h2><p>当创建一个响应式网站，或者非响应式网站变成响应式的时候，首先要关注元素的布局。我在创建响应式布局的时候习惯先写非响应式布局，页面固定宽度大小。如果完成了非响应式那么我在去添加媒体查询（Media Query)和响应式代码。这种操作更容易实现响应式特性。在手机设备上，我们要禁止用户来缩放屏幕。不禁止的话，可能在显示上会造成错位，以及显示的不是手机网站的样式。所以，我们要通过代码来禁止用户在手机端上缩放屏幕，已达到正常的手机网站效果。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</div></pre></td></tr></table></figure>
+<h2 id="通过媒体查询来设置样式media-query"><a href="#通过媒体查询来设置样式media-query" class="headerlink" title="通过媒体查询来设置样式media query"></a>通过媒体查询来设置样式media query</h2><p>media query 是响应式设计的核心，它能够和浏览器进行沟通，告诉浏览器页面如何呈现，假如一个终端的分辨率小于980px，那么可以这样写，这个时候的布局会覆盖掉之前设置的布局。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"> @media screen and (max-width:980px)&#123;</div><div class="line">     #head &#123; … &#125;</div><div class="line">     #content &#123; … &#125;</div><div class="line">     #footer &#123; … &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="设置多种视图宽度"><a href="#设置多种视图宽度" class="headerlink" title="设置多种视图宽度"></a>设置多种视图宽度</h2><p>假如我们要兼容ipad和iphone视图，我们可以这样设置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">/**ipad**/</div><div class="line">@media only screen and (min-width:768px)and(max-width:1024px)&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line">/**iphone**/</div><div class="line">@media only screen and (width:320px)and (width:768px)&#123;</div><div class="line"> </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="响应式的图片"><a href="#响应式的图片" class="headerlink" title="响应式的图片"></a>响应式的图片</h2><ul>
+<li>大图随容器缩放，保持宽高比</li>
+<li>max-width: 100%;</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> #wrap img&#123;</div><div class="line">    max-width:100%;</div><div class="line">    height:auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如此设置后ID为wrap内的图片会根据wrap的宽度改变已达到等宽扩充，height为auto的设置是为了保证图片原始的高宽比例，以至于图片不会失真。</p>
 
         </div>
       </article>
@@ -199,13 +211,9 @@
            <ul class="pager">
     	     
       	     <li class="previous">
-              <a href="/blog/2016/12/19/《请回答1988》/" rel="prev">下一篇</a>
+              <a href="/blog/2017/05/14/前端知识点整理系列（一）——Ajax/" rel="prev">下一篇</a>
              </li>
            
-           
-              <li class="next">
-              <a href="/blog/2016/12/31/2016年终总结，2017何去何从？/" rel="prev">上一篇</a>
-            </li>
            
           </ul>
        </div>
