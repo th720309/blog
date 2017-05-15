@@ -208,25 +208,14 @@
        </div>
 　　　　<!-- Comments -->
     <div class="container">
-      <% if (page.comments){ %>
+      
 <section id="comment">
-  <!-- <h1 class="title"><%= __('comment') %></h1> -->
+  <!-- <h1 class="title">Comments</h1> -->
 
-  <% if(theme.disqus_shortname) { %>
-  <div id="disqus_thread">
-    <script type="text/javascript">
-    var disqus_config = function () {
-          this.page.url = window.location.href;
-          this.page.identifier = '<%= page.layout %>-<%= page.slug %>';
-          this.page.title = '<%= page.title %>';
-      };
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  </div>
-  <% } else if (theme.duoshuo_shortname) { %>
+  
     <!-- 多说评论框 start -->
     <script type="text/javascript">
-var duoshuoQuery = {short_name:"<%= theme.duoshuo_shortname %>"};
+var duoshuoQuery = {short_name:"th720309"};
 	(function() {
 		var ds = document.createElement('script');
 		ds.type = 'text/javascript';ds.async = true;
@@ -237,11 +226,11 @@ var duoshuoQuery = {short_name:"<%= theme.duoshuo_shortname %>"};
 	})();
 	</script>
 
-    <div class="ds-thread" data-thread-key="<%= page.layout %>-<%= page.slug %>" data-title="<%= page.title %>" data-url="<%= page.permalink %>"></div>
+    <div class="ds-thread" data-thread-key="post-2016-9-13随记" data-title="2016-9-13随记" data-url="http://www.tianhao.site/blog/2016/09/13/2016-9-13随记/"></div>
     <!-- 多说评论框 end -->
-  <% } %>
+  
 </section>
-<% } %>
+
 
     </div>
    
