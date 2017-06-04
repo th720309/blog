@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<!-- Head tag -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!--Description-->
+  
+  <meta name="description" content="笔直向前 说到做到">
+  
+
+  <!--Author-->
+  
+  <meta name="author" content="th是个小屁孩">
+  
+
+  <!--Open Graph Title-->
+  
+      <meta property="og:title" content="前端知识点整理系列（一）—— apply() call() bind()"/>
+  
+  <!--Open Graph Description-->
+  
+      <meta property="og:description" content="笔直向前 说到做到" />
+  
+  <!--Open Graph Site Name-->
+  <meta property="og:site_name" content="th是个小屁孩"/>
+  <!--Type page-->
+  
+      <meta property="og:type" content="article" />
+  
+  <!--Page Cover-->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- 百度统计 -->
+    <script>
+	var _hmt = _hmt || [];
+	(function() {
+  	var hm = document.createElement("script");
+  	hm.src = "https://hm.baidu.com/hm.js?c0451e16533956173997b85f7a8de666";
+  	var s = document.getElementsByTagName("script")[0]; 
+  	s.parentNode.insertBefore(hm, s);
+	})();
+    </script>
+  <!-- Title -->
+  
+  <title>前端知识点整理系列（一）—— apply() call() bind() - th是个小屁孩</title>
+
+
+  <link rel="shortcut icon" href="/blog/favicon.ico">
+    <!--font-awesome-->
+  <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/blog/css/thplayer.css">
+  <!-- Custom CSS/Sass -->
+  <link rel="stylesheet" href="/blog/css/style.css">
+<script src="http://oct3pmpde.bkt.clouddn.com/jquery.js"></script>
+</head>
+
+
+<body>
+
+  <!-- Nav -->
+  <header class="site-header">
+  <div class="header-inside">
+    
+    <div class="logo">
+      <a href="http://www.tianhao.site" rel="home">
+        
+        <img src="http://oct3pmpde.bkt.clouddn.com/timg.jpg" alt="th是个小屁孩" height="60">
+        
+      </a>
+    </div>
+    <a class="header-name" href="/blog/">
+            <span>th是个小屁孩</span>
+            的部落宅
+        </a>
+    <!-- navbar -->
+    <nav class="navbar">
+      <!--  nav links -->
+      <div class="collapse">
+        <ul class="navbar-nav">
+          
+          
+            <li>
+              <a href="/blog/.">
+                
+                  <i class="fa fa-home "></i>
+                
+                首页
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/archives">
+                
+                  <i class="fa fa-archive "></i>
+                
+                归档
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/about">
+                
+                  <i class="fa fa-user "></i>
+                
+                关于
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/project">
+                
+                  <i class="fa fa-folder-open "></i>
+                
+                项目
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/photo">
+                
+                  <i class="fa fa-photo "></i>
+                
+                相册
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/guestbook">
+                
+                  <i class="fa fa-edit "></i>
+                
+                留言
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/one">
+                
+                  <i class="fa fa-bicycle "></i>
+                
+                one
+              </a>
+            </li>
+          
+            <li>
+              <a href="/blog/atom.xml">
+                
+                  <i class="fa fa-send "></i>
+                
+                RSS
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </nav>
+    <div class="button-wrap">
+      <button class="menu-toggle">Primary Menu</button>
+    </div>
+  </div>
+</header>
+
+
+  <!-- Main Content -->
+  
+<div class="content-area">
+  <div class="post">
+    <!-- Post Content -->
+    <div class="container">
+      <article>
+        <!-- Title date & tags -->
+        <div class="post-header">
+          <h1 class="entry-title">
+            前端知识点整理系列（一）—— apply() call() bind()
+            
+          </h1>
+         
+        </div>
+　　　　　　　　<p class="a-posted-on">2017-06-04</p>
+        <!-- Post Main Content -->
+        <div class="entry-content">
+          <p><img src="http://oct3pmpde.bkt.clouddn.com/wall-722.jpg" width="600" height="347"></p>
+<a id="more"></a>
+<p>最近在刷牛客网的前端题，涉及到很多<code>apply()</code>,<code>call()</code>,<code>bind()</code>的调用，今天抽空整理一下这种函数的调用方法。</p>
+<hr>
+<p>我们知道，在js里，万物皆对象，一个函数本身就是一个对象，所以它自然拥有一些方法，在js里，每一个函数都拥有一个<code>prototype——Function</code>，其中<code>apply()</code>，<code>call()</code>，<code>bind()</code>就是这个原型自带的方法。我们知道这三个方法都能改变函数this的指向，其实他们的区别不是很大，今天就整理一下他们之间的区别。<br>先说 <code>apply()</code> 方法，它让我们构造一个参数数组传递给函数，同时可以自己来设置 this 的值，这就是它最强大的地方。它有两个参数，第一个参数是传递给这个函数用来绑定this的值，第二个参数传递的是一个数组。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function a(xx) &#123;        </div><div class="line">    this.b = xx;</div><div class="line">&#125;</div><div class="line">var o = &#123;&#125;;</div><div class="line">a.apply(o, [5]);</div><div class="line">alert(a.b);    // undefined</div><div class="line">alert(o.b);    // 5</div></pre></td></tr></table></figure>
+<p>我们对a进行<code>apply()</code>方法调用，函数 a 居然可以给 o 加属性值。当然，如果你 <code>apply()</code> 的第一个参数传递 null，那么在函数 a 里面 this 指针依然会绑定全局对象。</p>
+<hr>
+<p>再谈谈<code>call()</code>，其实<code>call()</code>和<code>apply()</code>没有什么本质的区别，在于第二个参数，<code>apply()</code>传递的是一个数组，你想传递给这个函数的所有参数都放在数组里，而<code>call()</code>传递的是一个一个参数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function a(xx, yy) &#123;    </div><div class="line">    alert(xx, yy);    </div><div class="line">    alert(this);    </div><div class="line">    alert(arguments);</div><div class="line">&#125;</div><div class="line">a.apply(null, [5, 55]);</div><div class="line">a.call(null, 5, 55);</div></pre></td></tr></table></figure>
+<p>仅此而已。</p>
+<hr>
+<p>再来看看<code>bind()</code>方法，上面讲的无论是 <code>call()</code> 也好， <code>apply()</code> 也好，都是立马就调用了对应的函数，而 <code>bind()</code> 不会，<code>bind()</code> 会生成一个新的函数，<code>bind()</code>函数的参数跟 <code>call()</code>一致，第一个参数也是绑定 this 的值，后面接受传递给函数的不定参数。 <code>bind()</code>生成的新函数返回后，你想什么时候调就什么时候调，看下代码就明白了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var m = &#123;   </div><div class="line">    &quot;x&quot; : 1</div><div class="line">&#125;;</div><div class="line">function foo(y) &#123;</div><div class="line">    alert(this.x + y);</div><div class="line">&#125;</div><div class="line">foo.apply(m, [5]);</div><div class="line">foo.call(m, 5);</div><div class="line">var foo1 = foo.bind(m, 5);</div><div class="line">foo1();</div></pre></td></tr></table></figure>
+<p>下面看一个牛客网上的例子，利用apply()调用函数。</p>
+<p>题目描述<br>实现函数 callIt，调用之后满足如下条件<br>1、返回的结果为调用 fn 之后的结果<br>2、fn 的调用参数为 callIt 的第一个参数之后的全部参数 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var a = 1; </div><div class="line">var b = 2; </div><div class="line">var test = function (first, second) &#123; </div><div class="line">	return first === a &amp;&amp; second === b;</div><div class="line">&#125;; </div><div class="line">callIt(test, a, b);</div></pre></td></tr></table></figure>
+<p>我们来实现这个callIt函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function callIt(fn) &#123;</div><div class="line">    var args = [];</div><div class="line">    for(var i=1;i&lt;arguments.length;i++)&#123;</div><div class="line">        args.push(arguments[i]);</div><div class="line">    &#125;</div><div class="line">    return fn.apply(this,args);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+        </div>
+      </article>
+    </div>
+    <!-- Pre or Next -->
+    
+	<div class="container" >
+           <ul class="pager">
+    	     
+      	     <li class="previous">
+              <a href="/blog/2017/05/15/前端知识点整理系列（二）—— 响应式布局/" rel="prev">下一篇</a>
+             </li>
+           
+           
+          </ul>
+       </div>
+　　　　<!-- Comments -->
+    <div class="container">
+
+    </div>
+   
+　　　　
+  </div>
+</div>
+
+
+　　<!-- top -->
+  <div id="rocket-to-top">
+	<div class="level-2"></div>
+	<div class="level-3"></div>
+</div>
+<script src="http://oct3pmpde.bkt.clouddn.com/top.js"></script>
+
+
+  
+  <!-- Footer -->
+  <!-- Footer -->
+<footer class="site-info">
+  <p>
+    <span>th是个小屁孩 &copy; 2017</span>
+    
+      <span class="split">|</span>
+      <span>th是个小屁孩的技术小屋</span>
+    
+  </p>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+本站总访问量<span id="busuanzi_value_site_pv"></span>次
+本站访客数<span id="busuanzi_value_site_uv"></span>人次
+
+</footer>
+
+
+  <!-- After footer scripts -->
+  <!-- scripts -->
+<%- js('js/app.js') %>
+<% if (theme.duoshuo_shortname) { %>
+  <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'<%= theme.duoshuo_shortname %>'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+<% } %>
+
+
+
+</body>
+
+</html>

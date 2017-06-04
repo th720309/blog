@@ -215,33 +215,14 @@
              </li>
            
            
+              <li class="next">
+              <a href="/blog/2017/06/04/前端知识点整理系列（一）——apply() call() bind()/" rel="prev">上一篇</a>
+            </li>
+           
           </ul>
        </div>
 　　　　<!-- Comments -->
     <div class="container">
-      
-<section id="comment">
-  <!-- <h1 class="title">Comments</h1> -->
-
-  
-    <!-- 多说评论框 start -->
-    <script type="text/javascript">
-var duoshuoQuery = {short_name:"th720309"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.unstable.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-
-    <div class="ds-thread" data-thread-key="post-前端知识点整理系列（二）—— 响应式布局" data-title="前端知识点整理系列（二）—— 响应式布局" data-url="http://www.tianhao.site/blog/2017/05/15/前端知识点整理系列（二）—— 响应式布局/"></div>
-    <!-- 多说评论框 end -->
-  
-</section>
-
 
     </div>
    
@@ -278,11 +259,11 @@ var duoshuoQuery = {short_name:"th720309"};
 
   <!-- After footer scripts -->
   <!-- scripts -->
-<script src="/blog/js/app.js"></script>
-
+<%- js('js/app.js') %>
+<% if (theme.duoshuo_shortname) { %>
   <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
-    var duoshuoQuery = {short_name:'th720309'};
+    var duoshuoQuery = {short_name:'<%= theme.duoshuo_shortname %>'};
       (function() {
         var ds = document.createElement('script');
         ds.type = 'text/javascript';ds.async = true;
@@ -293,7 +274,7 @@ var duoshuoQuery = {short_name:"th720309"};
       })();
       </script>
     <!-- 多说公共JS代码 end -->
-
+<% } %>
 
 
 

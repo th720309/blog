@@ -213,6 +213,46 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
+      <a href="/blog/2016/09/18/算法篇————二分查找算法/" rel="bookmark">
+        算法篇————二分查找算法  
+      </a>
+    </h1>
+    
+    <div class="entry-content">
+      <p>
+        <h2 id="二分查找算法总结"><a href="#二分查找算法总结" class="headerlink" title="二分查找算法总结"></a>二分查找算法总结</h2><ol>
+<li>典型的二分查找</li>
+<li>复杂度低的二分查找</li>
+<li><p>例子</p>
+      </p>
+    </div>
+    <div class="post-more-link text-center">
+            <a class="btn" href="/blog/2016/09/18/算法篇————二分查找算法/" rel="contents">
+              阅读全文 »
+            </a>
+    </div>
+    <p class="posted-on">
+        <i class="fa fa-calendar" aria-hidden="true"></i>
+    	2016-09-18
+    </p>
+    <div class="tags-links">
+      <i class="fa fa-tags" aria-hidden="true"></i>
+      
+      <a href="/blog/tags/算法篇/" rel="tag">
+        算法篇
+      </a>
+      
+    </div>
+    
+  </article>
+</div>
+
+        </div> 
+    
+        <div class="article">
+          <div class="container">
+  <article class="post">
+    <h1 class="entry-title">
       <a href="/blog/2016/09/17/《釜山行》/" rel="bookmark">
         《釜山行》  
       </a>
@@ -271,43 +311,6 @@
     <p class="posted-on">
         <i class="fa fa-calendar" aria-hidden="true"></i>
     	2016-09-15
-    </p>
-    <div class="tags-links">
-      <i class="fa fa-tags" aria-hidden="true"></i>
-      
-      <a href="/blog/tags/算法篇/" rel="tag">
-        算法篇
-      </a>
-      
-    </div>
-    
-  </article>
-</div>
-
-        </div> 
-    
-        <div class="article">
-          <div class="container">
-  <article class="post">
-    <h1 class="entry-title">
-      <a href="/blog/2016/09/14/算法篇——入门级算法/" rel="bookmark">
-        算法篇————入门级算法  
-      </a>
-    </h1>
-    
-    <div class="entry-content">
-      <p>
-        <p> 从今天开始，复习各种算法，每天都会去理解一种算法，争取贴出自己对每种算法的理解，今天介绍的是最基础的入门算法，最大公约数，最小公倍数，快速幂（后面会重点介绍），简单并查集（后面会重点介绍），还有排列组合（后面会重点介绍）的算法。<br>
-      </p>
-    </div>
-    <div class="post-more-link text-center">
-            <a class="btn" href="/blog/2016/09/14/算法篇——入门级算法/" rel="contents">
-              阅读全文 »
-            </a>
-    </div>
-    <p class="posted-on">
-        <i class="fa fa-calendar" aria-hidden="true"></i>
-    	2016-09-14
     </p>
     <div class="tags-links">
       <i class="fa fa-tags" aria-hidden="true"></i>
@@ -390,11 +393,11 @@
 
   <!-- After footer scripts -->
   <!-- scripts -->
-<script src="/blog/js/app.js"></script>
-
+<%- js('js/app.js') %>
+<% if (theme.duoshuo_shortname) { %>
   <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
-    var duoshuoQuery = {short_name:'th720309'};
+    var duoshuoQuery = {short_name:'<%= theme.duoshuo_shortname %>'};
       (function() {
         var ds = document.createElement('script');
         ds.type = 'text/javascript';ds.async = true;
@@ -405,7 +408,7 @@
       })();
       </script>
     <!-- 多说公共JS代码 end -->
-
+<% } %>
 
 
 

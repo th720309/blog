@@ -213,6 +213,43 @@
           <div class="container">
   <article class="post">
     <h1 class="entry-title">
+      <a href="/blog/2016/12/12/网易云音乐歌单爬虫 收听量分析/" rel="bookmark">
+        网易云音乐歌单爬虫 收听量分析  
+      </a>
+    </h1>
+    
+    <div class="entry-content">
+      <p>
+        <p><img src="http://oct3pmpde.bkt.clouddn.com/7769149162473098.jpg" width="600" height="347" /></p>
+      </p>
+    </div>
+    <div class="post-more-link text-center">
+            <a class="btn" href="/blog/2016/12/12/网易云音乐歌单爬虫 收听量分析/" rel="contents">
+              阅读全文 »
+            </a>
+    </div>
+    <p class="posted-on">
+        <i class="fa fa-calendar" aria-hidden="true"></i>
+    	2016-12-12
+    </p>
+    <div class="tags-links">
+      <i class="fa fa-tags" aria-hidden="true"></i>
+      
+      <a href="/blog/tags/爬虫/" rel="tag">
+        爬虫
+      </a>
+      
+    </div>
+    
+  </article>
+</div>
+
+        </div> 
+    
+        <div class="article">
+          <div class="container">
+  <article class="post">
+    <h1 class="entry-title">
       <a href="/blog/2016/11/26/2016-11-26随记/" rel="bookmark">
         2016-11-26随记  
       </a>
@@ -274,43 +311,6 @@
       
       <a href="/blog/tags/Python/" rel="tag">
         Python
-      </a>
-      
-    </div>
-    
-  </article>
-</div>
-
-        </div> 
-    
-        <div class="article">
-          <div class="container">
-  <article class="post">
-    <h1 class="entry-title">
-      <a href="/blog/2016/11/12/2016-11-12随记/" rel="bookmark">
-        2016-11-12随记  
-      </a>
-    </h1>
-    
-    <div class="entry-content">
-      <p>
-        <p><img src="http://oct3pmpde.bkt.clouddn.com/31189058_1392186616852.jpg" width="600" height="347" /></p>
-      </p>
-    </div>
-    <div class="post-more-link text-center">
-            <a class="btn" href="/blog/2016/11/12/2016-11-12随记/" rel="contents">
-              阅读全文 »
-            </a>
-    </div>
-    <p class="posted-on">
-        <i class="fa fa-calendar" aria-hidden="true"></i>
-    	2016-11-12
-    </p>
-    <div class="tags-links">
-      <i class="fa fa-tags" aria-hidden="true"></i>
-      
-      <a href="/blog/tags/感悟/" rel="tag">
-        感悟
       </a>
       
     </div>
@@ -387,11 +387,11 @@
 
   <!-- After footer scripts -->
   <!-- scripts -->
-<script src="/blog/js/app.js"></script>
-
+<%- js('js/app.js') %>
+<% if (theme.duoshuo_shortname) { %>
   <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
-    var duoshuoQuery = {short_name:'th720309'};
+    var duoshuoQuery = {short_name:'<%= theme.duoshuo_shortname %>'};
       (function() {
         var ds = document.createElement('script');
         ds.type = 'text/javascript';ds.async = true;
@@ -402,7 +402,7 @@
       })();
       </script>
     <!-- 多说公共JS代码 end -->
-
+<% } %>
 
 
 

@@ -187,6 +187,15 @@
             
   <li>
     <span class="date">
+      2017-06-04
+    </span>
+    <a href="/blog/2017/06/04/前端知识点整理系列（一）——apply() call() bind()/" class="title">
+      前端知识点整理系列（一）—— apply() call() bind()
+    </a>
+  </li>
+
+  <li>
+    <span class="date">
       2017-05-15
     </span>
     <a href="/blog/2017/05/15/前端知识点整理系列（二）—— 响应式布局/" class="title">
@@ -525,11 +534,11 @@
 
   <!-- After footer scripts -->
   <!-- scripts -->
-<script src="/blog/js/app.js"></script>
-
+<%- js('js/app.js') %>
+<% if (theme.duoshuo_shortname) { %>
   <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
-    var duoshuoQuery = {short_name:'th720309'};
+    var duoshuoQuery = {short_name:'<%= theme.duoshuo_shortname %>'};
       (function() {
         var ds = document.createElement('script');
         ds.type = 'text/javascript';ds.async = true;
@@ -540,7 +549,7 @@
       })();
       </script>
     <!-- 多说公共JS代码 end -->
-
+<% } %>
 
 
 
