@@ -256,9 +256,18 @@ type: &quot;photo&quot;
           </ul>
        </div>
 　　　　<!-- Comments -->
-    <div class="container">
-
-    </div>
+<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+<script>
+var cloudTieConfig = {
+  url: document.location.href, 
+  sourceId: "",
+  productKey: "df8ef703a5a1404fb862cb96bfb8272c",
+  target: "cloud-tie-wrapper"
+};
+var yunManualLoad = true;
+Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
+</script>
    
 　　　　
   </div>
@@ -293,11 +302,11 @@ type: &quot;photo&quot;
 
   <!-- After footer scripts -->
   <!-- scripts -->
-<%- js('js/app.js') %>
-<% if (theme.duoshuo_shortname) { %>
+<script src="/blog/js/app.js"></script>
+
   <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
-    var duoshuoQuery = {short_name:'<%= theme.duoshuo_shortname %>'};
+    var duoshuoQuery = {short_name:'th720309'};
       (function() {
         var ds = document.createElement('script');
         ds.type = 'text/javascript';ds.async = true;
@@ -308,7 +317,7 @@ type: &quot;photo&quot;
       })();
       </script>
     <!-- 多说公共JS代码 end -->
-<% } %>
+
 
 
 
