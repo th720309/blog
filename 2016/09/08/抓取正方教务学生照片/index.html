@@ -13,7 +13,7 @@
 
   <!--Author-->
   
-  <meta name="author" content="th是个小屁孩">
+  <meta name="author" content="th是个小屁�?>
   
 
   <!--Open Graph Title-->
@@ -25,7 +25,7 @@
       <meta property="og:description" content="笔直向前 说到做到" />
   
   <!--Open Graph Site Name-->
-  <meta property="og:site_name" content="th是个小屁孩"/>
+  <meta property="og:site_name" content="th是个小屁�?/>
   <!--Type page-->
   
       <meta property="og:type" content="article" />
@@ -46,7 +46,7 @@
     </script>
   <!-- Title -->
   
-  <title>抓取正方教务学生照片 - th是个小屁孩</title>
+  <title>抓取正方教务学生照片 - th是个小屁�?/title>
 
 
   <link rel="shortcut icon" href="/blog/favicon.ico">
@@ -55,7 +55,7 @@
   <link rel="stylesheet" href="/blog/css/thplayer.css">
   <!-- Custom CSS/Sass -->
   <link rel="stylesheet" href="/blog/css/style.css">
-<script src="http://oct3pmpde.bkt.clouddn.com/jquery.js"></script>
+<script src="js/jquery.js"></script>
 </head>
 
 
@@ -68,12 +68,12 @@
     <div class="logo">
       <a href="http://www.tianhao.site" rel="home">
         
-        <img src="http://oct3pmpde.bkt.clouddn.com/timg.jpg" alt="th是个小屁孩" height="60">
+        <img src="img/timg.jpg" alt="th是个小屁�? height="60">
         
       </a>
     </div>
     <a class="header-name" href="/blog/">
-            <span>th是个小屁孩</span>
+            <span>th是个小屁�?/span>
             的部落宅
         </a>
     <!-- navbar -->
@@ -184,8 +184,8 @@
 　　　　　　　　<p class="a-posted-on">2016-09-08</p>
         <!-- Post Main Content -->
         <div class="entry-content">
-          <p>全国据说大部分学校采用的都是正方教务的教务系统，个人感觉安全性做的真的不是很好，比起综合教务，安全性差远了，利用爬虫能非常轻易的获得教务的学生照片。</p>
-<p>这里只提供图片下载的代码，关于获取图片的url,懂点计算机的都明白（还是要吐槽一下这个教务的安全性），幸亏我们学校用的不是正方系统，不然感觉隐私泄露有点那啥啊！（逃）完整代码不提供。<br><br\><br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">public static void download(String urlString, String filename,String savePath) throws Exception &#123;</div><div class="line">	 InputStream inputStream = null;</div><div class="line">     HttpURLConnection httpURLConnection = null;</div><div class="line"></div><div class="line">     try &#123;</div><div class="line">       URL url = new URL(urlString);</div><div class="line">       System.out.println(urlString);</div><div class="line">       httpURLConnection = (HttpURLConnection) url.openConnection();</div><div class="line">       httpURLConnection.setConnectTimeout(10000);</div><div class="line">       httpURLConnection.setDoInput(true);   </div><div class="line">       httpURLConnection.setRequestMethod(&quot;GET&quot;);</div><div class="line">       int responseCode = httpURLConnection.getResponseCode();</div><div class="line">       System.out.println(responseCode);</div><div class="line">       if (responseCode == 200) &#123;</div><div class="line">         // 从服务器返回一个输入流</div><div class="line">         inputStream = httpURLConnection.getInputStream();</div><div class="line">         byte[] bs = new byte[1024];</div><div class="line">         // 读取到的数据长度</div><div class="line">         int len;</div><div class="line">         // 输出的文件流</div><div class="line">        File sf=new File(savePath);</div><div class="line">        if(!sf.exists())&#123;</div><div class="line">         sf.mkdirs();</div><div class="line">        &#125;</div><div class="line">        OutputStream os = new FileOutputStream(sf.getPath()+&quot;\\&quot;+filename);</div><div class="line">         // 开始读取</div><div class="line">         while ((len = inputStream.read(bs)) != -1) &#123;</div><div class="line">           os.write(bs, 0, len);</div><div class="line">         &#125;</div><div class="line">         System.out.println(&quot;wancheng&quot;);</div><div class="line">         // 完毕，关闭所有链接</div><div class="line">         os.close();</div><div class="line">         inputStream.close();</div><div class="line">       &#125;</div><div class="line"></div><div class="line">     &#125; catch (MalformedURLException e) &#123;</div><div class="line">       // TODO Auto-generated catch block</div><div class="line">       e.printStackTrace();</div><div class="line">     &#125; catch (IOException e) &#123;</div><div class="line">       // TODO Auto-generated catch block</div><div class="line">       e.printStackTrace();</div><div class="line">     &#125;</div><div class="line">     </div><div class="line"> &#125;</div></pre></td></tr></table></figure></br\></p>
+          <p>全国据说大部分学校采用的都是正方教务的教务系统，个人感觉安全性做的真的不是很好，比起综合教务，安全性差远了，利用爬虫能非常轻易的获得教务的学生照片�?/p>
+<p>这里只提供图片下载的代码，关于获取图片的url,懂点计算机的都明白（还是要吐槽一下这个教务的安全性），幸亏我们学校用的不是正方系统，不然感觉隐私泄露有点那啥啊！（逃）完整代码不提供�?br><br\><br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">public static void download(String urlString, String filename,String savePath) throws Exception &#123;</div><div class="line">	 InputStream inputStream = null;</div><div class="line">     HttpURLConnection httpURLConnection = null;</div><div class="line"></div><div class="line">     try &#123;</div><div class="line">       URL url = new URL(urlString);</div><div class="line">       System.out.println(urlString);</div><div class="line">       httpURLConnection = (HttpURLConnection) url.openConnection();</div><div class="line">       httpURLConnection.setConnectTimeout(10000);</div><div class="line">       httpURLConnection.setDoInput(true);   </div><div class="line">       httpURLConnection.setRequestMethod(&quot;GET&quot;);</div><div class="line">       int responseCode = httpURLConnection.getResponseCode();</div><div class="line">       System.out.println(responseCode);</div><div class="line">       if (responseCode == 200) &#123;</div><div class="line">         // 从服务器返回一个输入流</div><div class="line">         inputStream = httpURLConnection.getInputStream();</div><div class="line">         byte[] bs = new byte[1024];</div><div class="line">         // 读取到的数据长度</div><div class="line">         int len;</div><div class="line">         // 输出的文件流</div><div class="line">        File sf=new File(savePath);</div><div class="line">        if(!sf.exists())&#123;</div><div class="line">         sf.mkdirs();</div><div class="line">        &#125;</div><div class="line">        OutputStream os = new FileOutputStream(sf.getPath()+&quot;\\&quot;+filename);</div><div class="line">         // 开始读�?/div><div class="line">         while ((len = inputStream.read(bs)) != -1) &#123;</div><div class="line">           os.write(bs, 0, len);</div><div class="line">         &#125;</div><div class="line">         System.out.println(&quot;wancheng&quot;);</div><div class="line">         // 完毕，关闭所有链�?/div><div class="line">         os.close();</div><div class="line">         inputStream.close();</div><div class="line">       &#125;</div><div class="line"></div><div class="line">     &#125; catch (MalformedURLException e) &#123;</div><div class="line">       // TODO Auto-generated catch block</div><div class="line">       e.printStackTrace();</div><div class="line">     &#125; catch (IOException e) &#123;</div><div class="line">       // TODO Auto-generated catch block</div><div class="line">       e.printStackTrace();</div><div class="line">     &#125;</div><div class="line">     </div><div class="line"> &#125;</div></pre></td></tr></table></figure></br\></p>
 
         </div>
       </article>
@@ -196,12 +196,12 @@
            <ul class="pager">
     	     
       	     <li class="previous">
-              <a href="/blog/2016/09/03/博客建立完完完成/" rel="prev">下一篇</a>
+              <a href="/blog/2016/09/03/博客建立完完完成/" rel="prev">下一�?/a>
              </li>
            
            
               <li class="next">
-              <a href="/blog/2016/09/11/浪客剑心——影评/" rel="prev">上一篇</a>
+              <a href="/blog/2016/09/11/浪客剑心——影�?" rel="prev">上一�?/a>
             </li>
            
           </ul>
@@ -230,23 +230,23 @@ Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true)
 	<div class="level-2"></div>
 	<div class="level-3"></div>
 </div>
-<script src="http://oct3pmpde.bkt.clouddn.com/top.js"></script>
-<script type="text/javascript" src="http://oct3pmpde.bkt.clouddn.com/jquery.js"></script>
+<script src="js/top.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
 
   
   <!-- Footer -->
   <!-- Footer -->
 <footer class="site-info">
   <p>
-    <span>th是个小屁孩 &copy; 2017</span>
+    <span>th是个小屁�?&copy; 2017</span>
     
       <span class="split">|</span>
-      <span>th是个小屁孩的技术小屋</span>
+      <span>th是个小屁孩的技术小�?/span>
     
   </p>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-本站总访问量<span id="busuanzi_value_site_pv"></span>次
-本站访客数<span id="busuanzi_value_site_uv"></span>人次
+本站总访问量<span id="busuanzi_value_site_pv"></span>�?
+本站访客�?span id="busuanzi_value_site_uv"></span>人次
 
 </footer>
 
@@ -255,7 +255,7 @@ Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true)
   <!-- scripts -->
 <script src="/blog/js/app.js"></script>
 
-  <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+  <!-- 多说公共JS代码 start (一个网页只需插入一�? -->
     <script type="text/javascript">
     var duoshuoQuery = {short_name:'th720309'};
       (function() {

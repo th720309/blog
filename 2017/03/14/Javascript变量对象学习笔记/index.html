@@ -13,19 +13,19 @@
 
   <!--Author-->
   
-  <meta name="author" content="th是个小屁孩">
+  <meta name="author" content="th是个小屁�?>
   
 
   <!--Open Graph Title-->
   
-      <meta property="og:title" content="《JavaScript变量对象学习笔记》"/>
+      <meta property="og:title" content="《JavaScript变量对象学习笔记�?/>
   
   <!--Open Graph Description-->
   
       <meta property="og:description" content="笔直向前 说到做到" />
   
   <!--Open Graph Site Name-->
-  <meta property="og:site_name" content="th是个小屁孩"/>
+  <meta property="og:site_name" content="th是个小屁�?/>
   <!--Type page-->
   
       <meta property="og:type" content="article" />
@@ -46,7 +46,7 @@
     </script>
   <!-- Title -->
   
-  <title>《JavaScript变量对象学习笔记》 - th是个小屁孩</title>
+  <title>《JavaScript变量对象学习笔记�?- th是个小屁�?/title>
 
 
   <link rel="shortcut icon" href="/blog/favicon.ico">
@@ -55,7 +55,7 @@
   <link rel="stylesheet" href="/blog/css/thplayer.css">
   <!-- Custom CSS/Sass -->
   <link rel="stylesheet" href="/blog/css/style.css">
-<script src="http://oct3pmpde.bkt.clouddn.com/jquery.js"></script>
+<script src="js/jquery.js"></script>
 </head>
 
 
@@ -68,12 +68,12 @@
     <div class="logo">
       <a href="http://www.tianhao.site" rel="home">
         
-        <img src="http://oct3pmpde.bkt.clouddn.com/timg.jpg" alt="th是个小屁孩" height="60">
+        <img src="img/timg.jpg" alt="th是个小屁�? height="60">
         
       </a>
     </div>
     <a class="header-name" href="/blog/">
-            <span>th是个小屁孩</span>
+            <span>th是个小屁�?/span>
             的部落宅
         </a>
     <!-- navbar -->
@@ -176,7 +176,7 @@
         <!-- Title date & tags -->
         <div class="post-header">
           <h1 class="entry-title">
-            《JavaScript变量对象学习笔记》
+            《JavaScript变量对象学习笔记�?
             
           </h1>
          
@@ -184,27 +184,27 @@
 　　　　　　　　<p class="a-posted-on">2017-03-14</p>
         <!-- Post Main Content -->
         <div class="entry-content">
-          <p><img src="http://oct3pmpde.bkt.clouddn.com/timg%20%281%29.jpg" width="600" height="347"></p>
+          <p><img src="img/timg%20%281%29.jpg" width="600" height="347"></p>
 <a id="more"></a>
-<p>在Javascipt中，我们不可避免需要声明变量和函数，我结合自己的理解，记录一下javascript解析器是如何找到这些变量的。</p>
+<p>在Javascipt中，我们不可避免需要声明变量和函数，我结合自己的理解，记录一下javascript解析器是如何找到这些变量的�?/p>
 <hr>
 <p>首先，我们先了解一下执行上下文，我们知道，在调用一个函数的时候，就会创建一个新的执行上下文，，而一个执行上下文的生命周期可以分为两个阶段：</p>
 <blockquote>
-<p>１.创建阶段<br>在这个阶段中，执行上下文会做三件事。第一，创建变量对象，第二，建立作用域链，第三，确定this的指向。</p>
+<p>�?创建阶段<br>在这个阶段中，执行上下文会做三件事。第一，创建变量对象，第二，建立作用域链，第三，确定this的指向�?/p>
 <p>2.执行阶段<br>创建完成，就会开始执行代码，这个时候也会做三件事，第一，完成变量的赋值，第二，完成函数的引用，第三，执行其他代码</p>
 </blockquote>
 <hr>
 <p> Javascript中执行上下文是以栈的方式存储，我们知道，栈是先进后出。在函数调用栈中，栈底永远是全局环境，栈顶是函数局部环境，那么，我们在调用函数的时候，一定是先等局部执行上下文执行完毕才会轮到全局执行上下文。我们看下面的例子：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var color = &quot;blue&quot;;</div><div class="line"></div><div class="line">function changeColor()&#123;</div><div class="line">	</div><div class="line">	var anothorColor = &quot;red&quot;;</div><div class="line">	</div><div class="line">	function swapColors()&#123;</div><div class="line">		var tempColor = anotherColor;</div><div class="line">		anotherColor = color;</div><div class="line">		color = tempColor;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    swapColors();</div><div class="line">&#125;</div><div class="line">changeColor();</div></pre></td></tr></table></figure>
-<p>　<br> 我们来分析一下这个代码的执行过程，首先，是全局上下文入栈，之后可执行代码开始执行，遇到changeColor()，这个时候进入changeColor()函数调用，changeColor()函数执行上下文开始创建，然后changeColor()的函数执行上下文入栈，之后控制器开始执行changeColor()函数内的可执行代码，遇到了swapColors()函数，这个时候进入swapColors()函数调用，swapColors()函数的执行上下文开始创建，然后入栈，之后swapColors()代码顺利执行完毕，swapColors()的上下文先从栈中跳出，之后继续执行changeColor()代码，发现无可执行代码后，changeColor()的函数上下文页从栈中跳出，栈中只剩全局可执行上下文，直到浏览器窗口关闭，至此，全局可执行上下文也从栈中弹出。</p>
-<h2 id=""><a href="#" class="headerlink" title="　"></a>　</h2><p>　下面我们看一下变量对象的有关知识。当我们创建一个变量对象时，需要经历哪写过程呢？
+<p>　<br> 我们来分析一下这个代码的执行过程，首先，是全局上下文入栈，之后可执行代码开始执行，遇到changeColor()，这个时候进入changeColor()函数调用，changeColor()函数执行上下文开始创建，然后changeColor()的函数执行上下文入栈，之后控制器开始执行changeColor()函数内的可执行代码，遇到了swapColors()函数，这个时候进入swapColors()函数调用，swapColors()函数的执行上下文开始创建，然后入栈，之后swapColors()代码顺利执行完毕，swapColors()的上下文先从栈中跳出，之后继续执行changeColor()代码，发现无可执行代码后，changeColor()的函数上下文页从栈中跳出，栈中只剩全局可执行上下文，直到浏览器窗口关闭，至此，全局可执行上下文也从栈中弹出�?/p>
+<h2 id=""><a href="#" class="headerlink" title="　"></a>　</h2><p>　下面我们看一下变量对象的有关知识。当我们创建一个变量对象时，需要经历哪写过程呢�?
 　</p>
 <blockquote>
-<p>1.建立arguments对象。<br>2.检查当前上下文的函数声明。<br>3.检查当前上下文的变量声明。没找到一个变量声明，就在变量对象中以变量名建立一个属性，值为undefined.</p>
+<p>1.建立arguments对象�?br>2.检查当前上下文的函数声明�?br>3.检查当前上下文的变量声明。没找到一个变量声明，就在变量对象中以变量名建立一个属性，值为undefined.</p>
 </blockquote>
-<p> 这样，我们可以很轻松的理解变量提升这个概念。直接看一个例子。</p>
+<p> 这样，我们可以很轻松的理解变量提升这个概念。直接看一个例子�?/p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function th()&#123;</div><div class="line">	console.log(name);</div><div class="line">	console.log(hello());</div><div class="line"></div><div class="line">    var name = &quot;tian&quot;;</div><div class="line">    function hello()&#123;</div><div class="line">        return 2;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">th();</div></pre></td></tr></table></figure>
-<p>　对于这个例子，我们可以直接从th()的执行上下文开始理解，当th()被调用的时候，它的执行上下文开始创建，在未执行的时候，变量对象中的属性都不能访问，当开始进入执行阶段，变量对象变为<strong>活动对象</strong>，里面的属性可以被访问了，这个时候上面的这个例子，执行顺序就变成这样：
+<p>　对于这个例子，我们可以直接从th()的执行上下文开始理解，当th()被调用的时候，它的执行上下文开始创建，在未执行的时候，变量对象中的属性都不能访问，当开始进入执行阶段，变量对象变为<strong>活动对象</strong>，里面的属性可以被访问了，这个时候上面的这个例子，执行顺序就变成这样�?
 　</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function th()&#123;</div><div class="line"></div><div class="line">　　function hello()&#123;</div><div class="line">        return 2;</div><div class="line">    &#125;</div><div class="line">　　 var name;</div><div class="line">    </div><div class="line">	console.log(name);  //undefined</div><div class="line">	console.log(hello());  //2</div><div class="line">　　 </div><div class="line">　　 name = &quot;tian&quot;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">th();</div></pre></td></tr></table></figure>
 <p>　</p>
@@ -218,12 +218,12 @@
            <ul class="pager">
     	     
       	     <li class="previous">
-              <a href="/blog/2017/03/05/hexo-theme-believe version2.0说明文档/" rel="prev">下一篇</a>
+              <a href="/blog/2017/03/05/hexo-theme-believe version2.0说明文档/" rel="prev">下一�?/a>
              </li>
            
            
               <li class="next">
-              <a href="/blog/2017/03/15/Javascript闭包和this学习笔记/" rel="prev">上一篇</a>
+              <a href="/blog/2017/03/15/Javascript闭包和this学习笔记/" rel="prev">上一�?/a>
             </li>
            
           </ul>
@@ -252,23 +252,23 @@ Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true)
 	<div class="level-2"></div>
 	<div class="level-3"></div>
 </div>
-<script src="http://oct3pmpde.bkt.clouddn.com/top.js"></script>
-<script type="text/javascript" src="http://oct3pmpde.bkt.clouddn.com/jquery.js"></script>
+<script src="js/top.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
 
   
   <!-- Footer -->
   <!-- Footer -->
 <footer class="site-info">
   <p>
-    <span>th是个小屁孩 &copy; 2017</span>
+    <span>th是个小屁�?&copy; 2017</span>
     
       <span class="split">|</span>
-      <span>th是个小屁孩的技术小屋</span>
+      <span>th是个小屁孩的技术小�?/span>
     
   </p>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-本站总访问量<span id="busuanzi_value_site_pv"></span>次
-本站访客数<span id="busuanzi_value_site_uv"></span>人次
+本站总访问量<span id="busuanzi_value_site_pv"></span>�?
+本站访客�?span id="busuanzi_value_site_uv"></span>人次
 
 </footer>
 
@@ -277,7 +277,7 @@ Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true)
   <!-- scripts -->
 <script src="/blog/js/app.js"></script>
 
-  <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+  <!-- 多说公共JS代码 start (一个网页只需插入一�? -->
     <script type="text/javascript">
     var duoshuoQuery = {short_name:'th720309'};
       (function() {

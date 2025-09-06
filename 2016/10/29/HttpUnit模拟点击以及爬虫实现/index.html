@@ -13,7 +13,7 @@
 
   <!--Author-->
   
-  <meta name="author" content="th是个小屁孩">
+  <meta name="author" content="th是个小屁�?>
   
 
   <!--Open Graph Title-->
@@ -25,7 +25,7 @@
       <meta property="og:description" content="笔直向前 说到做到" />
   
   <!--Open Graph Site Name-->
-  <meta property="og:site_name" content="th是个小屁孩"/>
+  <meta property="og:site_name" content="th是个小屁�?/>
   <!--Type page-->
   
       <meta property="og:type" content="article" />
@@ -46,7 +46,7 @@
     </script>
   <!-- Title -->
   
-  <title>HttpUnit模拟点击以及爬虫实现 - th是个小屁孩</title>
+  <title>HttpUnit模拟点击以及爬虫实现 - th是个小屁�?/title>
 
 
   <link rel="shortcut icon" href="/blog/favicon.ico">
@@ -55,7 +55,7 @@
   <link rel="stylesheet" href="/blog/css/thplayer.css">
   <!-- Custom CSS/Sass -->
   <link rel="stylesheet" href="/blog/css/style.css">
-<script src="http://oct3pmpde.bkt.clouddn.com/jquery.js"></script>
+<script src="js/jquery.js"></script>
 </head>
 
 
@@ -68,12 +68,12 @@
     <div class="logo">
       <a href="http://www.tianhao.site" rel="home">
         
-        <img src="http://oct3pmpde.bkt.clouddn.com/timg.jpg" alt="th是个小屁孩" height="60">
+        <img src="img/timg.jpg" alt="th是个小屁�? height="60">
         
       </a>
     </div>
     <a class="header-name" href="/blog/">
-            <span>th是个小屁孩</span>
+            <span>th是个小屁�?/span>
             的部落宅
         </a>
     <!-- navbar -->
@@ -184,20 +184,20 @@
 　　　　　　　　<p class="a-posted-on">2016-10-29</p>
         <!-- Post Main Content -->
         <div class="entry-content">
-          <h2 id="HttpUnit-简介"><a href="#HttpUnit-简介" class="headerlink" title="HttpUnit 简介"></a>HttpUnit 简介</h2><blockquote>
-<p>HttpUnit 本质上相当于一个后台的透明的浏览器引擎，使用java中的HttpUnit可以实现模拟点击按钮，抓取网页元素，实现动态爬虫，之前一直使用jsoup进行爬虫，不过这次爬取一个生物论坛时候，需要动态处理，发现了httpUnit这个好的框架。</p>
+          <h2 id="HttpUnit-简�?><a href="#HttpUnit-简�? class="headerlink" title="HttpUnit 简�?></a>HttpUnit 简�?/h2><blockquote>
+<p>HttpUnit 本质上相当于一个后台的透明的浏览器引擎，使用java中的HttpUnit可以实现模拟点击按钮，抓取网页元素，实现动态爬虫，之前一直使用jsoup进行爬虫，不过这次爬取一个生物论坛时候，需要动态处理，发现了httpUnit这个好的框架�?/p>
 </blockquote>
 <hr>
 <h2 id="HttpUnit-demo"><a href="#HttpUnit-demo" class="headerlink" title="HttpUnit demo"></a>HttpUnit demo</h2><hr>
-<p>1.几行代码实现获取网页源代码。</p>
+<p>1.几行代码实现获取网页源代码�?/p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">final WebClient webClient=new WebClient();</div><div class="line">final HtmlPage page=webClient.getPage(&quot;http://www.baidu.com&quot;);</div><div class="line">System.out.println(page.asText());  //asText()是以文本格式显示</div><div class="line">System.out.println(page.asXml());   //asXml()是以xml格式显示</div><div class="line">webClient.closeAllWindows();</div></pre></td></tr></table></figure>
 <hr>
 <a id="more"></a>
-<p>2.模拟文本框与模拟按钮提交，下面我们模拟实现模拟百度搜索关键字。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">// 得到浏览器对象，直接New一个就能得到，现在就好比说你得到了一个浏览器了  </div><div class="line">    WebClient webclient = new WebClient();  </div><div class="line">  </div><div class="line">    // 这里是配置一下不加载css和javaScript，因为httpunit对javascript兼容性不太好</div><div class="line">    webclient.getOptions().setCssEnabled(false);  </div><div class="line">    webclient.getOptions().setJavaScriptEnabled(false);  </div><div class="line">  </div><div class="line">    // 做的第一件事，去拿到这个网页，只需要调用getPage这个方法即可  </div><div class="line">    HtmlPage htmlpage = webclient.getPage(&quot;http://baidu.com&quot;);  </div><div class="line">  </div><div class="line">    // 根据名字得到一个表单，查看上面这个网页的源代码可以发现表单的名字叫“f”  </div><div class="line">    final HtmlForm form = htmlpage.getFormByName(&quot;f&quot;);  </div><div class="line">    // 同样道理，获取”百度一下“这个按钮  </div><div class="line">    final HtmlSubmitInput button = form.getInputByValue(&quot;百度一下&quot;);  </div><div class="line">    // 得到搜索框  </div><div class="line">    final HtmlTextInput textField = form.getInputByName(&quot;q1&quot;);  </div><div class="line">    //搜索我的id</div><div class="line">    textField.setValueAttribute(&quot;th是个小屁孩&quot;);  </div><div class="line">    // 输入好了，我们点一下这个按钮  </div><div class="line">    final HtmlPage nextPage = button.click();  </div><div class="line">    // 我把结果转成String  </div><div class="line">    String result = nextPage.asXml();  </div><div class="line">      </div><div class="line">    System.out.println(result);  //得到的是点击后的网页</div></pre></td></tr></table></figure>
+<p>2.模拟文本框与模拟按钮提交，下面我们模拟实现模拟百度搜索关键字�?/p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">// 得到浏览器对象，直接New一个就能得到，现在就好比说你得到了一个浏览器�? </div><div class="line">    WebClient webclient = new WebClient();  </div><div class="line">  </div><div class="line">    // 这里是配置一下不加载css和javaScript，因为httpunit对javascript兼容性不太好</div><div class="line">    webclient.getOptions().setCssEnabled(false);  </div><div class="line">    webclient.getOptions().setJavaScriptEnabled(false);  </div><div class="line">  </div><div class="line">    // 做的第一件事，去拿到这个网页，只需要调用getPage这个方法即可  </div><div class="line">    HtmlPage htmlpage = webclient.getPage(&quot;http://baidu.com&quot;);  </div><div class="line">  </div><div class="line">    // 根据名字得到一个表单，查看上面这个网页的源代码可以发现表单的名字叫“f�? </div><div class="line">    final HtmlForm form = htmlpage.getFormByName(&quot;f&quot;);  </div><div class="line">    // 同样道理，获取”百度一下“这个按�? </div><div class="line">    final HtmlSubmitInput button = form.getInputByValue(&quot;百度一�?quot;);  </div><div class="line">    // 得到搜索�? </div><div class="line">    final HtmlTextInput textField = form.getInputByName(&quot;q1&quot;);  </div><div class="line">    //搜索我的id</div><div class="line">    textField.setValueAttribute(&quot;th是个小屁�?quot;);  </div><div class="line">    // 输入好了，我们点一下这个按�? </div><div class="line">    final HtmlPage nextPage = button.click();  </div><div class="line">    // 我把结果转成String  </div><div class="line">    String result = nextPage.asXml();  </div><div class="line">      </div><div class="line">    System.out.println(result);  //得到的是点击后的网页</div></pre></td></tr></table></figure>
 <hr>
 <blockquote>
-<p> 感觉httpunit比httpclient好像简单了不少，以后java爬虫可以多试试这个框架，里面还有好多提取节点的方法可以直接调用，但是好像对div的class无法提取节点，不过可以根据id抓取节点，唉，不知道如果div没写id的网站怎么抓取，好像没有提供这样的方法可以根据class抓取，有知道的同学可以给点点子。</p>
+<p> 感觉httpunit比httpclient好像简单了不少，以后java爬虫可以多试试这个框架，里面还有好多提取节点的方法可以直接调用，但是好像对div的class无法提取节点，不过可以根据id抓取节点，唉，不知道如果div没写id的网站怎么抓取，好像没有提供这样的方法可以根据class抓取，有知道的同学可以给点点子�?/p>
 </blockquote>
 
         </div>
@@ -209,12 +209,12 @@
            <ul class="pager">
     	     
       	     <li class="previous">
-              <a href="/blog/2016/10/12/Linux实现tensorflow搭建与实现风格作画/" rel="prev">下一篇</a>
+              <a href="/blog/2016/10/12/Linux实现tensorflow搭建与实现风格作�?" rel="prev">下一�?/a>
              </li>
            
            
               <li class="next">
-              <a href="/blog/2016/10/30/git上传本地代码到github（不需配置ssh）/" rel="prev">上一篇</a>
+              <a href="/blog/2016/10/30/git上传本地代码到github（不需配置ssh�?" rel="prev">上一�?/a>
             </li>
            
           </ul>
@@ -243,23 +243,23 @@ Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true)
 	<div class="level-2"></div>
 	<div class="level-3"></div>
 </div>
-<script src="http://oct3pmpde.bkt.clouddn.com/top.js"></script>
-<script type="text/javascript" src="http://oct3pmpde.bkt.clouddn.com/jquery.js"></script>
+<script src="js/top.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
 
   
   <!-- Footer -->
   <!-- Footer -->
 <footer class="site-info">
   <p>
-    <span>th是个小屁孩 &copy; 2017</span>
+    <span>th是个小屁�?&copy; 2017</span>
     
       <span class="split">|</span>
-      <span>th是个小屁孩的技术小屋</span>
+      <span>th是个小屁孩的技术小�?/span>
     
   </p>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-本站总访问量<span id="busuanzi_value_site_pv"></span>次
-本站访客数<span id="busuanzi_value_site_uv"></span>人次
+本站总访问量<span id="busuanzi_value_site_pv"></span>�?
+本站访客�?span id="busuanzi_value_site_uv"></span>人次
 
 </footer>
 
@@ -268,7 +268,7 @@ Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true)
   <!-- scripts -->
 <script src="/blog/js/app.js"></script>
 
-  <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+  <!-- 多说公共JS代码 start (一个网页只需插入一�? -->
     <script type="text/javascript">
     var duoshuoQuery = {short_name:'th720309'};
       (function() {

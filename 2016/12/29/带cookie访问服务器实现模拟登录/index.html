@@ -13,19 +13,19 @@
 
   <!--Author-->
   
-  <meta name="author" content="th是个小屁孩">
+  <meta name="author" content="th是个小屁�?>
   
 
   <!--Open Graph Title-->
   
-      <meta property="og:title" content="带cookie访问服务器实现模拟登录"/>
+      <meta property="og:title" content="带cookie访问服务器实现模拟登�?/>
   
   <!--Open Graph Description-->
   
       <meta property="og:description" content="笔直向前 说到做到" />
   
   <!--Open Graph Site Name-->
-  <meta property="og:site_name" content="th是个小屁孩"/>
+  <meta property="og:site_name" content="th是个小屁�?/>
   <!--Type page-->
   
       <meta property="og:type" content="article" />
@@ -46,7 +46,7 @@
     </script>
   <!-- Title -->
   
-  <title>带cookie访问服务器实现模拟登录 - th是个小屁孩</title>
+  <title>带cookie访问服务器实现模拟登�?- th是个小屁�?/title>
 
 
   <link rel="shortcut icon" href="/blog/favicon.ico">
@@ -55,7 +55,7 @@
   <link rel="stylesheet" href="/blog/css/thplayer.css">
   <!-- Custom CSS/Sass -->
   <link rel="stylesheet" href="/blog/css/style.css">
-<script src="http://oct3pmpde.bkt.clouddn.com/jquery.js"></script>
+<script src="js/jquery.js"></script>
 </head>
 
 
@@ -68,12 +68,12 @@
     <div class="logo">
       <a href="http://www.tianhao.site" rel="home">
         
-        <img src="http://oct3pmpde.bkt.clouddn.com/timg.jpg" alt="th是个小屁孩" height="60">
+        <img src="img/timg.jpg" alt="th是个小屁�? height="60">
         
       </a>
     </div>
     <a class="header-name" href="/blog/">
-            <span>th是个小屁孩</span>
+            <span>th是个小屁�?/span>
             的部落宅
         </a>
     <!-- navbar -->
@@ -176,7 +176,7 @@
         <!-- Title date & tags -->
         <div class="post-header">
           <h1 class="entry-title">
-            带cookie访问服务器实现模拟登录
+            带cookie访问服务器实现模拟登�?
             
           </h1>
          
@@ -184,9 +184,9 @@
 　　　　　　　　<p class="a-posted-on">2016-12-29</p>
         <!-- Post Main Content -->
         <div class="entry-content">
-          <p><img src="http://oct3pmpde.bkt.clouddn.com/201206191345109414.jpg" width="600" height="347"></p>
+          <p><img src="img/201206191345109414.jpg" width="600" height="347"></p>
 <a id="more"></a>
-<p>当我们需要抓取需要登录的网站的信息或者实现模拟登录时，我们需要得到第一次登录网站的cookie,以便于下次登录可以不用post参数实现登录，只要将cookie放入头文件就好，这是之前写的模拟登录学校教务的代码，记录以便查阅。</p>
+<p>当我们需要抓取需要登录的网站的信息或者实现模拟登录时，我们需要得到第一次登录网站的cookie,以便于下次登录可以不用post参数实现登录，只要将cookie放入头文件就好，这是之前写的模拟登录学校教务的代码，记录以便查阅�?/p>
 <hr>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line">public String DoLogin(final String user, final String password, final String verifation) &#123;</div><div class="line">   </div><div class="line">                DefaultHttpClient   defaultclient = new DefaultHttpClient();  </div><div class="line"></div><div class="line">                //设置post参数</div><div class="line">                List&lt;NameValuePair&gt; params = new ArrayList&lt;NameValuePair&gt;();</div><div class="line"></div><div class="line">                params.add(new BasicNameValuePair(&quot;groupId&quot;, &quot;&quot;));</div><div class="line">                params.add(new BasicNameValuePair(&quot;j_username&quot;, user));</div><div class="line">                params.add(new BasicNameValuePair(&quot;j_password&quot;, password));</div><div class="line">                params.add(new BasicNameValuePair(&quot;j_captcha&quot;, verifation));</div><div class="line">                params.add(new BasicNameValuePair(&quot;login&quot;, &quot;登录&quot;));</div><div class="line"></div><div class="line">                //获得个人主界面的HTML</div><div class="line">                try &#123;</div><div class="line">                	 HttpPost httpPost = new HttpPost(LOGINURL);</div><div class="line">                	 System.out.println(LOGINURL);                	</div><div class="line">                     httpPost.setHeader(&quot;Cookie&quot;, Cookie);                    </div><div class="line">                     HttpResponse httpResponse;</div><div class="line">                     httpPost.setEntity((HttpEntity) new UrlEncodedFormEntity(params, HTTP.UTF_8));</div><div class="line">                     httpResponse = defaultclient.execute(httpPost);</div><div class="line">                     httpPost.setHeader(&quot;Cookie&quot;, Cookie);</div><div class="line">                     System.out.println(Cookie);</div><div class="line">                     if (httpResponse.getStatusLine().getStatusCode() == 200) &#123;</div><div class="line">                          StringBuffer sb = new StringBuffer();</div><div class="line">                          HttpEntity entity = httpResponse.getEntity();</div><div class="line">                          MAINBODYHTML = EntityUtils.toString(entity);        </div><div class="line"></div><div class="line">                          </div><div class="line">                    &#125;</div><div class="line"></div><div class="line">                    if(httpResponse.getStatusLine().getStatusCode() == 302)&#123;</div><div class="line">                    	String locationUrl=httpResponse.getLastHeader(&quot;Location&quot;).getValue();  </div><div class="line">                        System.out.println(locationUrl);</div><div class="line">                        LOGINURL=locationUrl;</div><div class="line">                        System.out.println(&quot;302&quot;);</div><div class="line">                        DoLogin(user, password, verifation);</div><div class="line">                    &#125;                 </div><div class="line">                    else&#123;</div><div class="line">                        StringBuffer sb = new StringBuffer();</div><div class="line">                        HttpEntity entity = httpResponse.getEntity();</div><div class="line">                        MAINBODYHTML = EntityUtils.toString(entity);</div><div class="line">                       System.out.println( MAINBODYHTML);</div><div class="line">                    &#125;</div><div class="line">                &#125; catch (UnsupportedEncodingException e) &#123;</div><div class="line">                	</div><div class="line">                    System.out.println(&quot;验证码不正确&quot;);</div><div class="line">                    e.printStackTrace();</div><div class="line">                &#125; catch (ClientProtocolException e) &#123;</div><div class="line">					// TODO Auto-generated catch block</div><div class="line">					e.printStackTrace();</div><div class="line">				&#125; catch (IOException e) &#123;</div><div class="line">					// TODO Auto-generated catch block</div><div class="line">					e.printStackTrace();</div><div class="line">				&#125;</div><div class="line">                LOGINURL=&quot;http://jw.djtu.edu.cn/academic/j_acegi_security_check&quot;;      </div><div class="line">    </div><div class="line">				return MAINBODYHTML; </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 
@@ -199,12 +199,12 @@
            <ul class="pager">
     	     
       	     <li class="previous">
-              <a href="/blog/2016/12/19/《请回答1988》/" rel="prev">下一篇</a>
+              <a href="/blog/2016/12/19/《请回答1988�?" rel="prev">下一�?/a>
              </li>
            
            
               <li class="next">
-              <a href="/blog/2016/12/31/2016年终总结，2017何去何从？/" rel="prev">上一篇</a>
+              <a href="/blog/2016/12/31/2016年终总结�?017何去何从�?" rel="prev">上一�?/a>
             </li>
            
           </ul>
@@ -233,23 +233,23 @@ Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true)
 	<div class="level-2"></div>
 	<div class="level-3"></div>
 </div>
-<script src="http://oct3pmpde.bkt.clouddn.com/top.js"></script>
-<script type="text/javascript" src="http://oct3pmpde.bkt.clouddn.com/jquery.js"></script>
+<script src="js/top.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
 
   
   <!-- Footer -->
   <!-- Footer -->
 <footer class="site-info">
   <p>
-    <span>th是个小屁孩 &copy; 2017</span>
+    <span>th是个小屁�?&copy; 2017</span>
     
       <span class="split">|</span>
-      <span>th是个小屁孩的技术小屋</span>
+      <span>th是个小屁孩的技术小�?/span>
     
   </p>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-本站总访问量<span id="busuanzi_value_site_pv"></span>次
-本站访客数<span id="busuanzi_value_site_uv"></span>人次
+本站总访问量<span id="busuanzi_value_site_pv"></span>�?
+本站访客�?span id="busuanzi_value_site_uv"></span>人次
 
 </footer>
 
@@ -258,7 +258,7 @@ Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true)
   <!-- scripts -->
 <script src="/blog/js/app.js"></script>
 
-  <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+  <!-- 多说公共JS代码 start (一个网页只需插入一�? -->
     <script type="text/javascript">
     var duoshuoQuery = {short_name:'th720309'};
       (function() {

@@ -13,19 +13,19 @@
 
   <!--Author-->
   
-  <meta name="author" content="th是个小屁孩">
+  <meta name="author" content="th是个小屁�?>
   
 
   <!--Open Graph Title-->
   
-      <meta property="og:title" content="网易云音乐歌单爬虫 收听量分析"/>
+      <meta property="og:title" content="网易云音乐歌单爬�?收听量分�?/>
   
   <!--Open Graph Description-->
   
       <meta property="og:description" content="笔直向前 说到做到" />
   
   <!--Open Graph Site Name-->
-  <meta property="og:site_name" content="th是个小屁孩"/>
+  <meta property="og:site_name" content="th是个小屁�?/>
   <!--Type page-->
   
       <meta property="og:type" content="article" />
@@ -46,7 +46,7 @@
     </script>
   <!-- Title -->
   
-  <title>网易云音乐歌单爬虫 收听量分析 - th是个小屁孩</title>
+  <title>网易云音乐歌单爬�?收听量分�?- th是个小屁�?/title>
 
 
   <link rel="shortcut icon" href="/blog/favicon.ico">
@@ -55,7 +55,7 @@
   <link rel="stylesheet" href="/blog/css/thplayer.css">
   <!-- Custom CSS/Sass -->
   <link rel="stylesheet" href="/blog/css/style.css">
-<script src="http://oct3pmpde.bkt.clouddn.com/jquery.js"></script>
+<script src="js/jquery.js"></script>
 </head>
 
 
@@ -68,12 +68,12 @@
     <div class="logo">
       <a href="http://www.tianhao.site" rel="home">
         
-        <img src="http://oct3pmpde.bkt.clouddn.com/timg.jpg" alt="th是个小屁孩" height="60">
+        <img src="img/timg.jpg" alt="th是个小屁�? height="60">
         
       </a>
     </div>
     <a class="header-name" href="/blog/">
-            <span>th是个小屁孩</span>
+            <span>th是个小屁�?/span>
             的部落宅
         </a>
     <!-- navbar -->
@@ -176,7 +176,7 @@
         <!-- Title date & tags -->
         <div class="post-header">
           <h1 class="entry-title">
-            网易云音乐歌单爬虫 收听量分析
+            网易云音乐歌单爬�?收听量分�?
             
           </h1>
          
@@ -184,35 +184,35 @@
 　　　　　　　　<p class="a-posted-on">2016-12-12</p>
         <!-- Post Main Content -->
         <div class="entry-content">
-          <p><img src="http://oct3pmpde.bkt.clouddn.com/7769149162473098.jpg" width="600" height="347"></p>
+          <p><img src="img/7769149162473098.jpg" width="600" height="347"></p>
 <a id="more"></a>
-<p>今天花了一点时间抓取了网易云音乐的热门民谣歌单，共1500热门民谣歌单，后续有时间会爬取其他分类。文末有源代码下载。</p>
-<p>   下面记录一下过程。</p>
+<p>今天花了一点时间抓取了网易云音乐的热门民谣歌单，共1500热门民谣歌单，后续有时间会爬取其他分类。文末有源代码下载�?/p>
+<p>   下面记录一下过程�?/p>
 <hr>
-<h2 id="爬虫过程"><a href="#爬虫过程" class="headerlink" title="爬虫过程"></a>爬虫过程</h2><p>  1.首先抓取各个歌单的url与标题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">public static void DoPachong( String url_str, String charset) throws ClientProtocolException, IOException&#123;</div><div class="line">    		HttpClient hc = new DefaultHttpClient();</div><div class="line">    		HttpGet hg = new HttpGet(url_str);</div><div class="line">    		HttpResponse response = hc.execute(hg);</div><div class="line">    		HttpEntity entity = response.getEntity();</div><div class="line">            </div><div class="line">        </div><div class="line">    		InputStream htm_in = null;</div><div class="line">        </div><div class="line">    		if(entity != null)&#123;</div><div class="line">    			htm_in = entity.getContent();</div><div class="line">    			String htm_str = InputStream2String(htm_in,charset);</div><div class="line">    			Document  doc =  Jsoup.parse(htm_str);</div><div class="line">    			Elements links= doc.select(&quot;div[class=g-bd]&quot;).select(&quot;div[class=g-wrap p-pl f-pr]&quot;).select(&quot;ul[class=m-cvrlst f-cb]&quot;).select(&quot;div[class=u-cover u-cover-1&quot;);</div><div class="line">    			for (Element link : links) &#123;</div><div class="line">    					Elements lin = link.select(&quot;a&quot;);  </div><div class="line">    					String re_url = lin.attr(&quot;href&quot;);</div><div class="line">    					String re_title = lin.attr(&quot;title&quot;);</div><div class="line">    					re_url = &quot;http://music.163.com&quot;+re_url;</div><div class="line">    					System.out.print(re_title+&quot;       &quot;);</div><div class="line">    					System.out.print(re_url+&quot;       &quot;);</div><div class="line">    					SecondPaChong(re_url,charset);</div><div class="line">    			&#125;</div><div class="line">    		&#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<h2 id="爬虫过程"><a href="#爬虫过程" class="headerlink" title="爬虫过程"></a>爬虫过程</h2><p>  1.首先抓取各个歌单的url与标�?br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">public static void DoPachong( String url_str, String charset) throws ClientProtocolException, IOException&#123;</div><div class="line">    		HttpClient hc = new DefaultHttpClient();</div><div class="line">    		HttpGet hg = new HttpGet(url_str);</div><div class="line">    		HttpResponse response = hc.execute(hg);</div><div class="line">    		HttpEntity entity = response.getEntity();</div><div class="line">            </div><div class="line">        </div><div class="line">    		InputStream htm_in = null;</div><div class="line">        </div><div class="line">    		if(entity != null)&#123;</div><div class="line">    			htm_in = entity.getContent();</div><div class="line">    			String htm_str = InputStream2String(htm_in,charset);</div><div class="line">    			Document  doc =  Jsoup.parse(htm_str);</div><div class="line">    			Elements links= doc.select(&quot;div[class=g-bd]&quot;).select(&quot;div[class=g-wrap p-pl f-pr]&quot;).select(&quot;ul[class=m-cvrlst f-cb]&quot;).select(&quot;div[class=u-cover u-cover-1&quot;);</div><div class="line">    			for (Element link : links) &#123;</div><div class="line">    					Elements lin = link.select(&quot;a&quot;);  </div><div class="line">    					String re_url = lin.attr(&quot;href&quot;);</div><div class="line">    					String re_title = lin.attr(&quot;title&quot;);</div><div class="line">    					re_url = &quot;http://music.163.com&quot;+re_url;</div><div class="line">    					System.out.print(re_title+&quot;       &quot;);</div><div class="line">    					System.out.print(re_url+&quot;       &quot;);</div><div class="line">    					SecondPaChong(re_url,charset);</div><div class="line">    			&#125;</div><div class="line">    		&#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
 <hr>
-<p>  2.根据抓取的url进一步用jsoup解析收听量</p>
+<p>  2.根据抓取的url进一步用jsoup解析收听�?/p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">    public static void SecondPaChong( String url_str, String charset) throws ClientProtocolException, IOException&#123;</div><div class="line">		HttpClient hc = new DefaultHttpClient();</div><div class="line">		HttpGet hg = new HttpGet(url_str);</div><div class="line">		HttpResponse response = hc.execute(hg);</div><div class="line">		HttpEntity entity = response.getEntity();</div><div class="line">        </div><div class="line">		InputStream htm_in = null;</div><div class="line">    </div><div class="line">		if(entity != null)&#123;</div><div class="line">			htm_in = entity.getContent();</div><div class="line">			String htm_str = InputStream2String(htm_in,charset);</div><div class="line">			Document  doc =  Jsoup.parse(htm_str);</div><div class="line">			String links= doc.select(&quot;div[class=u-title u-title-1 f-cb]&quot;).select(&quot;div[class=more s-fc3]&quot;).select(&quot;strong&quot;).text();</div><div class="line">			System.out.println(links);</div><div class="line">		</div><div class="line">		&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <hr>
-<h2 id="爬取结果"><a href="#爬取结果" class="headerlink" title="爬取结果"></a>爬取结果</h2><p><img src="http://oct3pmpde.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20161212155059.png" width="282" height="443"></p>
+<h2 id="爬取结果"><a href="#爬取结果" class="headerlink" title="爬取结果"></a>爬取结果</h2><p><img src="img/QQ%E6%88%AA%E5%9B%BE20161212155059.png" width="282" height="443"></p>
 <hr>
-<p> 民谣歌单收听量前10：</p>
+<p> 民谣歌单收听量前10�?/p>
 <ol>
-<li><p><a href="http://music.163.com/playlist?id=129627424" target="_blank" rel="external">如果你想听民谣，可以从这些歌曲开始。</a>    收听量：11548417</p>
+<li><p><a href="http://music.163.com/playlist?id=129627424" target="_blank" rel="external">如果你想听民谣，可以从这些歌曲开始�?/a>    收听量：11548417</p>
 </li>
-<li><p><a href="http://music.163.com/#/playlist?id=110759778" target="_blank" rel="external">民谣是最安静的角落</a>          收听量：10727168</p>
+<li><p><a href="http://music.163.com/#/playlist?id=110759778" target="_blank" rel="external">民谣是最安静的角�?/a>          收听量：10727168</p>
 </li>
-<li><p><a href="http://music.163.com/#/playlist?id=378324005" target="_blank" rel="external">孤独旅人配民谣。</a>    收听量：9946952</p>
+<li><p><a href="http://music.163.com/#/playlist?id=378324005" target="_blank" rel="external">孤独旅人配民谣�?/a>    收听量：9946952</p>
 </li>
-<li><p><a href="http://music.163.com/playlist?id=506453942" target="_blank" rel="external">你若听过他的歌，此生便有了挂念</a>    收听量：7551374</p>
+<li><p><a href="http://music.163.com/playlist?id=506453942" target="_blank" rel="external">你若听过他的歌，此生便有了挂�?/a>    收听量：7551374</p>
 </li>
 <li><p><a href="http://music.163.com/playlist?id=327180503" target="_blank" rel="external">♬女生嘛，污一点才可爱</a>    收听量：6260712</p>
 </li>
-<li><p><a href="http://music.163.com/#/playlist?id=136549038" target="_blank" rel="external">阅尽沧桑，洗却铅华:聆听那些沧桑之声</a>    收听量：5793889</p>
+<li><p><a href="http://music.163.com/#/playlist?id=136549038" target="_blank" rel="external">阅尽沧桑，洗却铅�?聆听那些沧桑之声</a>    收听量：5793889</p>
 </li>
-<li><p><a href="http://music.163.com/playlist?id=131368017" target="_blank" rel="external">民谣，成长中的情绪共谋者</a>    收听量：5368672</p>
+<li><p><a href="http://music.163.com/playlist?id=131368017" target="_blank" rel="external">民谣，成长中的情绪共谋�?/a>    收听量：5368672</p>
 </li>
-<li><p><a href="http://music.163.com/playlist?id=501419209" target="_blank" rel="external">华语女声‖那些入耳入心的代表曲</a>    收听量：4535668</p>
+<li><p><a href="http://music.163.com/playlist?id=501419209" target="_blank" rel="external">华语女声‖那些入耳入心的代表�?/a>    收听量：4535668</p>
 </li>
 <li><p><a href="http://music.163.com/playlist?id=138911210" target="_blank" rel="external">啤酒邂逅音乐之华语摇滚</a>    收听量：4449337</p>
 </li>
@@ -220,7 +220,7 @@
 </li>
 </ol>
 <hr>
-<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p>源代码下载地址：<a href="https://github.com/th720309/163music_spider.git" target="_blank" rel="external">网易云音乐歌单爬虫</a>（给个fork啊2333）</p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p>源代码下载地址�?a href="https://github.com/th720309/163music_spider.git" target="_blank" rel="external">网易云音乐歌单爬�?/a>（给个fork�?333�?/p>
 
         </div>
       </article>
@@ -231,12 +231,12 @@
            <ul class="pager">
     	     
       	     <li class="previous">
-              <a href="/blog/2016/11/26/2016-11-26随记/" rel="prev">下一篇</a>
+              <a href="/blog/2016/11/26/2016-11-26随记/" rel="prev">下一�?/a>
              </li>
            
            
               <li class="next">
-              <a href="/blog/2016/12/19/《请回答1988》/" rel="prev">上一篇</a>
+              <a href="/blog/2016/12/19/《请回答1988�?" rel="prev">上一�?/a>
             </li>
            
           </ul>
@@ -265,23 +265,23 @@ Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true)
 	<div class="level-2"></div>
 	<div class="level-3"></div>
 </div>
-<script src="http://oct3pmpde.bkt.clouddn.com/top.js"></script>
-<script type="text/javascript" src="http://oct3pmpde.bkt.clouddn.com/jquery.js"></script>
+<script src="js/top.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
 
   
   <!-- Footer -->
   <!-- Footer -->
 <footer class="site-info">
   <p>
-    <span>th是个小屁孩 &copy; 2017</span>
+    <span>th是个小屁�?&copy; 2017</span>
     
       <span class="split">|</span>
-      <span>th是个小屁孩的技术小屋</span>
+      <span>th是个小屁孩的技术小�?/span>
     
   </p>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-本站总访问量<span id="busuanzi_value_site_pv"></span>次
-本站访客数<span id="busuanzi_value_site_uv"></span>人次
+本站总访问量<span id="busuanzi_value_site_pv"></span>�?
+本站访客�?span id="busuanzi_value_site_uv"></span>人次
 
 </footer>
 
@@ -290,7 +290,7 @@ Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true)
   <!-- scripts -->
 <script src="/blog/js/app.js"></script>
 
-  <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+  <!-- 多说公共JS代码 start (一个网页只需插入一�? -->
     <script type="text/javascript">
     var duoshuoQuery = {short_name:'th720309'};
       (function() {
